@@ -1,15 +1,15 @@
 [
   {
-    "entityId": 1,
-    "code": "UG9rZW1vbjowMDE=",
-    "name": "Bulbasaur",
-    "email": "bulbasaur@gmail.com",
-    "types": ["Grass", "Poison"],
-    "avatar": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDE=",
-	 "grades": [ 
-		  {"studentId": 1, "gradeId": 111, "grade": 3 },
-		  {"studentId": 1, "gradeId": 222, "grade": 5 }
+		"entityId": 1,
+		"code": "UG9rZW1vbjowMDE=",
+		"name": "Bulbasaur",
+		"email": "bulbasaur@gmail.com",
+		"types": ["Grass", "Poison"],
+		"avatar": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+		"url": "/pokemon/UG9rZW1vbjowMDE=",
+		"grades": [
+			 {"gradeId": 11, "grade": 4}, 
+			 {"gradeId": 22, "grade": 5}
 		]
   },
   {
@@ -19,8 +19,8 @@
     "email": "ivysaur@gmail.com",
     "types": ["Grass", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/ivysaur.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDI="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDI=",  
+     "grades": []   },
   {
     "entityId": 3,
     "code": "UG9rZW1vbjowMDM=",
@@ -28,8 +28,8 @@
     "email": "venusaur@gmail.com",
     "types": ["Grass", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/venusaur.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDM="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDM=",  
+     "grades": []   },
   {
     "entityId": 4,
     "code": "UG9rZW1vbjowMDQ=",
@@ -37,8 +37,8 @@
     "email": "charmander@gmail.com",
     "types": ["Fire"],
     "avatar": "https://img.pokemondb.net/artwork/charmander.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDQ="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDQ=",  
+     "grades": []   },
   {
     "entityId": 5,
     "code": "UG9rZW1vbjowMDU=",
@@ -46,8 +46,8 @@
     "email": "charmeleon@gmail.com",
     "types": ["Fire"],
     "avatar": "https://img.pokemondb.net/artwork/charmeleon.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDU="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDU=",  
+     "grades": []   },
   {
     "entityId": 6,
     "code": "UG9rZW1vbjowMDY=",
@@ -55,8 +55,8 @@
     "email": "charizard@gmail.com",
     "types": ["Fire", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/charizard.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDY="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDY=",  
+     "grades": []   },
   {
     "entityId": 7,
     "code": "UG9rZW1vbjowMDc=",
@@ -64,8 +64,8 @@
     "email": "squirtle@gmail.com",
     "types": ["Water"],
     "avatar": "https://img.pokemondb.net/artwork/squirtle.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDc="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDc=",  
+     "grades": []   },
   {
     "entityId": 8,
     "code": "UG9rZW1vbjowMDg=",
@@ -73,8 +73,8 @@
     "email": "wartortle@gmail.com",
     "types": ["Water"],
     "avatar": "https://img.pokemondb.net/artwork/wartortle.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDg="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDg=",  
+     "grades": []   },
   {
     "entityId": 9,
     "code": "UG9rZW1vbjowMDk=",
@@ -82,8 +82,8 @@
     "email": "blastoise@gmail.com",
     "types": ["Water"],
     "avatar": "https://img.pokemondb.net/artwork/blastoise.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMDk="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMDk=",  
+     "grades": []   },
   {
     "entityId": 10,
     "code": "UG9rZW1vbjowMTA=",
@@ -91,8 +91,8 @@
     "email": "caterpie@gmail.com",
     "types": ["Bug"],
     "avatar": "https://img.pokemondb.net/artwork/caterpie.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTA="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTA=",  
+     "grades": []   },
   {
     "entityId": 11,
     "code": "UG9rZW1vbjowMTE=",
@@ -100,8 +100,8 @@
     "email": "metapod@gmail.com",
     "types": ["Bug"],
     "avatar": "https://img.pokemondb.net/artwork/metapod.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTE="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTE=",  
+     "grades": []   },
   {
     "entityId": 12,
     "code": "UG9rZW1vbjowMTI=",
@@ -109,8 +109,8 @@
     "email": "butterfree@gmail.com",
     "types": ["Bug", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/butterfree.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTI="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTI=",  
+     "grades": []   },
   {
     "entityId": 13,
     "code": "UG9rZW1vbjowMTM=",
@@ -118,8 +118,8 @@
     "email": "weedle@gmail.com",
     "types": ["Bug", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/weedle.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTM="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTM=",  
+     "grades": []   },
   {
     "entityId": 14,
     "code": "UG9rZW1vbjowMTQ=",
@@ -127,8 +127,8 @@
     "email": "kakuna@gmail.com",
     "types": ["Bug", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/kakuna.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTQ="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTQ=",  
+     "grades": []   },
   {
     "entityId": 15,
     "code": "UG9rZW1vbjowMTU=",
@@ -136,8 +136,8 @@
     "email": "beedrill@gmail.com",
     "types": ["Bug", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/beedrill.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTU="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTU=",  
+     "grades": []   },
   {
     "entityId": 16,
     "code": "UG9rZW1vbjowMTY=",
@@ -145,8 +145,8 @@
     "email": "pidgey@gmail.com",
     "types": ["Normal", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/pidgey.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTY="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTY=",  
+     "grades": []   },
   {
     "entityId": 17,
     "code": "UG9rZW1vbjowMTc=",
@@ -154,8 +154,8 @@
     "email": "pidgeotto@gmail.com",
     "types": ["Normal", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/pidgeotto.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTc="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTc=",  
+     "grades": []   },
   {
     "entityId": 18,
     "code": "UG9rZW1vbjowMTg=",
@@ -163,8 +163,8 @@
     "email": "pidgeot@gmail.com",
     "types": ["Normal", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/pidgeot.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTg="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTg=",  
+     "grades": []   },
   {
     "entityId": 19,
     "code": "UG9rZW1vbjowMTk=",
@@ -172,8 +172,8 @@
     "email": "rattata@gmail.com",
     "types": ["Normal"],
     "avatar": "https://img.pokemondb.net/artwork/rattata.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMTk="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMTk=",  
+     "grades": []   },
   {
     "entityId": 20,
     "code": "UG9rZW1vbjowMjA=",
@@ -181,8 +181,8 @@
     "email": "raticate@gmail.com",
     "types": ["Normal"],
     "avatar": "https://img.pokemondb.net/artwork/raticate.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjA="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjA=",  
+     "grades": []   },
   {
     "entityId": 21,
     "code": "UG9rZW1vbjowMjE=",
@@ -190,8 +190,8 @@
     "email": "spearow@gmail.com",
     "types": ["Normal", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/spearow.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjE="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjE=",  
+     "grades": []   },
   {
     "entityId": 22,
     "code": "UG9rZW1vbjowMjI=",
@@ -199,8 +199,8 @@
     "email": "fearow@gmail.com",
     "types": ["Normal", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/fearow.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjI="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjI=",  
+     "grades": []   },
   {
     "entityId": 23,
     "code": "UG9rZW1vbjowMjM=",
@@ -208,8 +208,8 @@
     "email": "ekans@gmail.com",
     "types": ["Poison"],
     "avatar": "https://img.pokemondb.net/artwork/ekans.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjM="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjM=",  
+     "grades": []   },
   {
     "entityId": 24,
     "code": "UG9rZW1vbjowMjQ=",
@@ -217,8 +217,8 @@
     "email": "arbok@gmail.com",
     "types": ["Poison"],
     "avatar": "https://img.pokemondb.net/artwork/arbok.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjQ="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjQ=",  
+     "grades": []   },
   {
     "entityId": 25,
     "code": "UG9rZW1vbjowMjU=",
@@ -226,8 +226,8 @@
     "email": "pikachu@gmail.com",
     "types": ["Electric"],
     "avatar": "https://img.pokemondb.net/artwork/pikachu.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjU="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjU=",  
+     "grades": []   },
   {
     "entityId": 26,
     "code": "UG9rZW1vbjowMjY=",
@@ -235,8 +235,8 @@
     "email": "raichu@gmail.com",
     "types": ["Electric"],
     "avatar": "https://img.pokemondb.net/artwork/raichu.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjY="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjY=",  
+     "grades": []   },
   {
     "entityId": 27,
     "code": "UG9rZW1vbjowMjc=",
@@ -244,8 +244,8 @@
     "email": "sandshrew@gmail.com",
     "types": ["Ground"],
     "avatar": "https://img.pokemondb.net/artwork/sandshrew.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjc="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjc=",  
+     "grades": []   },
   {
     "entityId": 28,
     "code": "UG9rZW1vbjowMjg=",
@@ -253,8 +253,8 @@
     "email": "sandslash@gmail.com",
     "types": ["Ground"],
     "avatar": "https://img.pokemondb.net/artwork/sandslash.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjg="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjg=",  
+     "grades": []   },
   {
     "entityId": 29,
     "code": "UG9rZW1vbjowMjk=",
@@ -262,8 +262,8 @@
     "email": "nidoran-f@gmail.com",
     "types": ["Poison"],
     "avatar": "https://img.pokemondb.net/artwork/nidoran-f.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMjk="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMjk=",  
+     "grades": []   },
   {
     "entityId": 30,
     "code": "UG9rZW1vbjowMzA=",
@@ -271,8 +271,8 @@
     "email": "nidorina@gmail.com",
     "types": ["Poison"],
     "avatar": "https://img.pokemondb.net/artwork/nidorina.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzA="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzA=",  
+     "grades": []   },
   {
     "entityId": 31,
     "code": "UG9rZW1vbjowMzE=",
@@ -280,8 +280,8 @@
     "email": "nidoqueen@gmail.com",
     "types": ["Poison", "Ground"],
     "avatar": "https://img.pokemondb.net/artwork/nidoqueen.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzE="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzE=",  
+     "grades": []   },
   {
     "entityId": 32,
     "code": "UG9rZW1vbjowMzI=",
@@ -289,8 +289,8 @@
     "email": "nidoran-m@gmail.com",
     "types": ["Poison"],
     "avatar": "https://img.pokemondb.net/artwork/nidoran-m.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzI="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzI=",  
+     "grades": []   },
   {
     "entityId": 33,
     "code": "UG9rZW1vbjowMzM=",
@@ -298,8 +298,8 @@
     "email": "nidorino@gmail.com",
     "types": ["Poison"],
     "avatar": "https://img.pokemondb.net/artwork/nidorino.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzM="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzM=",  
+     "grades": []   },
   {
     "entityId": 34,
     "code": "UG9rZW1vbjowMzQ=",
@@ -307,8 +307,8 @@
     "email": "nidoking@gmail.com",
     "types": ["Poison", "Ground"],
     "avatar": "https://img.pokemondb.net/artwork/nidoking.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzQ="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzQ=",  
+     "grades": []   },
   {
     "entityId": 35,
     "code": "UG9rZW1vbjowMzU=",
@@ -316,8 +316,8 @@
     "email": "clefairy@gmail.com",
     "types": ["Fairy"],
     "avatar": "https://img.pokemondb.net/artwork/clefairy.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzU="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzU=",  
+     "grades": []   },
   {
     "entityId": 36,
     "code": "UG9rZW1vbjowMzY=",
@@ -325,8 +325,8 @@
     "email": "clefable@gmail.com",
     "types": ["Fairy"],
     "avatar": "https://img.pokemondb.net/artwork/clefable.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzY="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzY=",  
+     "grades": []   },
   {
     "entityId": 37,
     "code": "UG9rZW1vbjowMzc=",
@@ -334,8 +334,8 @@
     "email": "vulpix@gmail.com",
     "types": ["Fire"],
     "avatar": "https://img.pokemondb.net/artwork/vulpix.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzc="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzc=",  
+     "grades": []   },
   {
     "entityId": 38,
     "code": "UG9rZW1vbjowMzg=",
@@ -343,8 +343,8 @@
     "email": "ninetales@gmail.com",
     "types": ["Fire"],
     "avatar": "https://img.pokemondb.net/artwork/ninetales.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzg="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzg=",  
+     "grades": []   },
   {
     "entityId": 39,
     "code": "UG9rZW1vbjowMzk=",
@@ -352,8 +352,8 @@
     "email": "jigglypuff@gmail.com",
     "types": ["Normal", "Fairy"],
     "avatar": "https://img.pokemondb.net/artwork/jigglypuff.jpg",
-    "url": "/pokemon/UG9rZW1vbjowMzk="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowMzk=",  
+     "grades": []   },
   {
     "entityId": 40,
     "code": "UG9rZW1vbjowNDA=",
@@ -361,8 +361,8 @@
     "email": "wigglytuff@gmail.com",
     "types": ["Normal", "Fairy"],
     "avatar": "https://img.pokemondb.net/artwork/wigglytuff.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDA="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDA=",  
+     "grades": []   },
   {
     "entityId": 41,
     "code": "UG9rZW1vbjowNDE=",
@@ -370,8 +370,8 @@
     "email": "zubat@gmail.com",
     "types": ["Poison", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/zubat.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDE="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDE=",  
+     "grades": []   },
   {
     "entityId": 42,
     "code": "UG9rZW1vbjowNDI=",
@@ -379,8 +379,8 @@
     "email": "golbat@gmail.com",
     "types": ["Poison", "Flying"],
     "avatar": "https://img.pokemondb.net/artwork/golbat.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDI="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDI=",  
+     "grades": []   },
   {
     "entityId": 43,
     "code": "UG9rZW1vbjowNDM=",
@@ -388,8 +388,8 @@
     "email": "oddish@gmail.com",
     "types": ["Grass", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/oddish.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDM="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDM=",  
+     "grades": []   },
   {
     "entityId": 44,
     "code": "UG9rZW1vbjowNDQ=",
@@ -397,8 +397,8 @@
     "email": "gloom@gmail.com",
     "types": ["Grass", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/gloom.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDQ="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDQ=",  
+     "grades": []   },
   {
     "entityId": 45,
     "code": "UG9rZW1vbjowNDU=",
@@ -406,8 +406,8 @@
     "email": "vileplume@gmail.com",
     "types": ["Grass", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/vileplume.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDU="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDU=",  
+     "grades": []   },
   {
     "entityId": 46,
     "code": "UG9rZW1vbjowNDY=",
@@ -415,8 +415,8 @@
     "email": "paras@gmail.com",
     "types": ["Bug", "Grass"],
     "avatar": "https://img.pokemondb.net/artwork/paras.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDY="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDY=",  
+     "grades": []   },
   {
     "entityId": 47,
     "code": "UG9rZW1vbjowNDc=",
@@ -424,8 +424,8 @@
     "email": "parasect@gmail.com",
     "types": ["Bug", "Grass"],
     "avatar": "https://img.pokemondb.net/artwork/parasect.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDc="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDc=",  
+     "grades": []   },
   {
     "entityId": 48,
     "code": "UG9rZW1vbjowNDg=",
@@ -433,8 +433,8 @@
     "email": "venonat@gmail.com",
     "types": ["Bug", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/venonat.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDg="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDg=",  
+     "grades": []   },
   {
     "entityId": 49,
     "code": "UG9rZW1vbjowNDk=",
@@ -442,8 +442,8 @@
     "email": "venomoth@gmail.com",
     "types": ["Bug", "Poison"],
     "avatar": "https://img.pokemondb.net/artwork/venomoth.jpg",
-    "url": "/pokemon/UG9rZW1vbjowNDk="
-     , "grades": []   },
+    "url": "/pokemon/UG9rZW1vbjowNDk=",  
+     "grades": []   },
   {
     "entityId": 50,
     "code": "UG9rZW1vbjowNTA=",

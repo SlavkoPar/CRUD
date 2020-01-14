@@ -1,5 +1,6 @@
-import { IGrade, IStudent } from "./types";
+import { IStudent } from "./types";
 import { ActionsUnion, createActionPayload } from "../Entity/actionsAccepted";
+import { IGrade } from "../Grades/types";
 
 export enum StudentActionTypes {
 	GET_ALL = 'GET_ALL',

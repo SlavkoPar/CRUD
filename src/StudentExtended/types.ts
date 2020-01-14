@@ -5,15 +5,17 @@ export interface IStudent extends IEntity {
 	email: string;
 	types: string[];
 	avatar: string;
-	grades: IGrade[]
+	grades: IStudentGrade[]
 }
 
 export interface IStudentState extends IEntityState<IStudent> {
 	something: number[],
 }
 
-export interface  IGrade {
-	studentId: number,
+export interface IStudentGrade {
 	gradeId: number,
-	grade: number
+	grade: number,
+	name?: string
 }
+
+export type StudentGrade = Record<number, IStudentGrade[]>;
