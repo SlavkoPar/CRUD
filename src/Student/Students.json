@@ -1,0 +1,452 @@
+[
+  {
+    "entityId": 1,
+    "code": "UG9rZW1vbjowMDE=",
+    "name": "Bulbasaur",
+    "email": "bulbasaur@gmail.com",
+    "types": ["Grass", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDE="
+  },
+  {
+    "entityId": 2,
+    "code": "UG9rZW1vbjowMDI=",
+    "name": "Ivysaur",
+    "email": "ivysaur@gmail.com",
+    "types": ["Grass", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/ivysaur.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDI="
+  },
+  {
+    "entityId": 3,
+    "code": "UG9rZW1vbjowMDM=",
+    "name": "Venusaur",
+    "email": "venusaur@gmail.com",
+    "types": ["Grass", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/venusaur.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDM="
+  },
+  {
+    "entityId": 4,
+    "code": "UG9rZW1vbjowMDQ=",
+    "name": "Charmander",
+    "email": "charmander@gmail.com",
+    "types": ["Fire"],
+    "avatar": "https://img.pokemondb.net/artwork/charmander.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDQ="
+  },
+  {
+    "entityId": 5,
+    "code": "UG9rZW1vbjowMDU=",
+    "name": "Charmeleon",
+    "email": "charmeleon@gmail.com",
+    "types": ["Fire"],
+    "avatar": "https://img.pokemondb.net/artwork/charmeleon.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDU="
+  },
+  {
+    "entityId": 6,
+    "code": "UG9rZW1vbjowMDY=",
+    "name": "Charizard",
+    "email": "charizard@gmail.com",
+    "types": ["Fire", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/charizard.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDY="
+  },
+  {
+    "entityId": 7,
+    "code": "UG9rZW1vbjowMDc=",
+    "name": "Squirtle",
+    "email": "squirtle@gmail.com",
+    "types": ["Water"],
+    "avatar": "https://img.pokemondb.net/artwork/squirtle.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDc="
+  },
+  {
+    "entityId": 8,
+    "code": "UG9rZW1vbjowMDg=",
+    "name": "Wartortle",
+    "email": "wartortle@gmail.com",
+    "types": ["Water"],
+    "avatar": "https://img.pokemondb.net/artwork/wartortle.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDg="
+  },
+  {
+    "entityId": 9,
+    "code": "UG9rZW1vbjowMDk=",
+    "name": "Blastoise",
+    "email": "blastoise@gmail.com",
+    "types": ["Water"],
+    "avatar": "https://img.pokemondb.net/artwork/blastoise.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMDk="
+  },
+  {
+    "entityId": 10,
+    "code": "UG9rZW1vbjowMTA=",
+    "name": "Caterpie",
+    "email": "caterpie@gmail.com",
+    "types": ["Bug"],
+    "avatar": "https://img.pokemondb.net/artwork/caterpie.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTA="
+  },
+  {
+    "entityId": 11,
+    "code": "UG9rZW1vbjowMTE=",
+    "name": "Metapod",
+    "email": "metapod@gmail.com",
+    "types": ["Bug"],
+    "avatar": "https://img.pokemondb.net/artwork/metapod.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTE="
+  },
+  {
+    "entityId": 12,
+    "code": "UG9rZW1vbjowMTI=",
+    "name": "Butterfree",
+    "email": "butterfree@gmail.com",
+    "types": ["Bug", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/butterfree.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTI="
+  },
+  {
+    "entityId": 13,
+    "code": "UG9rZW1vbjowMTM=",
+    "name": "Weedle",
+    "email": "weedle@gmail.com",
+    "types": ["Bug", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/weedle.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTM="
+  },
+  {
+    "entityId": 14,
+    "code": "UG9rZW1vbjowMTQ=",
+    "name": "Kakuna",
+    "email": "kakuna@gmail.com",
+    "types": ["Bug", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/kakuna.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTQ="
+  },
+  {
+    "entityId": 15,
+    "code": "UG9rZW1vbjowMTU=",
+    "name": "Beedrill",
+    "email": "beedrill@gmail.com",
+    "types": ["Bug", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/beedrill.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTU="
+  },
+  {
+    "entityId": 16,
+    "code": "UG9rZW1vbjowMTY=",
+    "name": "Pidgey",
+    "email": "pidgey@gmail.com",
+    "types": ["Normal", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/pidgey.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTY="
+  },
+  {
+    "entityId": 17,
+    "code": "UG9rZW1vbjowMTc=",
+    "name": "Pidgeotto",
+    "email": "pidgeotto@gmail.com",
+    "types": ["Normal", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/pidgeotto.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTc="
+  },
+  {
+    "entityId": 18,
+    "code": "UG9rZW1vbjowMTg=",
+    "name": "Pidgeot",
+    "email": "pidgeot@gmail.com",
+    "types": ["Normal", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/pidgeot.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTg="
+  },
+  {
+    "entityId": 19,
+    "code": "UG9rZW1vbjowMTk=",
+    "name": "Rattata",
+    "email": "rattata@gmail.com",
+    "types": ["Normal"],
+    "avatar": "https://img.pokemondb.net/artwork/rattata.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMTk="
+  },
+  {
+    "entityId": 20,
+    "code": "UG9rZW1vbjowMjA=",
+    "name": "Raticate",
+    "email": "raticate@gmail.com",
+    "types": ["Normal"],
+    "avatar": "https://img.pokemondb.net/artwork/raticate.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjA="
+  },
+  {
+    "entityId": 21,
+    "code": "UG9rZW1vbjowMjE=",
+    "name": "Spearow",
+    "email": "spearow@gmail.com",
+    "types": ["Normal", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/spearow.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjE="
+  },
+  {
+    "entityId": 22,
+    "code": "UG9rZW1vbjowMjI=",
+    "name": "Fearow",
+    "email": "fearow@gmail.com",
+    "types": ["Normal", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/fearow.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjI="
+  },
+  {
+    "entityId": 23,
+    "code": "UG9rZW1vbjowMjM=",
+    "name": "Ekans",
+    "email": "ekans@gmail.com",
+    "types": ["Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/ekans.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjM="
+  },
+  {
+    "entityId": 24,
+    "code": "UG9rZW1vbjowMjQ=",
+    "name": "Arbok",
+    "email": "arbok@gmail.com",
+    "types": ["Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/arbok.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjQ="
+  },
+  {
+    "entityId": 25,
+    "code": "UG9rZW1vbjowMjU=",
+    "name": "Pikachu",
+    "email": "pikachu@gmail.com",
+    "types": ["Electric"],
+    "avatar": "https://img.pokemondb.net/artwork/pikachu.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjU="
+  },
+  {
+    "entityId": 26,
+    "code": "UG9rZW1vbjowMjY=",
+    "name": "Raichu",
+    "email": "raichu@gmail.com",
+    "types": ["Electric"],
+    "avatar": "https://img.pokemondb.net/artwork/raichu.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjY="
+  },
+  {
+    "entityId": 27,
+    "code": "UG9rZW1vbjowMjc=",
+    "name": "Sandshrew",
+    "email": "sandshrew@gmail.com",
+    "types": ["Ground"],
+    "avatar": "https://img.pokemondb.net/artwork/sandshrew.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjc="
+  },
+  {
+    "entityId": 28,
+    "code": "UG9rZW1vbjowMjg=",
+    "name": "Sandslash",
+    "email": "sandslash@gmail.com",
+    "types": ["Ground"],
+    "avatar": "https://img.pokemondb.net/artwork/sandslash.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjg="
+  },
+  {
+    "entityId": 29,
+    "code": "UG9rZW1vbjowMjk=",
+    "name": "Nidoran-F",
+    "email": "nidoran-f@gmail.com",
+    "types": ["Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/nidoran-f.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMjk="
+  },
+  {
+    "entityId": 30,
+    "code": "UG9rZW1vbjowMzA=",
+    "name": "Nidorina",
+    "email": "nidorina@gmail.com",
+    "types": ["Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/nidorina.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzA="
+  },
+  {
+    "entityId": 31,
+    "code": "UG9rZW1vbjowMzE=",
+    "name": "Nidoqueen",
+    "email": "nidoqueen@gmail.com",
+    "types": ["Poison", "Ground"],
+    "avatar": "https://img.pokemondb.net/artwork/nidoqueen.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzE="
+  },
+  {
+    "entityId": 32,
+    "code": "UG9rZW1vbjowMzI=",
+    "name": "Nidoran-M",
+    "email": "nidoran-m@gmail.com",
+    "types": ["Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/nidoran-m.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzI="
+  },
+  {
+    "entityId": 33,
+    "code": "UG9rZW1vbjowMzM=",
+    "name": "Nidorino",
+    "email": "nidorino@gmail.com",
+    "types": ["Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/nidorino.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzM="
+  },
+  {
+    "entityId": 34,
+    "code": "UG9rZW1vbjowMzQ=",
+    "name": "Nidoking",
+    "email": "nidoking@gmail.com",
+    "types": ["Poison", "Ground"],
+    "avatar": "https://img.pokemondb.net/artwork/nidoking.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzQ="
+  },
+  {
+    "entityId": 35,
+    "code": "UG9rZW1vbjowMzU=",
+    "name": "Clefairy",
+    "email": "clefairy@gmail.com",
+    "types": ["Fairy"],
+    "avatar": "https://img.pokemondb.net/artwork/clefairy.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzU="
+  },
+  {
+    "entityId": 36,
+    "code": "UG9rZW1vbjowMzY=",
+    "name": "Clefable",
+    "email": "clefable@gmail.com",
+    "types": ["Fairy"],
+    "avatar": "https://img.pokemondb.net/artwork/clefable.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzY="
+  },
+  {
+    "entityId": 37,
+    "code": "UG9rZW1vbjowMzc=",
+    "name": "Vulpix",
+    "email": "vulpix@gmail.com",
+    "types": ["Fire"],
+    "avatar": "https://img.pokemondb.net/artwork/vulpix.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzc="
+  },
+  {
+    "entityId": 38,
+    "code": "UG9rZW1vbjowMzg=",
+    "name": "Ninetales",
+    "email": "ninetales@gmail.com",
+    "types": ["Fire"],
+    "avatar": "https://img.pokemondb.net/artwork/ninetales.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzg="
+  },
+  {
+    "entityId": 39,
+    "code": "UG9rZW1vbjowMzk=",
+    "name": "Jigglypuff",
+    "email": "jigglypuff@gmail.com",
+    "types": ["Normal", "Fairy"],
+    "avatar": "https://img.pokemondb.net/artwork/jigglypuff.jpg",
+    "url": "/pokemon/UG9rZW1vbjowMzk="
+  },
+  {
+    "entityId": 40,
+    "code": "UG9rZW1vbjowNDA=",
+    "name": "Wigglytuff",
+    "email": "wigglytuff@gmail.com",
+    "types": ["Normal", "Fairy"],
+    "avatar": "https://img.pokemondb.net/artwork/wigglytuff.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDA="
+  },
+  {
+    "entityId": 41,
+    "code": "UG9rZW1vbjowNDE=",
+    "name": "Zubat",
+    "email": "zubat@gmail.com",
+    "types": ["Poison", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/zubat.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDE="
+  },
+  {
+    "entityId": 42,
+    "code": "UG9rZW1vbjowNDI=",
+    "name": "Golbat",
+    "email": "golbat@gmail.com",
+    "types": ["Poison", "Flying"],
+    "avatar": "https://img.pokemondb.net/artwork/golbat.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDI="
+  },
+  {
+    "entityId": 43,
+    "code": "UG9rZW1vbjowNDM=",
+    "name": "Oddish",
+    "email": "oddish@gmail.com",
+    "types": ["Grass", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/oddish.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDM="
+  },
+  {
+    "entityId": 44,
+    "code": "UG9rZW1vbjowNDQ=",
+    "name": "Gloom",
+    "email": "gloom@gmail.com",
+    "types": ["Grass", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/gloom.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDQ="
+  },
+  {
+    "entityId": 45,
+    "code": "UG9rZW1vbjowNDU=",
+    "name": "Vileplume",
+    "email": "vileplume@gmail.com",
+    "types": ["Grass", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/vileplume.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDU="
+  },
+  {
+    "entityId": 46,
+    "code": "UG9rZW1vbjowNDY=",
+    "name": "Paras",
+    "email": "paras@gmail.com",
+    "types": ["Bug", "Grass"],
+    "avatar": "https://img.pokemondb.net/artwork/paras.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDY="
+  },
+  {
+    "entityId": 47,
+    "code": "UG9rZW1vbjowNDc=",
+    "name": "Parasect",
+    "email": "parasect@gmail.com",
+    "types": ["Bug", "Grass"],
+    "avatar": "https://img.pokemondb.net/artwork/parasect.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDc="
+  },
+  {
+    "entityId": 48,
+    "code": "UG9rZW1vbjowNDg=",
+    "name": "Venonat",
+    "email": "venonat@gmail.com",
+    "types": ["Bug", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/venonat.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDg="
+  },
+  {
+    "entityId": 49,
+    "code": "UG9rZW1vbjowNDk=",
+    "name": "Venomoth",
+    "email": "venomoth@gmail.com",
+    "types": ["Bug", "Poison"],
+    "avatar": "https://img.pokemondb.net/artwork/venomoth.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNDk="
+  },
+  {
+    "entityId": 50,
+    "code": "UG9rZW1vbjowNTA=",
+    "name": "Diglett",
+    "email": "diglett@gmail.com",
+    "types": ["Ground"],
+    "avatar": "https://img.pokemondb.net/artwork/diglett.jpg",
+    "url": "/pokemon/UG9rZW1vbjowNTA="
+  }
+]
