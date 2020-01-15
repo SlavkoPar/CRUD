@@ -55,11 +55,12 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 								}
 							</tr>
 						)}
-						{canEdit && formMode !== 'display' && <tr>
-							<td>
-								{/* <AutoSuggestGrade student={student} gradesUnassigned={gradesUnassigned!} assignStudentGrade={assignStudentGrade!} /> */}
-							</td>
-							<td></td>
+						{canEdit && formMode !== 'display' && 
+							<tr>
+								<td>
+									{/* <AutoSuggestGrade student={student} gradesUnassigned={gradesUnassigned!} assignStudentGrade={assignStudentGrade!} /> */}
+								</td>
+								<td></td>
 							</tr>}
 					</tbody>
 				</table>
