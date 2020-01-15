@@ -80,8 +80,7 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 				{ state.formMode === 'display' ?
 					<StudentForm saveStorage={saveStorage}	/>
 					:
-					// <StudentForm />
-					<span></span>
+					<StudentForm saveStorage={saveStorage}	/>
 				}
 
 			</div>

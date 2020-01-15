@@ -32,7 +32,7 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
 
 	if (StudentContext === undefined) {
 		state.gradesAll = jsonGrades.map(grade => { 
-			return { ...grade, words: StudentGrades.name.split(',')} 
+			return { ...grade, words: grade.name.split(',')} 
 		})
 		StudentContext = createContext<IStudentContext>({ state, dispatch })
 	}

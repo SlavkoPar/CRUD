@@ -51,7 +51,7 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					canEdit={canEdit}
 					cancel = {() => dispatch(EntityActions.cancel())}
 					saveForm = { (student) => dispatch(EntityActions.store({ saveStorage, entity: student }))}
-					edit = {() => dispatch(EntityActions.edit({entities, entityId: entity!.entityId}))}
+					edit = {() => dispatch(EntityActions.edit(entity!.entityId))}
 					remove = {() => dispatch(EntityActions.remove({ saveStorage, entityId: entity!.entityId }))}
 				/>
 			</div>

@@ -24,8 +24,8 @@ export const EntityList: <T extends IEntity>
 		pageCount, pageRangeDisplayed, marginPagesDisplayed, 
 	} = props;
 	
-	const display = (entityId: number) => dispatch(EntityActions.display({entities, entityId}));
-	const edit = (entityId: number) => dispatch(EntityActions.edit({entities, entityId}));
+	const display = (entityId: number) => dispatch(EntityActions.display(entityId));
+	const edit = (entityId: number) => dispatch(EntityActions.edit(entityId));
 	const remove = (entityId: number) => dispatch(EntityActions.remove({saveStorage, entityId}));
 
 	return (

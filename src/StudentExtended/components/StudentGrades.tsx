@@ -3,8 +3,6 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 
-import { IStudent } from '../types';
-import { IGrade } from '../../Grades/types';
 import { AutoSuggestGrade } from './AutoSuggestGrade';
 import { useStudent } from '../useStudent';
 import { StudentActions } from '../actions';
@@ -17,8 +15,8 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 	const { entity: student, formMode, canEdit, gradesAll } = state;
 	const { grades } = student!;
 
-	//const { student, gradesAll, canEdit, formMode, removeStudentGrade, assignStudentGrade } = props;  // student, 
-	const gradesUnassigned = gradesAll?.filter(grade => student!.grades.map(g => g.gradeId).includes(grade.entityId))
+	const already = student!.grades.map(g => g.gradeId);
+	const gradesUnassigned = gradesAll.filter(grade => !already.includes(grade.entityId))
    return (
       <div className="name-container">
 			{ grades.length === 0 && 
@@ -26,20 +24,24 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 					No grades yet
 				</div>
 			}
-			{ grades.length > 0 && 
+			{
 				<>
 				<table>
 					<thead>
 						<tr>
-							<th>Grades</th>
+							<th>Name</th>
+							<th>Grade</th>
 							{ canEdit && formMode !== 'display' && <th></th> }
 						</tr>
 					</thead>
 					<tbody>
-						{ grades.map(grade => 
+						{ grades.length > 0 && grades.map(grade => 
 							<tr key={grade.gradeId}>
 								<td className="name">
 									{grade.name}
+								</td>
+								<td className="name">
+									{grade.gradeId}
 								</td>
 								{ canEdit && formMode !== 'display' &&
 									<td>
@@ -58,7 +60,12 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 						{canEdit && formMode !== 'display' && 
 							<tr>
 								<td>
-									{/* <AutoSuggestGrade student={student} gradesUnassigned={gradesUnassigned!} assignStudentGrade={assignStudentGrade!} /> */}
+									<AutoSuggestGrade
+										gradesUnassigned={gradesUnassigned!}
+										assignStudentGrade={(gradeId) => 
+											dispatch(StudentActions.assignGrade({studentId: student!.entityId, gradeId: gradeId}))
+										} 
+									/>
 								</td>
 								<td></td>
 							</tr>}

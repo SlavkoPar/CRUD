@@ -5,7 +5,6 @@ import AutosuggestHighlightMatch from "autosuggest-highlight/match";
 import AutosuggestHighlightParse from "autosuggest-highlight/parse";
 
 import './AutoSuggest.css'
-import { IStudent } from '../types';
 import { IGrade } from '../../Grades/types';
 
 
@@ -21,8 +20,7 @@ const StudentAutosuggestMulti = Autosuggest as { new (): Autosuggest<IGrade> };
 
 interface IProps {
 	gradesUnassigned: IGrade[], 
-	student: IStudent,
-	assignStudentGrade: (studentId: number, gradeId: number) => void
+	assignStudentGrade: (gradeId: number) => void
 }
 
 export class AutoSuggestGrade extends React.Component<IProps, any> {
@@ -56,7 +54,7 @@ export class AutoSuggestGrade extends React.Component<IProps, any> {
 			  // renderInputComponent={this.renderInputComponent}
 			  renderSuggestionsContainer={this.renderSuggestionsContainer}
 			  inputProps={{
-					placeholder: `Type 'contact'`,
+					placeholder: `Type name of grade`,
 					value,
 					onChange: (e, changeEvent) => this.onChange(e, changeEvent),
 			  }}/>;
@@ -73,9 +71,7 @@ export class AutoSuggestGrade extends React.Component<IProps, any> {
 	protected onSuggestionSelected(event: React.FormEvent<any>, data: Autosuggest.SuggestionSelectedEventData<IGrade>): void {
 		 const grade: IGrade = data.suggestion;
 		 // alert(`Selected student is ${student.gradeId} (${student.text}).`);
-		 this.props.assignStudentGrade(
-			 this.props.student.entityId, 
-			 grade.entityId);
+		 this.props.assignStudentGrade(grade.entityId);
 	}
 
 	/*

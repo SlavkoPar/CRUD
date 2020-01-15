@@ -25,10 +25,10 @@ export const entityReducer: <
 				}
 	
 			case ActionTypes.GET: {
-				const { entities, entityId } = action.payload;
+				const entityId = action.payload;
 				return {
 					...state,
-					entity: entities.find(e => e.entityId === entityId)!
+					entity: state.entities.find(e => e.entityId === entityId)!
 				};
 			}    
 
@@ -45,8 +45,8 @@ export const entityReducer: <
 			}    	
 	
 			case ActionTypes.DISPLAY: {
-				const { entities, entityId } = action.payload
-				const entity = entities.find(e => e.entityId === entityId)!
+				const entityId = action.payload
+				const entity = state.entities.find(e => e.entityId === entityId)!
 				return {
 					...state,
 					formMode: 'display',
@@ -56,8 +56,8 @@ export const entityReducer: <
 			}
 	
 			case ActionTypes.EDIT: {
-				const { entities, entityId } = action.payload
-				const entity = entities.find(e => e.entityId === entityId)!
+				const entityId = action.payload
+				const entity = state.entities.find(e => e.entityId === entityId)!
 				return {
 					...state,
 					formMode: 'edit',

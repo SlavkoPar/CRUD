@@ -10,19 +10,19 @@ const App: React.FC = () => {
 			<nav>
 				<ul>
 					<li>
-						<Link to="/">Documentation</Link>
+						<Link to="/xyz">Documentation</Link>
 					</li>
 					<li>
 						<Link to="/student">Student</Link>
 					</li>
 					<li>
-						<Link to="/student-extended" className="push-right">Student Extended</Link>
+						<Link to="/" className="push-right">Student Extended</Link>  {/* student-extended */}
 					</li>
 				</ul>				
 			</nav>
 			<div>
 				<Switch>
-					<Route exact path="/">
+					<Route exact path="/xyz">
 						<ul>
 							<li>IStudent extends IEntity</li>
 							<li>IStudentState extends IEntityState</li>
@@ -31,7 +31,7 @@ const App: React.FC = () => {
 					<Route path="/student">
 						<StudentPage query="all" />
 					</Route>
-					<Route path="/student-extended">
+					<Route path="/">  {/* student-extended */}
 						<StudentPageExtended query="all" />
 					</Route>						
 				</Switch>
