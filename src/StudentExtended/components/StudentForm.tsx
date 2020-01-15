@@ -6,14 +6,17 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 
 import { EntityActions} from '../../Entity/actions'
 import { MyForm } from './MyForm';
+import StudentGrades from './StudentGrades';
 
 interface IProps {
 	saveStorage: (s: string) => void,
+	// assignStudentGrade: (entityId: number, gradeId: number) => void; 	
+	// removeStudentGrade: (entityId: number, gradeId: number) => void;
 }
 
 export const StudentForm: React.FC<IProps> = (props: IProps) => {
 	const { state, dispatch } = useStudent();
-	const { entities, entity, formMode, canEdit } = state;
+	const { entities, entity, formMode, canEdit, gradesAll } = state;
 
 	const { saveStorage } = props;
 
@@ -53,6 +56,13 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					saveForm = { (student) => dispatch(EntityActions.store({ saveStorage, entity: student }))}
 					edit = {() => dispatch(EntityActions.edit({entities, entityId: entity!.entityId}))}
 					remove = {() => dispatch(EntityActions.remove({ saveStorage, entityId: entity!.entityId }))}
+				/>
+				<br />
+				<StudentGrades
+					// student={entity}
+					// canEdit={canEdit}
+					// formMode={formMode}
+					// gradesAll={gradesAll}
 				/>
 			</div>
 		}

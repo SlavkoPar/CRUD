@@ -1,17 +1,16 @@
-import { IStudent } from "./types";
+import { IStudent, IStudentGradeIds } from "./types";
 import { ActionsUnion, createActionPayload } from "../Entity/actionsAccepted";
-import { IGrade } from "../Grades/types";
 
 export enum StudentActionTypes {
 	GET_ALL = 'GET_ALL',
-	STUDENT_ADD_GRADE = 'STUDENT_ADD_GRADE',
+	STUDENT_ASSIGN_GRADE = 'STUDENT_ASSIGN_GRADE',
 	STUDENT_REMOVE_GRADE = 'STUDENT_REMOVE_GRADE'
 }
   
 export const StudentActions = {
 	getAll: createActionPayload<typeof StudentActionTypes.GET_ALL, { entities: IStudent[]; pageSize: number; }>(StudentActionTypes.GET_ALL),
-	addGrade: createActionPayload<typeof StudentActionTypes.STUDENT_ADD_GRADE, { grade: IGrade }>(StudentActionTypes.STUDENT_ADD_GRADE),
-	removeGrade: createActionPayload<typeof StudentActionTypes.STUDENT_REMOVE_GRADE, { grade: IGrade }>(StudentActionTypes.STUDENT_REMOVE_GRADE),
+	assignGrade: createActionPayload<typeof StudentActionTypes.STUDENT_ASSIGN_GRADE, IStudentGradeIds>(StudentActionTypes.STUDENT_ASSIGN_GRADE),
+	removeGrade: createActionPayload<typeof StudentActionTypes.STUDENT_REMOVE_GRADE, IStudentGradeIds>(StudentActionTypes.STUDENT_REMOVE_GRADE),
  };
 
 export type StudentAcceptedActions = ActionsUnion<typeof StudentActions>;

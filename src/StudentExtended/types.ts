@@ -1,4 +1,5 @@
 import { IEntity, IEntityState } from "../Entity/types";
+import { IGrade } from "../Grades/types";
 
 export interface IStudent extends IEntity {
 	code: string;
@@ -9,7 +10,7 @@ export interface IStudent extends IEntity {
 }
 
 export interface IStudentState extends IEntityState<IStudent> {
-	something: number[],
+	gradesAll: IGrade[]
 }
 
 export interface IStudentGrade {
@@ -18,4 +19,10 @@ export interface IStudentGrade {
 	name?: string
 }
 
-export type StudentGrade = Record<number, IStudentGrade[]>;
+export interface IStudentGradeIds {
+	studentId: number,
+	gradeId: number,
+	grade?: number
+}
+
+

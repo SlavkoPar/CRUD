@@ -42,7 +42,7 @@ export const studentReducer: (initialEntity: IStudent) =>
 					pageCount: Math.ceil(action.payload.entities.length / action.payload.pageSize)
 				}
 
-			case StudentActionTypes.STUDENT_ADD_GRADE:
+			case StudentActionTypes.STUDENT_ASSIGN_GRADE:
 				return {...state}
 				
 			case StudentActionTypes.STUDENT_REMOVE_GRADE:

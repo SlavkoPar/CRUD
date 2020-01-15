@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import jsonStudents from "./Students.json"
-import jsonGrades from "../Grades/Grades.json"
 
 import { StudentProvider } from "./useStudent";
 import { useStudent } from "./useStudent";
@@ -8,32 +7,30 @@ import { useStudent } from "./useStudent";
 import { EntityList } from "../Entity/EntityList";
 import { StudentForm } from "./components/StudentForm";
 
-import { IStudent, IStudentGrade, StudentGrade } from "./types";
+import { IStudent, IStudentGrade } from "./types";
 import { EntityActions } from "../Entity/actions";
 import { StudentActions } from "./actions";
+import { IGrade } from "../Grades/types";
 
 interface IPageProps {
 	query: string;
 }
 
-const studentJoinGrades = (student: IStudent | undefined) : IStudentGrade[]=> {
+const studentJoinGrades = (student: IStudent | undefined, gradesAll: IGrade[]) : IStudentGrade[]=> {
 	if (student === undefined || student.grades.length === 0)
 		return [];
 	return student.grades.map(sg => { 
-		return { ...sg, name: jsonGrades.find(grade => grade.entityId === sg.gradeId)?.name }
+		return { ...sg, name: gradesAll.find(grade => grade.entityId === sg.gradeId)?.name }
 	})
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
 	const { state, dispatch } = useStudent();
-	const { entities, currentPage, pageCount } = state;
+	const { entities, currentPage, pageCount, gradesAll } = state;
 
 	const [currentData, setCurrentData] = useState<IStudent[]>([]);
 	const pageSize = 9;
-
-	const [studentGrades, setStudentGrades] = useState<StudentGrade>([]);
-
-		
+	
 	useEffect(() => {
 		dispatch(EntityActions.setLoading(true))
 		localStorageStudents = [...jsonStudents]
@@ -47,10 +44,8 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 		const currData = entities.slice(offset, offset + pageSize);
 		setCurrentData(currData);
 		// per page
-		const studentsGrades: StudentGrade = {}
-		currData.map(student => studentsGrades[student.entityId] = studentJoinGrades(student));
-		setStudentGrades(studentsGrades)
-	 }, [entities, currentPage]);
+		currData.map(student => student.grades = studentJoinGrades(student, gradesAll));
+	}, [entities, currentPage, gradesAll]);
 
 
 
@@ -70,11 +65,10 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 						<li key="types" style={{minWidth: '60%'}}>{entity.types.join(', ')}</li>,
 						<li key="img"><img src={entity.avatar} style={{height: '30px'}} alt="Slika"></img></li>,
 						<li key="grades" style={{fontSize: 'small'}}>
-							{studentGrades[entity.entityId].length > 0 &&
+							{entity.grades.length > 0 &&
 								<span>
-									Grades:&nbsp;{
-									studentGrades[entity.entityId].map(g => {	return `${g.name}:${g.grade}`}).join(', ')
-									}
+									Grades:&nbsp;
+									{entity.grades.map(g => { return `${g.name}:${g.grade}`}).join(', ')}
 								</span>
 							}
 						</li>,
@@ -82,7 +76,14 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 				 />
 			</div>
 			<div className="b">
-				<StudentForm  saveStorage={saveStorage} />
+
+				{ state.formMode === 'display' ?
+					<StudentForm saveStorage={saveStorage}	/>
+					:
+					// <StudentForm />
+					<span></span>
+				}
+
 			</div>
 		</div>    		
   );

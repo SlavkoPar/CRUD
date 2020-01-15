@@ -8,8 +8,8 @@
 		"avatar": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
 		"url": "/pokemon/UG9rZW1vbjowMDE=",
 		"grades": [
-			 {"gradeId": 11, "grade": 4}, 
-			 {"gradeId": 22, "grade": 5}
+			 { "gradeId": 11, "grade": 4}, 
+			 { "gradeId": 22, "grade": 5}
 		]
   },
   {
