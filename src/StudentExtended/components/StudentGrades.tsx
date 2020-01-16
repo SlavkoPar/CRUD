@@ -67,8 +67,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 										onChange={(gradeId: number) => 
 											dispatch(StudentActions.assignGrade({
 												studentId: student!.entityId,
-												gradeId: grade
-												Id,
+												gradeId: gradeId,
 											}))
 										} 
 									/>
