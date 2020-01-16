@@ -46,7 +46,7 @@ export const studentReducer: (initialEntity: IStudent) =>
 
 			case StudentActionTypes.STUDENT_ASSIGN_GRADE: {
 				const { studentId, gradeId } = action.payload
-				const entities = state.entities.map(student => 
+				const students = state.entities.map(student => 
 					student.id !== studentId ?
 						{...student} :
 						{...student, grades: [...student.grades, { 
@@ -56,26 +56,26 @@ export const studentReducer: (initialEntity: IStudent) =>
 							}]
 						}
 				)
-				saveStorage(JSON.stringify(entities))
+				saveStorage(JSON.stringify(students))
 				return {
 					...state,
-					entities,
-					entity: { ...entities.find(e => e.id === studentId)! }
+					entities: students,
+					entity: { ...students.find(student => student.id === studentId)! }
 				}				
 			}
 	
 			case StudentActionTypes.STUDENT_REMOVE_GRADE: {
 				const { studentId, gradeId } = action.payload
-				const entities = state.entities.map(student => 
+				const students = state.entities.map(student => 
 					student.id !== studentId ?
 						{...student} :
 						{...student, grades: student.grades.filter(grade=>grade.gradeId !== gradeId)}
 				)
-				saveStorage(JSON.stringify(entities))
+				saveStorage(JSON.stringify(students))
 				return {
 					...state,
-					entities,
-					entity: { ...entities.find(e => e.id === studentId)! }
+					entities: students,
+					entity: { ...students.find(student => student.id === studentId)! }
 				}				
 			}
 			
