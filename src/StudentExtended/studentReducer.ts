@@ -50,8 +50,9 @@ export const studentReducer: (initialEntity: IStudent) =>
 					student.id !== studentId ?
 						{...student} :
 						{...student, grades: [...student.grades, { 
-								gradeId: student.grades.length===0 ? 1: Math.max(...student.grades.map(g=>g.gradeId))+1,
+								// gradeId: student.grades.length===0 ? 1: Math.max(...student.grades.map(g=>g.gradeId))+1,
 								name: state.gradesAll.find(g=>g.id === gradeId)!.name,
+								gradeId,
 								grade: 0
 							}]
 						}
