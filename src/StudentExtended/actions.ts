@@ -8,9 +8,14 @@ export enum StudentActionTypes {
 }
   
 export const StudentActions = {
-	getAll: createActionPayload<typeof StudentActionTypes.GET_ALL, { entities: IStudent[]; pageSize: number; }>(StudentActionTypes.GET_ALL),
-	assignGrade: createActionPayload<typeof StudentActionTypes.STUDENT_ASSIGN_GRADE, IStudentGradeIds>(StudentActionTypes.STUDENT_ASSIGN_GRADE),
-	removeGrade: createActionPayload<typeof StudentActionTypes.STUDENT_REMOVE_GRADE, IStudentGradeIds>(StudentActionTypes.STUDENT_REMOVE_GRADE),
+	getAll: createActionPayload<typeof StudentActionTypes.GET_ALL, { entities: IStudent[]; pageSize: number; }>
+		(StudentActionTypes.GET_ALL),
+
+	assignGrade: createActionPayload<typeof StudentActionTypes.STUDENT_ASSIGN_GRADE, IStudentGradeIds>
+		(StudentActionTypes.STUDENT_ASSIGN_GRADE),
+		
+	removeGrade: createActionPayload<typeof StudentActionTypes.STUDENT_REMOVE_GRADE, IStudentGradeIds>
+		(StudentActionTypes.STUDENT_REMOVE_GRADE),
  };
 
 export type StudentAcceptedActions = ActionsUnion<typeof StudentActions>;

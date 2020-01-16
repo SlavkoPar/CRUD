@@ -6,6 +6,7 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 import { AutoSuggestGrade } from './AutoSuggestGrade';
 import { useStudent } from '../useStudent';
 import { StudentActions } from '../actions';
+import { Select } from '../../Common/Select';
 
 interface IProps {
 }
@@ -60,10 +61,15 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 						{canEdit && formMode !== 'display' && 
 							<tr>
 								<td>
-									<AutoSuggestGrade
-										gradesUnassigned={gradesUnassigned!}
-										assignStudentGrade={(gradeId) => 
-											dispatch(StudentActions.assignGrade({studentId: student!.entityId, gradeId: gradeId}))
+									<Select
+										options={gradesUnassigned.map(grade => { return { value: grade.entityId, label: grade.name } })}
+										value={0}
+										onChange={(gradeId: number) => 
+											dispatch(StudentActions.assignGrade({
+												studentId: student!.entityId,
+												gradeId: grade
+												Id,
+											}))
 										} 
 									/>
 								</td>

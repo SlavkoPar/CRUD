@@ -16,7 +16,7 @@ interface IProps {
 
 export const StudentForm: React.FC<IProps> = (props: IProps) => {
 	const { state, dispatch } = useStudent();
-	const { entities, entity, formMode, canEdit, gradesAll } = state;
+	const { entity, formMode, canEdit } = state;
 
 	const { saveStorage } = props;
 
