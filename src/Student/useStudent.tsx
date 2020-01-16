@@ -7,7 +7,7 @@ import { AcceptedActions } from '../Entity/actions';
 
 
 export const initialStudent: IStudent = { 
-	entityId: 0, 
+	id: 0, 
 	name: '',
 	url: '',
 	code: '',

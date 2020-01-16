@@ -5,7 +5,7 @@ import { StudentActionTypes, StudentAcceptedActions } from "./actions";
 import { saveStorage } from './StudentPage';
 
 export const initialStudent: IStudent = { 
-	entityId: 0, 
+	id: 0, 
 	name: '',
 	url: '',
 	code: '',
@@ -46,11 +46,11 @@ export const studentReducer: (initialEntity: IStudent) =>
 			case StudentActionTypes.STUDENT_ASSIGN_GRADE: {
 				const { studentId, gradeId } = action.payload
 				const entities = state.entities.map(student => 
-					student.entityId !== studentId ?
+					student.id !== studentId ?
 						{...student} :
 						{...student, grades: [...student.grades, { 
 								gradeId: student.grades.length===0 ? 1: Math.max(...student.grades.map(g=>g.gradeId))+1,
-								name: state.gradesAll.find(g=>g.entityId === gradeId)!.name,
+								name: state.gradesAll.find(g=>g.id === gradeId)!.name,
 								grade: 0
 							}]
 						}
@@ -59,14 +59,14 @@ export const studentReducer: (initialEntity: IStudent) =>
 				return {
 					...state,
 					entities,
-					entity: { ...entities.find(e => e.entityId === studentId)! }
+					entity: { ...entities.find(e => e.id === studentId)! }
 				}				
 			}
 	
 			case StudentActionTypes.STUDENT_REMOVE_GRADE: {
 				const { studentId, gradeId } = action.payload
 				const entities = state.entities.map(student => 
-					student.entityId !== studentId ?
+					student.id !== studentId ?
 						{...student} :
 						{...student, grades: student.grades.filter(grade=>grade.gradeId !== gradeId)}
 				)
@@ -74,7 +74,7 @@ export const studentReducer: (initialEntity: IStudent) =>
 				return {
 					...state,
 					entities,
-					entity: { ...entities.find(e => e.entityId === studentId)! }
+					entity: { ...entities.find(e => e.id === studentId)! }
 				}				
 			}
 			

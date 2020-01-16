@@ -19,7 +19,7 @@ export const MyForm: React.FC<IFormProps> = (props: IFormProps) => {
    initialValues: {
 		fromMode: props.formMode,
 		canEdit: props.canEdit,
-      entityId: props.entity.entityId,
+      id: props.entity.id,
 		url: props.entity.url,
 		code: props.entity.code,
 		avatar: props.entity.avatar,
@@ -44,19 +44,19 @@ export const MyForm: React.FC<IFormProps> = (props: IFormProps) => {
     <form onSubmit={formik.handleSubmit}>
 		 { props.formMode !== 'add' && 
 		 <>
-			<label htmlFor="entityId">Student id</label>
+			<label htmlFor="id">Student id</label>
 			<input
-			id="entityId"
-			name="entityId"
+			id="id"
+			name="id"
 			type="text"
 			onChange={formik.handleChange}
 			onBlur={formik.handleBlur}
-			value={formik.values.entityId}
+			value={formik.values.id}
 			disabled
 			style={{width: '50px'}}
 			/>
-			{formik.touched.entityId && formik.errors.entityId ? (
-			<div>{formik.errors.entityId}</div>
+			{formik.touched.id && formik.errors.id ? (
+			<div>{formik.errors.id}</div>
 			) : null}
 			</>
 		}

@@ -25,10 +25,10 @@ export const entityReducer: <
 				}
 	
 			case ActionTypes.GET: {
-				const entityId = action.payload;
+				const id = action.payload;
 				return {
 					...state,
-					entity: state.entities.find(e => e.entityId === entityId)!
+					entity: state.entities.find(e => e.id === id)!
 				};
 			}    
 
@@ -39,14 +39,14 @@ export const entityReducer: <
 					formMode: 'add',
 					entity: { 
 						...initialEntity, 
-						entityId: entities.length === 0 ? 1 : Math.max(...entities.map(e => e.entityId)) + 1
+						id: entities.length === 0 ? 1 : Math.max(...entities.map(e => e.id)) + 1
 					}
 				};
 			}    	
 	
 			case ActionTypes.DISPLAY: {
-				const entityId = action.payload
-				const entity = state.entities.find(e => e.entityId === entityId)!
+				const id = action.payload
+				const entity = state.entities.find(e => e.id === id)!
 				return {
 					...state,
 					formMode: 'display',
@@ -56,8 +56,8 @@ export const entityReducer: <
 			}
 	
 			case ActionTypes.EDIT: {
-				const entityId = action.payload
-				const entity = state.entities.find(e => e.entityId === entityId)!
+				const id = action.payload
+				const entity = state.entities.find(e => e.id === id)!
 				return {
 					...state,
 					formMode: 'edit',
@@ -73,13 +73,13 @@ export const entityReducer: <
 				}
 
 			case ActionTypes.REMOVE: {
-				const { saveStorage, entityId } = action.payload
-				saveStorage(JSON.stringify(state.entities.filter(e => e.entityId !== entityId)))
+				const { saveStorage, id } = action.payload
+				saveStorage(JSON.stringify(state.entities.filter(e => e.id !== id)))
 				return {
 					...state,
 					formMode: 'display',
 					entity: undefined,
-					entities: state.entities.filter(e => e.entityId !== entityId)
+					entities: state.entities.filter(e => e.id !== id)
 				}
 			}
 			
@@ -90,7 +90,7 @@ export const entityReducer: <
 					entities = [...state.entities, { ...entity }]
 				}
 				else {
-					entities = state.entities.map(a => a.entityId === entity.entityId ? { ...entity } : a)
+					entities = state.entities.map(a => a.id === entity.id ? { ...entity } : a)
 				}
 				saveStorage(JSON.stringify(entities))
 				return {

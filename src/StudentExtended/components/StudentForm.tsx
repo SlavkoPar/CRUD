@@ -10,8 +10,6 @@ import StudentGrades from './StudentGrades';
 
 interface IProps {
 	saveStorage: (s: string) => void,
-	// assignStudentGrade: (entityId: number, gradeId: number) => void; 	
-	// removeStudentGrade: (entityId: number, gradeId: number) => void;
 }
 
 export const StudentForm: React.FC<IProps> = (props: IProps) => {
@@ -54,8 +52,8 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					canEdit={canEdit}
 					cancel = {() => dispatch(EntityActions.cancel())}
 					saveForm = { (student) => dispatch(EntityActions.store({ saveStorage, entity: student }))}
-					edit = {() => dispatch(EntityActions.edit(entity!.entityId))}
-					remove = {() => dispatch(EntityActions.remove({ saveStorage, entityId: entity!.entityId }))}
+					edit = {() => dispatch(EntityActions.edit(entity!.id))}
+					remove = {() => dispatch(EntityActions.remove({ saveStorage, id: entity!.id }))}
 				/>
 				<br />
 				<StudentGrades	/>

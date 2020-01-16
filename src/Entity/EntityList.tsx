@@ -24,15 +24,15 @@ export const EntityList: <T extends IEntity>
 		pageCount, pageRangeDisplayed, marginPagesDisplayed, 
 	} = props;
 	
-	const display = (entityId: number) => dispatch(EntityActions.display(entityId));
-	const edit = (entityId: number) => dispatch(EntityActions.edit(entityId));
-	const remove = (entityId: number) => dispatch(EntityActions.remove({saveStorage, entityId}));
+	const display = (id: number) => dispatch(EntityActions.display(id));
+	const edit = (id: number) => dispatch(EntityActions.edit(id));
+	const remove = (id: number) => dispatch(EntityActions.remove({saveStorage, id}));
 
 	return (
    	<div style={{border: '1px solid lightblue'}} id="react-paginate">
 			<ul className="entity-list">
 				{entities.map(entity => (
-					<li key={entity.entityId}>
+					<li key={entity.id}>
 						<EntityRow
 							entity={entity}
 							renderColumns={renderColumns}

@@ -3,8 +3,6 @@ import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 import { IStudentState } from './types';
 import { Reducer } from './studentReducer';
 import jsonGrades from "../Grades/Grades.json"
-import StudentGrades from './components/StudentGrades';
-
 
 const initialState: IStudentState = { 
 	entities: [],

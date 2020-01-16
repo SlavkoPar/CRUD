@@ -8,22 +8,22 @@ import { IEntity } from "./types";
 interface IRowProps<T> {
 	entity: T,
 	renderColumns: (item: T) => JSX.Element[],
-	display: (entityId: number) => void,
-	edit: (entityId: number) => void,
-	remove: (entityId: number) => void,
+	display: (id: number) => void,
+	edit: (id: number) => void,
+	remove: (id: number) => void,
 }
 
 export const EntityRow: <T extends IEntity> 
 					(props: IRowProps<T>) => React.ReactElement<IRowProps<T>> = (props) => {
 	const { entity, renderColumns, display, edit, remove } = props;
-	const { entityId, name } = entity; // , url 
+	const { id, name } = entity; // , url 
 	const [hoverRef, hoverProps] = useHover();
 
 	return (
 		<ul className="entity-columns" ref={hoverRef}>
-			{/* <li>{entityId}</li> */}
-			<li key={entityId}>
-				<a href="#/" onClick={(e) => { e.preventDefault(); display(entityId)  }}>  {/* dispatch(EntityActions.display(entityId)) */}
+			{/* <li>{id}</li> */}
+			<li key={id}>
+				<a href="#/" onClick={(e) => { e.preventDefault(); display(id)  }}>  {/* dispatch(EntityActions.display(id)) */}
 					{name}
 				</a>
 			</li>
@@ -32,12 +32,12 @@ export const EntityRow: <T extends IEntity>
 
 			<li key="buttons">
 			{hoverProps.isHovered &&
-				<button className="button-edit" title="Edit" onClick={() => edit(entityId)}>
+				<button className="button-edit" title="Edit" onClick={() => edit(id)}>
 					<FontAwesomeIcon icon={faEdit} color='lightblue' />
 				</button>
 			}
 			{hoverProps.isHovered &&
-				<button className="button-remove" title="Remove" onClick={() => { remove(entityId) }}>
+				<button className="button-remove" title="Remove" onClick={() => { remove(id) }}>
 					<FontAwesomeIcon icon={faWindowClose}  color='lightblue' />
 				</button>
 			}

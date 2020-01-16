@@ -3,7 +3,6 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 
-import { AutoSuggestGrade } from './AutoSuggestGrade';
 import { useStudent } from '../useStudent';
 import { StudentActions } from '../actions';
 import { Select } from '../../Common/Select';
@@ -17,7 +16,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 	const { grades } = student!;
 
 	const already = student!.grades.map(g => g.gradeId);
-	const gradesUnassigned = gradesAll.filter(grade => !already.includes(grade.entityId))
+	const gradesUnassigned = gradesAll.filter(grade => !already.includes(grade.id))
    return (
       <div className="name-container">
 			{ grades.length === 0 && 
@@ -50,7 +49,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 											onClick={(e) => { 
 												e.stopPropagation();
 												e.preventDefault();
-												dispatch(StudentActions.removeGrade({studentId: student!.entityId, gradeId: grade.gradeId}))
+												dispatch(StudentActions.removeGrade({studentId: student!.id, gradeId: grade.gradeId}))
 											}}>
 											<FontAwesomeIcon icon={faWindowClose}  color='lightblue' />
 										</button>
@@ -62,11 +61,11 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 							<tr>
 								<td>
 									<Select
-										options={gradesUnassigned.map(grade => { return { value: grade.entityId, label: grade.name } })}
+										options={gradesUnassigned.map(grade => { return { value: grade.id, label: grade.name } })}
 										value={0}
 										onChange={(gradeId: number) => 
 											dispatch(StudentActions.assignGrade({
-												studentId: student!.entityId,
+												studentId: student!.id,
 												gradeId: gradeId,
 											}))
 										} 

@@ -28,23 +28,23 @@ export type IEntityActions<T extends IEntity> = {
 	getAll: (payload: {entities: T[]; pageSize: number; }) => 
 				ActionsWithPayload<typeof ActionTypes.GET_ALL, {entities: T[]; pageSize: number; }>;
 
-	get: (payload:  { entities: T[]; entityId: number }) => 
-				ActionsWithPayload<typeof ActionTypes.GET, { entities: T[]; entityId: number }>;
+	get: (payload:  { entities: T[]; id: number }) => 
+				ActionsWithPayload<typeof ActionTypes.GET, { entities: T[]; id: number }>;
 
 	add: (payload: { entities: T[] }) => 
 				ActionsWithPayload<typeof ActionTypes.ADD, { entities: T[] }>;
 
-	display: (payload: { entities: T[]; entityId: number }) => 
-				ActionsWithPayload<typeof ActionTypes.DISPLAY, { entities: T[]; entityId: number }>;
+	display: (payload: { entities: T[]; id: number }) => 
+				ActionsWithPayload<typeof ActionTypes.DISPLAY, { entities: T[]; id: number }>;
 
-	edit: (payload: { entities: T[]; entityId: number }) => 
-				ActionsWithPayload<typeof ActionTypes.EDIT, { entities: T[]; entityId: number }>;
+	edit: (payload: { entities: T[]; id: number }) => 
+				ActionsWithPayload<typeof ActionTypes.EDIT, { entities: T[]; id: number }>;
 
 	store: (payload: { saveStorage: (s: string) => void, entity: T }) => 
 				ActionsWithPayload<typeof ActionTypes.STORE, { saveStorage: (s: string) => void, entity: IEntity }>;
 
-	remove: (payload: { saveStorage: (s: string) => void, entityId: number }) => 
-				ActionsWithPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, entityId: number }>;
+	remove: (payload: { saveStorage: (s: string) => void, id: number }) => 
+				ActionsWithPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, id: number }>;
 				
 	goToPage: (payload: number) => 
 				ActionsWithPayload<typeof ActionTypes.GO_TO_PAGE, number>;
@@ -74,7 +74,7 @@ export const EntityActions = {  // : IEntityActions<IEntity>
 	display: createActionPayload<typeof ActionTypes.DISPLAY, number>(ActionTypes.DISPLAY),
 	edit: createActionPayload<typeof ActionTypes.EDIT, number>(ActionTypes.EDIT),
 	store: createActionPayload<typeof ActionTypes.STORE, { saveStorage: (s: string) => void, entity: IEntity }>(ActionTypes.STORE),
-	remove: createActionPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, entityId: number }>(ActionTypes.REMOVE),
+	remove: createActionPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, id: number }>(ActionTypes.REMOVE),
 	goToPage: createActionPayload<typeof ActionTypes.GO_TO_PAGE, number>(ActionTypes.GO_TO_PAGE),
  };
 

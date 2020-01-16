@@ -71,7 +71,7 @@ export class AutoSuggestGrade extends React.Component<IProps, any> {
 	protected onSuggestionSelected(event: React.FormEvent<any>, data: Autosuggest.SuggestionSelectedEventData<IGrade>): void {
 		 const grade: IGrade = data.suggestion;
 		 // alert(`Selected student is ${student.gradeId} (${student.text}).`);
-		 this.props.assignStudentGrade(grade.entityId);
+		 this.props.assignStudentGrade(grade.id);
 	}
 
 	/*

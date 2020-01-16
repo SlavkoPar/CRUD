@@ -20,7 +20,7 @@ const studentJoinGrades = (student: IStudent | undefined, gradesAll: IGrade[]) :
 	if (student === undefined || student.grades.length === 0)
 		return [];
 	return student.grades.map(sg => { 
-		return { ...sg, name: gradesAll.find(grade => grade.entityId === sg.gradeId)?.name }
+		return { ...sg, name: gradesAll.find(grade => grade.id === sg.gradeId)?.name }
 	})
 }
 
@@ -76,13 +76,7 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 				 />
 			</div>
 			<div className="b">
-
-				{ state.formMode === 'display' ?
-					<StudentForm saveStorage={saveStorage}	/>
-					:
-					<StudentForm saveStorage={saveStorage}	/>
-				}
-
+				<StudentForm saveStorage={saveStorage}	/>
 			</div>
 		</div>    		
   );

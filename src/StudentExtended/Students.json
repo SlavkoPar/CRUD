@@ -1,6 +1,6 @@
 [
   {
-		"entityId": 1,
+		"id": 1,
 		"code": "UG9rZW1vbjowMDE=",
 		"name": "Bulbasaur",
 		"email": "bulbasaur@gmail.com",
@@ -13,7 +13,7 @@
 		]
   },
   {
-    "entityId": 2,
+    "id": 2,
     "code": "UG9rZW1vbjowMDI=",
     "name": "Ivysaur",
     "email": "ivysaur@gmail.com",
@@ -22,7 +22,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDI=",  
      "grades": []   },
   {
-    "entityId": 3,
+    "id": 3,
     "code": "UG9rZW1vbjowMDM=",
     "name": "Venusaur",
     "email": "venusaur@gmail.com",
@@ -31,7 +31,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDM=",  
      "grades": []   },
   {
-    "entityId": 4,
+    "id": 4,
     "code": "UG9rZW1vbjowMDQ=",
     "name": "Charmander",
     "email": "charmander@gmail.com",
@@ -40,7 +40,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDQ=",  
      "grades": []   },
   {
-    "entityId": 5,
+    "id": 5,
     "code": "UG9rZW1vbjowMDU=",
     "name": "Charmeleon",
     "email": "charmeleon@gmail.com",
@@ -49,7 +49,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDU=",  
      "grades": []   },
   {
-    "entityId": 6,
+    "id": 6,
     "code": "UG9rZW1vbjowMDY=",
     "name": "Charizard",
     "email": "charizard@gmail.com",
@@ -58,7 +58,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDY=",  
      "grades": []   },
   {
-    "entityId": 7,
+    "id": 7,
     "code": "UG9rZW1vbjowMDc=",
     "name": "Squirtle",
     "email": "squirtle@gmail.com",
@@ -67,7 +67,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDc=",  
      "grades": []   },
   {
-    "entityId": 8,
+    "id": 8,
     "code": "UG9rZW1vbjowMDg=",
     "name": "Wartortle",
     "email": "wartortle@gmail.com",
@@ -76,7 +76,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDg=",  
      "grades": []   },
   {
-    "entityId": 9,
+    "id": 9,
     "code": "UG9rZW1vbjowMDk=",
     "name": "Blastoise",
     "email": "blastoise@gmail.com",
@@ -85,7 +85,7 @@
     "url": "/pokemon/UG9rZW1vbjowMDk=",  
      "grades": []   },
   {
-    "entityId": 10,
+    "id": 10,
     "code": "UG9rZW1vbjowMTA=",
     "name": "Caterpie",
     "email": "caterpie@gmail.com",
@@ -94,7 +94,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTA=",  
      "grades": []   },
   {
-    "entityId": 11,
+    "id": 11,
     "code": "UG9rZW1vbjowMTE=",
     "name": "Metapod",
     "email": "metapod@gmail.com",
@@ -103,7 +103,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTE=",  
      "grades": []   },
   {
-    "entityId": 12,
+    "id": 12,
     "code": "UG9rZW1vbjowMTI=",
     "name": "Butterfree",
     "email": "butterfree@gmail.com",
@@ -112,7 +112,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTI=",  
      "grades": []   },
   {
-    "entityId": 13,
+    "id": 13,
     "code": "UG9rZW1vbjowMTM=",
     "name": "Weedle",
     "email": "weedle@gmail.com",
@@ -121,7 +121,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTM=",  
      "grades": []   },
   {
-    "entityId": 14,
+    "id": 14,
     "code": "UG9rZW1vbjowMTQ=",
     "name": "Kakuna",
     "email": "kakuna@gmail.com",
@@ -130,7 +130,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTQ=",  
      "grades": []   },
   {
-    "entityId": 15,
+    "id": 15,
     "code": "UG9rZW1vbjowMTU=",
     "name": "Beedrill",
     "email": "beedrill@gmail.com",
@@ -139,7 +139,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTU=",  
      "grades": []   },
   {
-    "entityId": 16,
+    "id": 16,
     "code": "UG9rZW1vbjowMTY=",
     "name": "Pidgey",
     "email": "pidgey@gmail.com",
@@ -148,7 +148,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTY=",  
      "grades": []   },
   {
-    "entityId": 17,
+    "id": 17,
     "code": "UG9rZW1vbjowMTc=",
     "name": "Pidgeotto",
     "email": "pidgeotto@gmail.com",
@@ -157,7 +157,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTc=",  
      "grades": []   },
   {
-    "entityId": 18,
+    "id": 18,
     "code": "UG9rZW1vbjowMTg=",
     "name": "Pidgeot",
     "email": "pidgeot@gmail.com",
@@ -166,7 +166,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTg=",  
      "grades": []   },
   {
-    "entityId": 19,
+    "id": 19,
     "code": "UG9rZW1vbjowMTk=",
     "name": "Rattata",
     "email": "rattata@gmail.com",
@@ -175,7 +175,7 @@
     "url": "/pokemon/UG9rZW1vbjowMTk=",  
      "grades": []   },
   {
-    "entityId": 20,
+    "id": 20,
     "code": "UG9rZW1vbjowMjA=",
     "name": "Raticate",
     "email": "raticate@gmail.com",
@@ -184,7 +184,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjA=",  
      "grades": []   },
   {
-    "entityId": 21,
+    "id": 21,
     "code": "UG9rZW1vbjowMjE=",
     "name": "Spearow",
     "email": "spearow@gmail.com",
@@ -193,7 +193,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjE=",  
      "grades": []   },
   {
-    "entityId": 22,
+    "id": 22,
     "code": "UG9rZW1vbjowMjI=",
     "name": "Fearow",
     "email": "fearow@gmail.com",
@@ -202,7 +202,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjI=",  
      "grades": []   },
   {
-    "entityId": 23,
+    "id": 23,
     "code": "UG9rZW1vbjowMjM=",
     "name": "Ekans",
     "email": "ekans@gmail.com",
@@ -211,7 +211,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjM=",  
      "grades": []   },
   {
-    "entityId": 24,
+    "id": 24,
     "code": "UG9rZW1vbjowMjQ=",
     "name": "Arbok",
     "email": "arbok@gmail.com",
@@ -220,7 +220,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjQ=",  
      "grades": []   },
   {
-    "entityId": 25,
+    "id": 25,
     "code": "UG9rZW1vbjowMjU=",
     "name": "Pikachu",
     "email": "pikachu@gmail.com",
@@ -229,7 +229,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjU=",  
      "grades": []   },
   {
-    "entityId": 26,
+    "id": 26,
     "code": "UG9rZW1vbjowMjY=",
     "name": "Raichu",
     "email": "raichu@gmail.com",
@@ -238,7 +238,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjY=",  
      "grades": []   },
   {
-    "entityId": 27,
+    "id": 27,
     "code": "UG9rZW1vbjowMjc=",
     "name": "Sandshrew",
     "email": "sandshrew@gmail.com",
@@ -247,7 +247,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjc=",  
      "grades": []   },
   {
-    "entityId": 28,
+    "id": 28,
     "code": "UG9rZW1vbjowMjg=",
     "name": "Sandslash",
     "email": "sandslash@gmail.com",
@@ -256,7 +256,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjg=",  
      "grades": []   },
   {
-    "entityId": 29,
+    "id": 29,
     "code": "UG9rZW1vbjowMjk=",
     "name": "Nidoran-F",
     "email": "nidoran-f@gmail.com",
@@ -265,7 +265,7 @@
     "url": "/pokemon/UG9rZW1vbjowMjk=",  
      "grades": []   },
   {
-    "entityId": 30,
+    "id": 30,
     "code": "UG9rZW1vbjowMzA=",
     "name": "Nidorina",
     "email": "nidorina@gmail.com",
@@ -274,7 +274,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzA=",  
      "grades": []   },
   {
-    "entityId": 31,
+    "id": 31,
     "code": "UG9rZW1vbjowMzE=",
     "name": "Nidoqueen",
     "email": "nidoqueen@gmail.com",
@@ -283,7 +283,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzE=",  
      "grades": []   },
   {
-    "entityId": 32,
+    "id": 32,
     "code": "UG9rZW1vbjowMzI=",
     "name": "Nidoran-M",
     "email": "nidoran-m@gmail.com",
@@ -292,7 +292,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzI=",  
      "grades": []   },
   {
-    "entityId": 33,
+    "id": 33,
     "code": "UG9rZW1vbjowMzM=",
     "name": "Nidorino",
     "email": "nidorino@gmail.com",
@@ -301,7 +301,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzM=",  
      "grades": []   },
   {
-    "entityId": 34,
+    "id": 34,
     "code": "UG9rZW1vbjowMzQ=",
     "name": "Nidoking",
     "email": "nidoking@gmail.com",
@@ -310,7 +310,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzQ=",  
      "grades": []   },
   {
-    "entityId": 35,
+    "id": 35,
     "code": "UG9rZW1vbjowMzU=",
     "name": "Clefairy",
     "email": "clefairy@gmail.com",
@@ -319,7 +319,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzU=",  
      "grades": []   },
   {
-    "entityId": 36,
+    "id": 36,
     "code": "UG9rZW1vbjowMzY=",
     "name": "Clefable",
     "email": "clefable@gmail.com",
@@ -328,7 +328,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzY=",  
      "grades": []   },
   {
-    "entityId": 37,
+    "id": 37,
     "code": "UG9rZW1vbjowMzc=",
     "name": "Vulpix",
     "email": "vulpix@gmail.com",
@@ -337,7 +337,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzc=",  
      "grades": []   },
   {
-    "entityId": 38,
+    "id": 38,
     "code": "UG9rZW1vbjowMzg=",
     "name": "Ninetales",
     "email": "ninetales@gmail.com",
@@ -346,7 +346,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzg=",  
      "grades": []   },
   {
-    "entityId": 39,
+    "id": 39,
     "code": "UG9rZW1vbjowMzk=",
     "name": "Jigglypuff",
     "email": "jigglypuff@gmail.com",
@@ -355,7 +355,7 @@
     "url": "/pokemon/UG9rZW1vbjowMzk=",  
      "grades": []   },
   {
-    "entityId": 40,
+    "id": 40,
     "code": "UG9rZW1vbjowNDA=",
     "name": "Wigglytuff",
     "email": "wigglytuff@gmail.com",
@@ -364,7 +364,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDA=",  
      "grades": []   },
   {
-    "entityId": 41,
+    "id": 41,
     "code": "UG9rZW1vbjowNDE=",
     "name": "Zubat",
     "email": "zubat@gmail.com",
@@ -373,7 +373,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDE=",  
      "grades": []   },
   {
-    "entityId": 42,
+    "id": 42,
     "code": "UG9rZW1vbjowNDI=",
     "name": "Golbat",
     "email": "golbat@gmail.com",
@@ -382,7 +382,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDI=",  
      "grades": []   },
   {
-    "entityId": 43,
+    "id": 43,
     "code": "UG9rZW1vbjowNDM=",
     "name": "Oddish",
     "email": "oddish@gmail.com",
@@ -391,7 +391,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDM=",  
      "grades": []   },
   {
-    "entityId": 44,
+    "id": 44,
     "code": "UG9rZW1vbjowNDQ=",
     "name": "Gloom",
     "email": "gloom@gmail.com",
@@ -400,7 +400,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDQ=",  
      "grades": []   },
   {
-    "entityId": 45,
+    "id": 45,
     "code": "UG9rZW1vbjowNDU=",
     "name": "Vileplume",
     "email": "vileplume@gmail.com",
@@ -409,7 +409,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDU=",  
      "grades": []   },
   {
-    "entityId": 46,
+    "id": 46,
     "code": "UG9rZW1vbjowNDY=",
     "name": "Paras",
     "email": "paras@gmail.com",
@@ -418,7 +418,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDY=",  
      "grades": []   },
   {
-    "entityId": 47,
+    "id": 47,
     "code": "UG9rZW1vbjowNDc=",
     "name": "Parasect",
     "email": "parasect@gmail.com",
@@ -427,7 +427,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDc=",  
      "grades": []   },
   {
-    "entityId": 48,
+    "id": 48,
     "code": "UG9rZW1vbjowNDg=",
     "name": "Venonat",
     "email": "venonat@gmail.com",
@@ -436,7 +436,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDg=",  
      "grades": []   },
   {
-    "entityId": 49,
+    "id": 49,
     "code": "UG9rZW1vbjowNDk=",
     "name": "Venomoth",
     "email": "venomoth@gmail.com",
@@ -445,7 +445,7 @@
     "url": "/pokemon/UG9rZW1vbjowNDk=",  
      "grades": []   },
   {
-    "entityId": 50,
+    "id": 50,
     "code": "UG9rZW1vbjowNTA=",
     "name": "Diglett",
     "email": "diglett@gmail.com",
