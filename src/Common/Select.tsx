@@ -2,7 +2,7 @@ import React from "react";
  
 type OptionValue = string | number;
 
-type Option<T extends OptionValue> = {
+export type Option<T extends OptionValue> = {
   value: T;
   label: string;
 };
@@ -21,7 +21,6 @@ export function Select<T extends OptionValue>(props: Props<T>) {
   }
   return (
     <select value={props.value} onChange={handleOnChange}>
-		 <option value="0">select</option>
       {props.options.map(option => (
         <option key={option.value} value={option.value}>
           {option.label}

@@ -6,6 +6,9 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 import { useStudent } from '../useStudent';
 import { StudentActions } from '../actions';
 import { Select } from '../../Common/Select';
+import { IGrade } from '../../Grades/types';
+
+import { Option } from '../../Common/Select'
 
 interface IProps {
 }
@@ -15,8 +18,17 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 	const { entity: student, formMode, canEdit, gradesAll } = state;
 	const { grades } = student!;
 
-	const already = student!.grades.map(g => g.gradeId);
-	const gradesUnassigned = gradesAll.filter(grade => !already.includes(grade.id))
+	let options: Option<number>[] = [];
+
+	if (canEdit) {
+		const already = student!.grades.map(g => g.gradeId);
+		const gradesUnassigned: IGrade[] = gradesAll.filter(grade => !already.includes(grade.id))
+		options= gradesUnassigned.map(grade => { 
+						return {value: grade.id, label: grade.name} 
+					})
+		options.unshift({value: 0, label: 'select'})
+	}
+
    return (
       <div className="name-container">
 			{ grades.length === 0 && 
@@ -61,7 +73,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 							<tr>
 								<td>
 									<Select
-										options={gradesUnassigned.map(grade => { return { value: grade.id, label: grade.name } })}
+										options={options}
 										value={0}
 										onChange={(gradeId: number) => 
 											dispatch(StudentActions.assignGrade({
