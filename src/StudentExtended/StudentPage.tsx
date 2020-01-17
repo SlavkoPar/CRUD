@@ -59,8 +59,6 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 					saveStorage={saveStorage}
 					currentPage={currentPage}
 					pageCount={pageCount}
-					marginPagesDisplayed={2}
-					pageRangeDisplayed={5}
 					renderColumns = {(entity: IStudent) => [
 						<li key="types" style={{minWidth: '60%'}}>{entity.types.join(', ')}</li>,
 						<li key="img"><img src={entity.avatar} style={{height: '30px'}} alt="Slika"></img></li>,

@@ -13,15 +13,15 @@ interface IProps<T extends IEntity> {
 	saveStorage: (s: string) => void,
 	currentPage: number,
 	pageCount: number,
-	pageRangeDisplayed: number;
-	marginPagesDisplayed: number;
+	// pageRangeDisplayed: number;
+	// marginPagesDisplayed: number;
 }
 
 export const EntityList: <T extends IEntity>
 					(props: IProps<T>) => React.ReactElement<IProps<T>> = (props) => {
 	const { 
 		entities, dispatch, renderColumns, saveStorage,
-		pageCount, pageRangeDisplayed, marginPagesDisplayed, 
+		pageCount //, pageRangeDisplayed, marginPagesDisplayed, 
 	} = props;
 	
 	const display = (id: number) => dispatch(EntityActions.display(id));
@@ -57,8 +57,8 @@ export const EntityList: <T extends IEntity>
 					nextLinkClassName={"next_page"}
 					disabledClassName={"disabled"}
 					activeClassName={"active"}
-					pageRangeDisplayed={pageRangeDisplayed}
-					marginPagesDisplayed={marginPagesDisplayed}
+					marginPagesDisplayed={2}
+					pageRangeDisplayed={5}
 				/>
 			</div>
 
