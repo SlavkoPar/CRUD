@@ -65,7 +65,7 @@ export const entityReducer: <
 				}
 			}
 
-			case ActionTypes.CLOSE: 
+			case ActionTypes.CLOSE_FORM: 
 				return {
 					...state,
 					formMode: 'none',

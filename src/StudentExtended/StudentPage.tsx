@@ -16,11 +16,11 @@ interface IPageProps {
 	query: string;
 }
 
-const studentJoinGrades = (student: IStudent | undefined, gradesAll: IGrade[]) : IStudentGrade[]=> {
+const studentJoinGrades = (student: IStudent, gradesAll: Record<number, IGrade>) : IStudentGrade[]=> {
 	if (student === undefined || student.grades.length === 0)
 		return [];
 	return student.grades.map(sg => { 
-		return { ...sg, name: gradesAll.find(grade => grade.id === sg.gradeId)?.name }
+		return { ...sg, name: gradesAll[sg.gradeId].name }
 	})
 }
 

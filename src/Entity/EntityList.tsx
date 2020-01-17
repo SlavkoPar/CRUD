@@ -29,7 +29,7 @@ export const EntityList: <T extends IEntity>
 	const remove = (id: number) => dispatch(EntityActions.remove({saveStorage, id}));
 
 	return (
-   	<div style={{border: '1px solid lightblue'}} id="react-paginate">
+   	<div style={{border: '0px solid lightblue'}} id="react-paginate">
 			<ul className="entity-list">
 				{entities.map(entity => (
 					<li key={entity.id}>
@@ -42,7 +42,8 @@ export const EntityList: <T extends IEntity>
 						/>	
 					</li>
 				))}
-			</ul>		
+			</ul>
+
 			<ReactPaginate
 				previousLabel={"← Previous"}
 				nextLabel={"Next →"}
@@ -58,6 +59,7 @@ export const EntityList: <T extends IEntity>
 				pageRangeDisplayed={pageRangeDisplayed}
 				marginPagesDisplayed={marginPagesDisplayed}
 			/>
+
 			<button onClick={() => dispatch(EntityActions.add({ entities: entities }))}>Add new</button>			
 		</div>
   )

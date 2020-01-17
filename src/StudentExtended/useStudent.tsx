@@ -28,10 +28,12 @@ interface IProps {
 export const StudentProvider: React.FC<IProps> = ({ children }) => {
 	const [state, dispatch] = useReducer(Reducer, initialState)
 
+	
 	if (StudentContext === undefined) {
-		state.gradesAll = jsonGrades.map(grade => { 
-			return { ...grade, words: grade.name.split(',')} 
-		})
+		const { gradesAll } = state;
+		jsonGrades.map(grade => 
+			gradesAll[grade.id] = { ...grade, words: grade.name.split(',')}
+		)
 		StudentContext = createContext<IStudentContext>({ state, dispatch })
 	}
 

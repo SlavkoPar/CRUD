@@ -10,7 +10,7 @@ export interface IStudent extends IEntity {
 }
 
 export interface IStudentState extends IEntityState<IStudent> {
-	gradesAll: IGrade[]
+	gradesAll: Record<number, IGrade>
 }
 
 export interface IStudentGrade {

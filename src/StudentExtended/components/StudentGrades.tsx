@@ -22,7 +22,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 
 	if (canEdit) {
 		const already = student!.grades.map(g => g.gradeId);
-		const gradesUnassigned: IGrade[] = gradesAll.filter(grade => !already.includes(grade.id))
+		const gradesUnassigned: IGrade[] =Object.values(gradesAll).filter(grade => !already.includes(grade.id))
 		options= gradesUnassigned.map(grade => { 
 						return {value: grade.id, label: grade.name} 
 					})
