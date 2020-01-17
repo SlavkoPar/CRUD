@@ -5,7 +5,7 @@ import AutosuggestHighlightMatch from "autosuggest-highlight/match";
 import AutosuggestHighlightParse from "autosuggest-highlight/parse";
 
 import './AutoSuggest.css'
-import { IGrade } from '../../Grades/types';
+import { IGrade } from '../Grades/types';
 
 
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expression
@@ -16,14 +16,14 @@ function escapeRegexCharacters(str: string): string {
 
 
 
-const StudentAutosuggestMulti = Autosuggest as { new (): Autosuggest<IGrade> };
+const EntityAutosuggestMulti = Autosuggest as { new (): Autosuggest<IGrade> };
 
 interface IProps {
 	gradesUnassigned: IGrade[], 
 	assignStudentGrade: (gradeId: number) => void
 }
 
-export class AutoSuggestGrade extends React.Component<IProps, any> {
+export class AutoSuggestEntity extends React.Component<IProps, any> {
 
 	state: any;
 
@@ -40,7 +40,7 @@ export class AutoSuggestGrade extends React.Component<IProps, any> {
 	render(): JSX.Element {
 		 const {value, suggestions} = this.state;
 
-		 return <StudentAutosuggestMulti
+		 return <EntityAutosuggestMulti
 		 	  onSuggestionsClearRequested={this.onSuggestionsClearRequested}  // (sl) added
 			  multiSection={false}
 			  suggestions={suggestions}
