@@ -29,7 +29,7 @@ createActionPayload<ActionTypes.GET_ALL, {
 */
 
 export const EntityActions = {  // : IEntityActions<IEntity>
-	close: createAction<typeof ActionTypes.CLOSE_FORM>(ActionTypes.CLOSE_FORM),
+	closeForm: createAction<typeof ActionTypes.CLOSE_FORM>(ActionTypes.CLOSE_FORM),
 	cancel: createAction<typeof ActionTypes.CANCEL>(ActionTypes.CANCEL),
 	setLoading: createActionPayload<typeof ActionTypes.SET_LOADING, boolean>(ActionTypes.SET_LOADING),
 	getAll: createActionPayload<typeof ActionTypes.GET_ALL, { entities: IEntity[]; pageSize: number; }>(ActionTypes.GET_ALL),

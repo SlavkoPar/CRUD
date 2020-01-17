@@ -13,7 +13,7 @@ interface IProps {
 
 export const StudentForm: React.FC<IProps> = (props: IProps) => {
 	const { state, dispatch } = useStudent();
-	const { entities, entity, formMode, canEdit } = state;
+	const { entity, formMode, canEdit } = state;
 
 	const { saveStorage } = props;
 
@@ -41,7 +41,7 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					style={{float:'right'}}
 					className="button-remove"
 					title="Close"
-					onClick={() => { dispatch(EntityActions.close())}}
+					onClick={() => { dispatch(EntityActions.closeForm())}}
 				>
 					<FontAwesomeIcon icon={faWindowClose} size="2x" color='lightblue' />
 				</button>				

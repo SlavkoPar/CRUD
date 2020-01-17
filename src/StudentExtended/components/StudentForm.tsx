@@ -42,7 +42,7 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					style={{float:'right'}}
 					className="button-remove"
 					title="Close"
-					onClick={() => { dispatch(EntityActions.close())}}
+					onClick={() => { dispatch(EntityActions.closeForm())}}
 				>
 					<FontAwesomeIcon icon={faWindowClose} size="2x" color='lightblue' />
 				</button>				
@@ -55,7 +55,6 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					edit = {() => dispatch(EntityActions.edit(entity!.id))}
 					remove = {() => dispatch(EntityActions.remove({ saveStorage, id: entity!.id }))}
 				/>
-				<br />
 				<StudentGrades	/>
 			</div>
 		}

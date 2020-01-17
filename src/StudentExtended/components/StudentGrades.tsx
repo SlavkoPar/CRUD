@@ -59,7 +59,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 									<td>
 										<button className="button-remove" title="Remove Grade" 
 											onClick={(e) => { 
-												e.stopPropagation();
+												// e.stopPropagation();
 												e.preventDefault();
 												dispatch(StudentActions.removeGrade({studentId: student!.id, gradeId: grade.gradeId}))
 											}}>
