@@ -34,7 +34,7 @@ export const EntityActions = {  // : IEntityActions<IEntity>
 	setLoading: createActionPayload<typeof ActionTypes.SET_LOADING, boolean>(ActionTypes.SET_LOADING),
 	getAll: createActionPayload<typeof ActionTypes.GET_ALL, { entities: IEntity[]; pageSize: number; }>(ActionTypes.GET_ALL),
 	get: createActionPayload<typeof ActionTypes.GET, number>(ActionTypes.GET),
-	add: createActionPayload<typeof ActionTypes.ADD, { entities: IEntity[] }>(ActionTypes.ADD),
+	add: createAction<typeof ActionTypes.ADD>(ActionTypes.ADD),
 	display: createActionPayload<typeof ActionTypes.DISPLAY, number>(ActionTypes.DISPLAY),
 	edit: createActionPayload<typeof ActionTypes.EDIT, number>(ActionTypes.EDIT),
 	store: createActionPayload<typeof ActionTypes.STORE, { saveStorage: (s: string) => void, entity: IEntity }>(ActionTypes.STORE),

@@ -33,7 +33,7 @@ export const entityReducer: <
 			}    
 
 			case ActionTypes.ADD: {
-				const { entities } = action.payload
+				const { entities } =  state // action.payload
 				return {
 					...state,
 					formMode: 'add',

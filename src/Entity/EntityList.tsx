@@ -62,7 +62,7 @@ export const EntityList: <T extends IEntity>
 				/>
 			</div>
 
-			<button onClick={() => dispatch(EntityActions.add({ entities: entities }))}>Add new</button>			
+			<button onClick={() => dispatch(EntityActions.add())}>Add new</button>			
 		</div>
   )
 }
