@@ -52,6 +52,7 @@ nav a {
 
 .a {
 	grid-area: A;
+	margin-left: 20px;
  }
  
  .b {
@@ -125,15 +126,34 @@ ul.entity-columns > li {
 */
 
 #react-paginate ul {
-	display: inline-block;
+   display: inline-block;
 	padding-left: 15px;
 	padding-right: 15px;
 }
 
 #react-paginate li {
-	display: inline-block;
+   display: inline-block;
+   border: 1px solid rgb(224, 224, 224);
+   color: #000;
+   cursor: pointer;
 	padding-left: 10px;
+   margin-right: 3px;
+   border-radius: 5px;
+   margin-bottom: 5px;
 }
+
+ #react-paginate li a {
+     padding: 2px 5px;
+     display: inline-block;
+     color: #000;
+     outline: none;
+ }
+
+#react-paginate li.active {
+   background: rgb(224, 224, 224);
+   outline: none;
+}
+
 
 /******************/
 a {

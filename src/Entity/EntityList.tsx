@@ -29,7 +29,7 @@ export const EntityList: <T extends IEntity>
 	const remove = (id: number) => dispatch(EntityActions.remove({saveStorage, id}));
 
 	return (
-   	<div style={{border: '0px solid lightblue'}} id="react-paginate">
+   	<div style={{border: '0px solid lightblue'}}>
 			<ul className="entity-list">
 				{entities.map(entity => (
 					<li key={entity.id}>
@@ -44,21 +44,23 @@ export const EntityList: <T extends IEntity>
 				))}
 			</ul>
 
-			<ReactPaginate
-				previousLabel={"← Previous"}
-				nextLabel={"Next →"}
-				breakLabel={<span className="gap">...</span>}
-				pageCount={pageCount}
-				onPageChange={(selectedItem: { selected: number }) => dispatch(EntityActions.goToPage(selectedItem.selected))}
-				// forcePage={currentPage}
-				containerClassName={"pagination"}
-				previousLinkClassName={"previous_page"}
-				nextLinkClassName={"next_page"}
-				disabledClassName={"disabled"}
-				activeClassName={"active"}
-				pageRangeDisplayed={pageRangeDisplayed}
-				marginPagesDisplayed={marginPagesDisplayed}
-			/>
+			<div id="react-paginate">
+				<ReactPaginate
+					previousLabel={"← Previous"}
+					nextLabel={"Next →"}
+					breakLabel={<span className="gap">...</span>}
+					pageCount={pageCount}
+					onPageChange={(selectedItem: { selected: number }) => dispatch(EntityActions.goToPage(selectedItem.selected))}
+					// forcePage={currentPage}
+					containerClassName={"pagination"}
+					previousLinkClassName={"previous_page"}
+					nextLinkClassName={"next_page"}
+					disabledClassName={"disabled"}
+					activeClassName={"active"}
+					pageRangeDisplayed={pageRangeDisplayed}
+					marginPagesDisplayed={marginPagesDisplayed}
+				/>
+			</div>
 
 			<button onClick={() => dispatch(EntityActions.add({ entities: entities }))}>Add new</button>			
 		</div>
