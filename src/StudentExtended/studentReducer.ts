@@ -18,16 +18,19 @@ export const initialStudent: IStudent = {
 export const combineReducers: (
 		entityReducer: React.Reducer<IStudentState, AcceptedActions>, 
 		studentReducer: React.Reducer<IStudentState, StudentAcceptedActions>) => 
-					React.Reducer<IStudentState, AcceptedActions & StudentAcceptedActions> = (entityReducer, studentReducer) => {
+			React.Reducer<
+				IStudentState, 
+				AcceptedActions & StudentAcceptedActions
+			> = (entityReducer, studentReducer) => {
 	return (prevState, action) => {
 		
-		// when overriden in Student, no need to call entityReducer
+		// when overriden in studentReducer, no need to call entityReducer
 		if (action.type in StudentActionTypes)
 			return studentReducer(prevState, action)
 
 		const state = entityReducer(prevState, action);
 		return studentReducer(state, action)
-	 };	
+	};	
 }
 
 
