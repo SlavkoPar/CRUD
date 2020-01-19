@@ -24,7 +24,7 @@ export const combineReducers: (
 			> = (entityReducer, studentReducer) => {
 	return (prevState, action) => {
 		
-		// when overriden in studentReducer, no need to call entityReducer
+		// when action is overriden in studentReducer, no need to call entityReducer
 		if (action.type in StudentActionTypes)
 			return studentReducer(prevState, action)
 

@@ -23,9 +23,8 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 	
 	useEffect(() => {
 		dispatch(EntityActions.setLoading(true))
-		// let allStudents: IStudent[] = [...jsonStudents]
 		localStorageStudents = [...jsonStudents]
-		const entities : IEntity[] = localStorageStudents
+		const entities : IStudent[] = localStorageStudents
 		dispatch(EntityActions.getAll({ entities, pageSize}))
 		dispatch(EntityActions.setLoading(false))
 	}, [dispatch, props.query]);
