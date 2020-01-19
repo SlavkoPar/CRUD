@@ -1,3 +1,7 @@
+/*
+	https://patrickdesjardins.com/blog/typescript-with-strong-typed-action-when-using-usereducer-of-react-hooks
+*/
+
 /**
  * Create an action that has a strongly typed string literal name with a strongly typed payload
  */

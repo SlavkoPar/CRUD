@@ -19,9 +19,7 @@ interface IPageProps {
 const studentJoinGrades = (student: IStudent, gradesAll: Record<number, IGrade>) : IStudentGrade[]=> {
 	if (student === undefined || student.grades.length === 0)
 		return [];
-	return student.grades.map(sg => { 
-		return { ...sg, name: gradesAll[sg.gradeId].name }
-	})
+	return student.grades.map(sg => ({ ...sg, name: gradesAll[sg.gradeId].name }))
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
@@ -66,7 +64,7 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 							{entity.grades.length > 0 &&
 								<span>
 									Grades:&nbsp;
-									{entity.grades.map(g => { return `${g.name}:${g.grade}`}).join(', ')}
+									{entity.grades.map(g => `${g.name}:${g.grade}`).join(', ')}
 								</span>
 							}
 						</li>,
