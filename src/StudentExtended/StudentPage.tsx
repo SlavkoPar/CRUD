@@ -95,6 +95,7 @@ let localStorageStudents: IStudent[] = []
 
 export const saveStorage = (s: string) => {
 	localStorageStudents = JSON.parse(s)
+	// localStorage.setItem("Students", JSON.stringify(localStorageStudents));
 }
 
 
