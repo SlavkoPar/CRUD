@@ -27,12 +27,12 @@ We are going to develop component <b>EntityList</b> which uses <b>IEntity</b> in
 <br/>
 TypeScript enables extension of the interfaces, and we are going to create interface
 <b>IStudent</b> which extends <b>IEntity</b> interface.<br />
+
 ```JSX
 export interface IEntity {
 	id: number; 
 	name: string;
 }
-
 export interface IStudent extends IEntity {
 	code: string;
 	email: string;
@@ -52,6 +52,7 @@ I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b
 <br/>Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer</b> . That way we override behavior of Entity. 
 We process some actions in <b>studentReducer</b>, like GET_ALL, without processing that action in the <b>entityReducer</b>.
 <br />
+
 ```JSX
 export const initialStudent: IStudent = { 
 	id: 0, 
@@ -63,20 +64,15 @@ export const initialStudent: IStudent = {
 	types: [],
 	grades: []
 };
-
 export const combineReducers: (
 		entityReducer: React.Reducer<IStudentState, AcceptedActions>, 
 		studentReducer: React.Reducer<IStudentState, StudentAcceptedActions>) => 
-			React.Reducer<
-				IStudentState, 
-				AcceptedActions & StudentAcceptedActions
-			> = (entityReducer, studentReducer) => {
-	return (prevState, action) => {
-		
+			React.Reducer<IStudentState, AcceptedActions & StudentAcceptedActions> = 
+				(entityReducer, studentReducer) => {
+	return (prevState, action) => {	
 		// when action is overriden in studentReducer, no need to call entityReducer
 		if (action.type in StudentActionTypes)
 			return studentReducer(prevState, action)
-
 		const state = entityReducer(prevState, action);
 		return studentReducer(state, action)
 	};	
@@ -85,6 +81,7 @@ export const combineReducers: (
 export const studentReducer: (initialEntity: IStudent) => 
 			React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
 	return (state, action) =>  {
+
 		switch(action.type) {
 
 			case StudentActionTypes.GET_ALL:  {
@@ -112,8 +109,7 @@ export const studentReducer: (initialEntity: IStudent) =>
 					entities: students,
 					entity: { ...students.find(student => student.id === studentId)! }
 				}				
-			}
-	
+			}	
 			default:
 				return state
 		}		
