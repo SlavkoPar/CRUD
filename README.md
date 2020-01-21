@@ -27,6 +27,7 @@ We are going to develop component <b>EntityList</b> which uses <b>IEntity</b> in
 <br/>
 TypeScript enables extension of the interfaces, and we are going to create interface
 <b>IStudent</b> which extends <b>IEntity</b> interface.<br />
+```JSX
 <br />export interface IEntity {
 <br />&nbsp;&nbsp;&nbsp;id: number; 
 <br />&nbsp;&nbsp;&nbsp;name: string;
@@ -38,6 +39,7 @@ TypeScript enables extension of the interfaces, and we are going to create inter
 <br />&nbsp;&nbsp;&nbsp;avatar: string;
 <br />&nbsp;&nbsp;&nbsp;grades: IStudentGrade[]
 <br />}
+```
 <br />
 <br />
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
@@ -48,6 +50,78 @@ TypeScript enables extension of the interfaces, and we are going to create inter
 I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b>Entity</b>. 
 <br/>Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer</b> . That way we override behavior of Entity. 
 We process some actions in <b>studentReducer</b>, like GET_ALL, without processing that action in the <b>entityReducer</b>.
+<br />
+```JSX
+export const initialStudent: IStudent = { 
+	id: 0, 
+	name: '',
+	url: '',
+	code: '',
+	email: '',
+	avatar: 'https://img.pokemondb.net/artwork/diglett.jpg',
+	types: [],
+	grades: []
+};
+
+export const combineReducers: (
+		entityReducer: React.Reducer<IStudentState, AcceptedActions>, 
+		studentReducer: React.Reducer<IStudentState, StudentAcceptedActions>) => 
+			React.Reducer<
+				IStudentState, 
+				AcceptedActions & StudentAcceptedActions
+			> = (entityReducer, studentReducer) => {
+	return (prevState, action) => {
+		
+		// when action is overriden in studentReducer, no need to call entityReducer
+		if (action.type in StudentActionTypes)
+			return studentReducer(prevState, action)
+
+		const state = entityReducer(prevState, action);
+		return studentReducer(state, action)
+	};	
+}
+
+export const studentReducer: (initialEntity: IStudent) => 
+			React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
+	return (state, action) =>  {
+		switch(action.type) {
+
+			case StudentActionTypes.GET_ALL:  {
+				return {
+					...state,
+					entities: action.payload.entities,
+					pageCount: Math.ceil(action.payload.entities.length / action.payload.pageSize)
+				}
+			}
+
+			case StudentActionTypes.STUDENT_ASSIGN_GRADE: {
+				const { studentId, gradeId } = action.payload
+				const students = state.entities.map(student => 
+					student.id !== studentId ?
+						{...student} :
+						{...student, grades: [...student.grades, { 
+								name: state.gradesAll[gradeId].name,
+								gradeId,
+								grade: 0
+							}]
+						}
+				)
+				return {
+					...state,
+					entities: students,
+					entity: { ...students.find(student => student.id === studentId)! }
+				}				
+			}
+	
+			default:
+				return state
+		}		
+	}
+}
+
+export const Reducer = combineReducers(entityReducer(initialStudent), studentReducer(initialStudent));
+```
+<br />
 			</div>
 			</div>
 		</div>
