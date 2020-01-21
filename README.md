@@ -28,17 +28,18 @@ We are going to develop component <b>EntityList</b> which uses <b>IEntity</b> in
 TypeScript enables extension of the interfaces, and we are going to create interface
 <b>IStudent</b> which extends <b>IEntity</b> interface.<br />
 ```JSX
-<br />export interface IEntity {
-<br />&nbsp;&nbsp;&nbsp;id: number; 
-<br />&nbsp;&nbsp;&nbsp;name: string;
-<br />}
-<br /><br />export interface IStudent extends IEntity {
-<br />&nbsp;&nbsp;&nbsp;code: string;
-<br />&nbsp;&nbsp;&nbsp;email: string;
-<br />&nbsp;&nbsp;&nbsp;types: string[];
-<br />&nbsp;&nbsp;&nbsp;avatar: string;
-<br />&nbsp;&nbsp;&nbsp;grades: IStudentGrade[]
-<br />}
+export interface IEntity {
+	id: number; 
+	name: string;
+}
+
+export interface IStudent extends IEntity {
+	code: string;
+	email: string;
+	types: string[];
+	avatar: string;
+	grades: IStudentGrade[]
+}
 ```
 <br />
 <br />
