@@ -64,6 +64,7 @@ export const initialStudent: IStudent = {
 	types: [],
 	grades: []
 };
+
 export const combineReducers: (
 		entityReducer: React.Reducer<IStudentState, AcceptedActions>, 
 		studentReducer: React.Reducer<IStudentState, StudentAcceptedActions>) => 
@@ -79,7 +80,7 @@ export const combineReducers: (
 }
 
 export const studentReducer: (initialEntity: IStudent) => 
-			React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
+		React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
 	return (state, action) =>  {
 
 		switch(action.type) {
@@ -88,7 +89,8 @@ export const studentReducer: (initialEntity: IStudent) =>
 				return {
 					...state,
 					entities: action.payload.entities,
-					pageCount: Math.ceil(action.payload.entities.length / action.payload.pageSize)
+					pageCount: Math.ceil(action.payload.entities.length / 
+															action.payload.pageSize)
 				}
 			}
 
@@ -98,10 +100,9 @@ export const studentReducer: (initialEntity: IStudent) =>
 					student.id !== studentId ?
 						{...student} :
 						{...student, grades: [...student.grades, { 
-								name: state.gradesAll[gradeId].name,
-								gradeId,
-								grade: 0
-							}]
+							name: state.gradesAll[gradeId].name,
+							gradeId,
+							grade: 0}]
 						}
 				)
 				return {
