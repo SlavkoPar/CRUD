@@ -28,9 +28,25 @@ We are going to develop component EntityList which uses IEntity interface.
 TypeScript enables extension of the interfaces, and we are going to create interface
 IStudent which extends IEntity interface.<br />
 
+<pre>{`
+export interface IEntity {
+  id: number; 
+  name: string;
+}
+
+export interface IStudent extends IEntity {
+  code: string;
+  email: string;
+  types: string[];
+  avatar: string;
+  grades: IStudentGrade[]
+}
+`}</pre>
+
+<br/>
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
 
-Now we can reuse EntityList component, because IStudent can be converted to IEntity.
+<br/>Now we can reuse EntityList component, because IStudent can be converted to IEntity.
 				</div>
 
 				<h3>Student overrides Entity</h3>
