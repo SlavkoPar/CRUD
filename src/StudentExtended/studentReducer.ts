@@ -40,10 +40,11 @@ export const studentReducer: (initialEntity: IStudent) =>
 		switch(action.type) {
 
 			case StudentActionTypes.GET_ALL:  {
+				const { entities, pageSize } = action.payload
 				return {
 					...state,
-					entities: action.payload.entities,
-					pageCount: Math.ceil(action.payload.entities.length / action.payload.pageSize)
+					entities: entities,
+					pageCount: Math.ceil(entities.length / pageSize)
 				}
 			}
 
