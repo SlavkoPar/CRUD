@@ -21,12 +21,25 @@ The CRUD paradigm is common in constructing web applications. The model must be 
 <br/>You can learn about these technologies from many sources, one of them could be:<br />
 <a href="https://react.christmas/2019/7?utm_campaign=React%2BNewsletter&utm_medium=email&utm_source=React_Newsletter_190" target="_blank">Manage Global State with Context API and Hooks</a>
 				</div>
-				<br/><h3>Basic Idea</h3>
+				<h3>Basic Idea</h3>
 				<div>
-We are going to develop component EntityList which uses IEntity interface.
+We are going to develop component <b>EntityList</b> which uses <b>IEntity</b> interface.
 <br/>
 TypeScript enables extension of the interfaces, and we are going to create interface
-IStudent which extends IEntity interface.<br />
+<b>IStudent</b> which extends <b>IEntity</b> interface.<br />
+<br /><br />export interface IEntity {
+	id: number; 
+	name: string;
+	url: string;
+}
+<br /><br />export interface IStudent extends IEntity {
+	code: string;
+	email: string;
+	types: string[];
+	avatar: string;
+	grades: IStudentGrade[]
+}
+<br />
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
 <br/>Now we can reuse EntityList component, because IStudent can be converted to IEntity.
 				</div>
