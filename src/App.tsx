@@ -3,6 +3,7 @@ import './App.css';
 import { HashRouter as Router, Route, Switch, Link  } from 'react-router-dom'
 import { StudentPage } from './Student/StudentPage';
 import { StudentPageExtended } from './StudentExtended/StudentPage';
+import { Documentation } from './Documentation';
 
 const App: React.FC = () => {
   return (
@@ -23,10 +24,7 @@ const App: React.FC = () => {
 			<div>
 				<Switch>
 					<Route exact path="/xyz">
-						<ul>
-							<li>IStudent extends IEntity</li>
-							<li>IStudentState extends IEntityState</li>
-						</ul>
+						<Documentation />
 					</Route>
 					<Route path="/student">
 						<StudentPage query="all" />
