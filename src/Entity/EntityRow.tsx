@@ -28,7 +28,7 @@ export const EntityRow: <T extends IEntity>
 				</a>
 			</li>
 
-			{ renderColumns(entity) }
+			
 
 			<li key="buttons">
 			{hoverProps.isHovered &&
@@ -42,6 +42,8 @@ export const EntityRow: <T extends IEntity>
 				</button>
 			}
 			</li>
+
+			{ renderColumns(entity) }
 		</ul>
 	)
 };
