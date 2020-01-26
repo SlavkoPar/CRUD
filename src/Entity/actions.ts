@@ -15,6 +15,31 @@ export enum ActionTypes {
 	GO_TO_PAGE = 'GO_TO_PAGE'
 }
 
+/*
+export type IEntityActions<T extends IEntity> = {
+	closeForm: () => ActionsWithoutPayload<ActionTypes.CLOSE_FORM>;
+	 
+	cancel: () => ActionsWithoutPayload<ActionTypes.CANCEL>;
+	setLoading: (b: boolean) => 
+				ActionsWithPayload<typeof ActionTypes.SET_LOADING, boolean>;
+	getAll: (payload: {entities: T[]; pageSize: number; }) => 
+				ActionsWithPayload<typeof ActionTypes.GET_ALL, {entities: T[]; pageSize: number; }>;
+	get: (payload: number) => 
+				ActionsWithPayload<typeof ActionTypes.GET, number>;
+	add: () => ActionsWithoutPayload<typeof ActionTypes.ADD>;
+	display: (payload: number) => 
+				ActionsWithPayload<typeof ActionTypes.DISPLAY, number>;
+	edit: (payload: number) => 
+				ActionsWithPayload<typeof ActionTypes.EDIT, number>;
+	store: (payload: { saveStorage: (s: string) => void, entity: T }) => 
+				ActionsWithPayload<typeof ActionTypes.STORE, { saveStorage: (s: string) => void, entity: IEntity }>;
+	remove: (payload: { saveStorage: (s: string) => void, id: number }) => 
+				ActionsWithPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, id: number }>;
+				
+	goToPage: (payload: number) => 
+				ActionsWithPayload<typeof ActionTypes.GO_TO_PAGE, number>;
+ };
+*/
 
 /*
 createActionPayload<ActionTypes.GET_ALL, {
