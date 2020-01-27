@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import jsonStudents from "./Students.json"
 
-import { useApp, AppProvider } from '../AppData/useApp'
+import { useApp } from '../AppData/useApp'
 
 import { useStudent, StudentProvider } from "./useStudent";
 
@@ -89,11 +89,9 @@ interface IProps {
 
 export const StudentPageExtended: React.FC<IProps> = (props: IProps) => {
 	return (
-		<AppProvider> {/* shared app data */}
-			<StudentProvider>
-				<Page query={props.query} />
-    		</StudentProvider>
-		</AppProvider>
+		<StudentProvider>
+			<Page query={props.query} />
+		</StudentProvider>
   );
 }
 
