@@ -2,7 +2,8 @@
 import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 import { IStudentState } from './types';
 import { Reducer } from './studentReducer';
-import jsonGrades from "../Grades/Grades.json"
+import { useApp } from '../AppData/useApp';
+// import jsonGrades from "../Grades/Grades.json"
 
 const initialState: IStudentState = { 
 	entities: [],
@@ -29,15 +30,15 @@ interface IProps {
 export const StudentProvider: React.FC<IProps> = ({ children }) => {
 	const [state, dispatch] = useReducer(Reducer, initialState)
 
-	const addGrades = () => {
-		const { gradesAll } = state;
-		jsonGrades.map(grade => 
-			gradesAll[grade.id] = { ...grade, words: grade.name.split(',')}
-		)
-	}
+	// const addGrades = () => {
+	// 	const { gradesAll } = state;
+	// 	jsonGrades.map(grade => 
+	// 		gradesAll[grade.id] = { ...grade, words: grade.name.split(',')}
+	// 	)
+	// }
 	
 	if (StudentContext === undefined) {
-		addGrades();
+		// addGrades();
 		StudentContext = createContext<IStudentContext>({ state, dispatch })
 	}
 

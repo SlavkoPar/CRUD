@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import jsonStudents from "./Students.json"
 
-import { StudentProvider } from "./useStudent";
-import { useStudent } from "./useStudent";
+import { useApp, AppProvider } from '../AppData/useApp'
+
+import { useStudent, StudentProvider } from "./useStudent";
 
 import { EntityList } from "../Entity/EntityList";
 import { StudentForm } from "./components/StudentForm";
@@ -23,8 +24,11 @@ const studentJoinGrades = (student: IStudent, gradesAll: Record<number, IGrade>)
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
+	const { state: appState } = useApp();
+	const { gradesAll } = appState;
+
 	const { state, dispatch } = useStudent();
-	const { entities, currentPage, pageCount, gradesAll } = state;
+	const { entities, currentPage, pageCount } = state;
 
 	const [currentData, setCurrentData] = useState<IStudent[]>([]);
 	const pageSize = 9;
@@ -84,10 +88,12 @@ interface IProps {
 }
 
 export const StudentPageExtended: React.FC<IProps> = (props: IProps) => {
-  return (
-    <StudentProvider>
-		 <Page query={props.query} />
-    </StudentProvider>
+	return (
+		<AppProvider> {/* shared app data */}
+			<StudentProvider>
+				<Page query={props.query} />
+    		</StudentProvider>
+		</AppProvider>
   );
 }
 

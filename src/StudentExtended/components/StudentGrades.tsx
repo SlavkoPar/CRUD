@@ -9,13 +9,17 @@ import { Select } from '../../Common/Select';
 import { IGrade } from '../../Grades/types';
 
 import { Option } from '../../Common/Select'
+import { useApp } from '../../AppData/useApp';
 
 interface IProps {
 }
 
 const StudentGrades: React.FC<IProps> = (props: IProps) => {
+	const { state: appState } = useApp();
+	const { gradesAll } = appState;
+
 	const { state, dispatch } = useStudent();
-	const { entity: student, formMode, canEdit, gradesAll } = state;
+	const { entity: student, formMode, canEdit } = state;
 	const { grades } = student!;
 
 	let options: Option<number>[] = [];
@@ -77,6 +81,7 @@ const StudentGrades: React.FC<IProps> = (props: IProps) => {
 											dispatch(StudentActions.assignGrade({
 												studentId: student!.id,
 												gradeId: gradeId,
+												gradeName: gradesAll[gradeId].name
 											}))
 										} 
 									/>

@@ -49,12 +49,12 @@ export const studentReducer: (initialEntity: IStudent) =>
 			}
 
 			case StudentActionTypes.STUDENT_ASSIGN_GRADE: {
-				const { studentId, gradeId } = action.payload
+				const { studentId, gradeId, gradeName } = action.payload
 				const students = state.entities.map(student => 
 					student.id !== studentId ?
 						{...student} :
 						{...student, grades: [...student.grades, { 
-								name: state.gradesAll[gradeId].name,
+								name: gradeName,
 								gradeId,
 								grade: 0
 							}]

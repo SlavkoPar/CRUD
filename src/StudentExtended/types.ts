@@ -10,7 +10,7 @@ export interface IStudent extends IEntity {
 }
 
 export interface IStudentState extends IEntityState<IStudent> {
-	gradesAll: Record<number, IGrade>
+	gradesAll: Record<number, IGrade>  // will be loaded from AppData
 }
 
 export interface IStudentGrade {
@@ -22,7 +22,8 @@ export interface IStudentGrade {
 export interface IStudentGradeIds {
 	studentId: number,
 	gradeId: number,
-	grade?: number
+	grade?: number,
+	gradeName?: string
 }
 
 
