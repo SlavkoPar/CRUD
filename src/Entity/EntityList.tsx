@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPaginate from 'react-paginate';
 
-import { EntityActions } from "./actions";
+import { EntityActionTypes } from "./actions";
 import { EntityRow } from "./EntityRow";
 import { IEntity } from "./types";
 
@@ -9,8 +9,10 @@ import { IEntity } from "./types";
 interface IProps<T extends IEntity> {
 	entities: T[],
 	dispatch: React.Dispatch<any>,
+	displayEntity: (id: number) => void,
+	editEntity: (id: number) => void,
+	removeEntity: (id: number) => void,
 	renderColumns: (item: T) => JSX.Element[],
-	saveStorage: (s: string) => void,
 	currentPage: number,
 	pageCount: number,
 	// pageRangeDisplayed: number;
@@ -20,13 +22,11 @@ interface IProps<T extends IEntity> {
 export const EntityList: <T extends IEntity>
 					(props: IProps<T>) => React.ReactElement<IProps<T>> = (props) => {
 	const { 
-		entities, dispatch, renderColumns, saveStorage,
+		entities, 
+		displayEntity, editEntity, removeEntity,
+		dispatch, renderColumns,
 		pageCount //, pageRangeDisplayed, marginPagesDisplayed, 
 	} = props;
-	
-	const display = (id: number) => dispatch(EntityActions.display(id));
-	const edit = (id: number) => dispatch(EntityActions.edit(id));
-	const remove = (id: number) => dispatch(EntityActions.remove({saveStorage, id}));
 
 	return (
    	<div style={{border: '0px solid lightblue'}}>
@@ -36,9 +36,9 @@ export const EntityList: <T extends IEntity>
 						<EntityRow
 							entity={entity}
 							renderColumns={renderColumns}
-							display={display}
-							edit={edit}
-							remove={remove}
+							display={displayEntity}
+							edit={editEntity}
+							remove={removeEntity}
 						/>	
 					</li>
 				))}
@@ -50,7 +50,12 @@ export const EntityList: <T extends IEntity>
 					nextLabel={"Next →"}
 					breakLabel={<span className="gap">...</span>}
 					pageCount={pageCount}
-					onPageChange={(selectedItem: { selected: number }) => dispatch(EntityActions.goToPage(selectedItem.selected))}
+					onPageChange={(selectedItem: { selected: number }) => 
+						dispatch({
+							type: EntityActionTypes.GO_TO_PAGE,
+							page: selectedItem.selected
+						})
+					}
 					// forcePage={currentPage}
 					containerClassName={"pagination"}
 					previousLinkClassName={"previous_page"}
@@ -62,7 +67,7 @@ export const EntityList: <T extends IEntity>
 				/>
 			</div>
 
-			<button onClick={() => dispatch(EntityActions.add())}>Add new</button>			
+			<button onClick={() => dispatch({ type: EntityActionTypes.ADD })}>Add new</button>			
 		</div>
   )
 }

@@ -50,7 +50,7 @@ export interface IStudent extends IEntity {
 				<div>
 I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b>Entity</b>. 
 <br/>Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer</b> . That way we override behavior of Entity. 
-We process some actions in <b>studentReducer</b>, like GET_ALL, without processing that action in the <b>entityReducer</b>.
+We process some actions in <b>studentReducer</b>, like GET_ENTITIES, without processing that action in the <b>entityReducer</b>.
 <br />
 
 ```JSX
@@ -85,7 +85,7 @@ export const studentReducer: (initialEntity: IStudent) =>
 
 		switch(action.type) {
 
-			case StudentActionTypes.GET_ALL: {
+			case StudentActionTypes.GET_ENTITIES: {
 				const { entities, pageSize } = action.payload
 				return {
 					...state,

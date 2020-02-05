@@ -1,10 +1,12 @@
 
-import React, { createContext, useContext, useReducer, Dispatch } from 'react';
+import React, { createContext, useContext, useReducer, Dispatch, useCallback } from 'react';
 import { IStudentState } from './types';
 import { entityReducer } from '../Entity/entityReducer';
 import { IStudent } from './types';
-import { AcceptedActions } from '../Entity/actions';
-
+import { EntityActionsTypes } from '../Entity/actions';
+import { IEntity } from '../Entity/types';
+import { EntityActions } from '../Entity/EntityActions';
+import jsonStudents from './Students.json'
 
 export const initialStudent: IStudent = { 
 	id: 0, 
@@ -29,7 +31,7 @@ const initialState: IStudentState = {
 
 export interface IStudentContext {
 	state: IStudentState;
-	dispatch: Dispatch<AcceptedActions>;
+	dispatch: Dispatch<EntityActionsTypes>;
 }
 
 let StudentContext: React.Context<IStudentContext>;
@@ -51,4 +53,65 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
   	)
 }
 
-export const useStudent = () => useContext(StudentContext);
+const pageSize = 9;
+let entityActions: EntityActions;
+
+export const useStudent = () => {
+	const context = useContext(StudentContext);
+	if (!context) {
+		throw new Error('useStudent must be used within a StudentProvider')
+	}
+
+	const { state, dispatch } = context;
+
+	if (!entityActions)
+		entityActions = new EntityActions({
+			storageName: 'Students',
+			getFromJSON: () => [...jsonStudents],
+			pageSize: pageSize,
+			baseURL: 'https//abc.com/students/'
+		});
+
+	const getEntites = useCallback(
+		(query: string, currentPage: number) => { 
+			return entityActions.getEntites(dispatch, query, currentPage) 
+		}, [dispatch]
+	)
+
+	const displayEntity = useCallback(
+		(id: number) => { 
+			return entityActions.displayEntity(dispatch, id) 
+		}, [dispatch]
+	)
+
+	const editEntity = useCallback(
+		(id: number) => { 
+			return entityActions.editEntity(dispatch, id) 
+		}, [dispatch]
+	)
+
+	const removeEntity = useCallback(
+		(id: number) => { 
+			return entityActions.removeEntity(dispatch, id) 
+		}, [dispatch]
+	)
+
+	const storeEntity = useCallback(
+		(entity: IEntity) => { 
+			return entityActions.storeEntity(dispatch, entity, state.formMode) 
+		}, [dispatch, state.formMode]
+	)
+
+	return { state, dispatch, getEntites, displayEntity, editEntity, removeEntity, storeEntity };
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -4,18 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 
-import { EntityActions} from '../../Entity/actions'
+import { EntityActionTypes} from '../../Entity/actions'
 import { MyForm } from './MyForm';
 
 interface IProps {
-	saveStorage: (s: string) => void,
 }
 
 export const StudentForm: React.FC<IProps> = (props: IProps) => {
-	const { state, dispatch } = useStudent();
+	const { state, dispatch, editEntity, removeEntity, storeEntity } = useStudent();
 	const { entity, formMode, canEdit } = state;
-
-	const { saveStorage } = props;
 
 	let title: string = ''
 	switch (state.formMode) {
@@ -41,7 +38,7 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					style={{float:'right'}}
 					className="button-remove"
 					title="Close"
-					onClick={() => { dispatch(EntityActions.closeForm())}}
+					onClick={() => { dispatch( {type: EntityActionTypes.CLOSE_FORM} )}}
 				>
 					<FontAwesomeIcon icon={faWindowClose} size="2x" color='lightblue' />
 				</button>				
@@ -49,10 +46,10 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					entity={entity!} 
 					formMode={formMode}
 					canEdit={canEdit}
-					cancel = {() => dispatch(EntityActions.cancel())}
-					saveForm = { (student) => dispatch(EntityActions.store({ saveStorage, entity: student }))}
-					edit = {() => dispatch(EntityActions.edit(entity!.id))}
-					remove = {() => dispatch(EntityActions.remove({ saveStorage, id: entity!.id }))}
+					cancel = {() => dispatch( {type: EntityActionTypes.CANCEL} )}
+					saveForm = {(student) => storeEntity(student) }
+					edit = {() => editEntity(entity!.id)}
+					remove = {() => removeEntity(entity!.id)}
 				/>
 			</div>
 		}

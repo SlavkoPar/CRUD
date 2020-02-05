@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import jsonStudents from "./Students.json"
+import React, { useEffect } from "react";
 
 import { StudentProvider, useStudent } from "./useStudent";
 
@@ -7,42 +6,31 @@ import { EntityList } from "../Entity/EntityList";
 import { StudentForm } from "./components/StudentForm";
 
 import { IStudent } from "./types";
-import { IEntity } from "../Entity/types";
-import { EntityActions } from "../Entity/actions";
 
 interface IPageProps {
 	query: string;
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
-	const { state, dispatch } = useStudent();
+	const { state, dispatch, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
 	const { entities, currentPage, pageCount } = state;
-
-	const [currentData, setCurrentData] = useState<IStudent[]>([]);
-	const pageSize = 9;
 	
 	useEffect(() => {
-		dispatch(EntityActions.setLoading(true))
-		localStorageStudents = [...jsonStudents]
-		const entities : IStudent[] = localStorageStudents
-		dispatch(EntityActions.getAll({ entities, pageSize}))
-		dispatch(EntityActions.setLoading(false))
-	}, [dispatch, props.query]);
+		getEntites(props.query, currentPage);
+		console.log("getEntites", currentPage)
+	}, [getEntites, props.query, currentPage]);
 	
-	useEffect(() => {
-		const offset = currentPage * pageSize
-		setCurrentData(entities.slice(offset, offset + pageSize));
-	 }, [entities, currentPage]);
-
 
   	return (
 		<div className="two-columns">
 			<div className="a">
 				<h3>Students</h3>
 				<EntityList 
-					entities={currentData}
+					entities={entities}
 					dispatch={dispatch}
-					saveStorage={saveStorage}
+					displayEntity={displayEntity}
+					editEntity={editEntity}
+					removeEntity={removeEntity}
 					currentPage={currentPage}
 					pageCount={pageCount}
 					renderColumns = {(entity: IStudent) => [
@@ -52,7 +40,7 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 				 />
 			</div>
 			<div className="b">
-				<StudentForm saveStorage={saveStorage} />
+				<StudentForm />
 			</div>
 		</div>    		
   );
@@ -71,8 +59,3 @@ export const StudentPage: React.FC<IProps> = (props: IProps) => {
   );
 }
 
-let localStorageStudents: IStudent[] = []
-
-export const saveStorage = (s: string) => {
-	localStorageStudents = JSON.parse(s)
-}

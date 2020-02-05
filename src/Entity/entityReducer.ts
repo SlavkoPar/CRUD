@@ -1,80 +1,65 @@
 
 import { IEntityState, IEntity } from './types';
-import { ActionTypes, AcceptedActions } from './actions';
+import { EntityActionTypes, EntityActionsTypes } from './actions';
 
 export const entityReducer: <
 	TS extends IEntityState<IEntity>,
 	T extends IEntity
->(initialEntity: T) => React.Reducer<TS, AcceptedActions> = (initialEntity) => {
+>(initialEntity: T) => React.Reducer<TS, EntityActionsTypes> = (initialEntity) => {
 	return (state, action) =>  {
 		switch(action.type) {
 
-			case ActionTypes.GET_ALL: {
-				const { entities, pageSize } = action.payload;
+			case EntityActionTypes.GET_ENTITIES: {
+				const { entities, pageCount } = action.payload;
 				return {
 					...state,
-					entities: entities,
-					pageCount: Math.ceil(entities.length / pageSize)
+					entities,
+					pageCount
 				}
 			}
 
-			case ActionTypes.SET_LOADING:
+			case EntityActionTypes.SET_LOADING:
 				return {
 					...state,
-					loading: action.payload
+					loading: action.loading
 				}
 	
-			case ActionTypes.GET: {
-				const id = action.payload;
-				return {
-					...state,
-					entity: state.entities.find(e => e.id === id)!
-				};
-			}    
-
-			case ActionTypes.ADD: {
-				const { entities } =  state // action.payload
+			case EntityActionTypes.ADD: {
 				return {
 					...state,
 					formMode: 'add',
 					entity: { 
 						...initialEntity, 
-						id: entities.length === 0 ? 1 : Math.max(...entities.map(e => e.id)) + 1
+						id: -1
 					}
 				};
 			}    	
 	
-			case ActionTypes.DISPLAY: {
-				const id = action.payload
-				const entity = state.entities.find(e => e.id === id)!
+			case EntityActionTypes.DISPLAY: {
 				return {
 					...state,
 					formMode: 'display',
-					entity: { ...entity },			
-					// entity: { ...state.entity, ...{entity } }
+					entity: { ...action.entity },			
 				}
 			}
 	
-			case ActionTypes.EDIT: {
-				const id = action.payload
-				const entity = state.entities.find(e => e.id === id)!
+			case EntityActionTypes.EDIT: {
 				return {
 					...state,
 					formMode: 'edit',
-					entity: { ...entity }				
+					entity: { ...action.entity }				
 				}
 			}
 
-			case ActionTypes.CLOSE_FORM: 
+			case EntityActionTypes.CLOSE_FORM: 
 				return {
 					...state,
 					formMode: 'none',
 					entity: undefined			
 				}
 
-			case ActionTypes.REMOVE: {
-				const { saveStorage, id } = action.payload
-				saveStorage(JSON.stringify(state.entities.filter(e => e.id !== id)))
+			case EntityActionTypes.REMOVE: {
+				const  id = action.id
 				return {
 					...state,
 					formMode: 'display',
@@ -83,35 +68,35 @@ export const entityReducer: <
 				}
 			}
 			
-			case ActionTypes.STORE: {
-				const { saveStorage, entity } = action.payload
-				let entities: IEntity[] = [];
+			case EntityActionTypes.STORE: {
+				const entity = action.entity
+				let entities: IEntity[]  = state.entities;
 				if (state.formMode === 'add') {
-					entities = [...state.entities, { ...entity }]
+					entities = [...entities, { ...entity }]
 				}
 				else {
-					entities = state.entities.map(a => a.id === entity.id ? { ...entity } : a)
+					entities = entities.map(ent => ent.id === entity.id ? { ...entity } : ent)
 				}
-				saveStorage(JSON.stringify(entities))
+
 				return {
 					...state,
 					formMode: 'edit',
-					entity: { ...entity },
+					entity: entity,
 					entities: entities
 				};
 			}
 	
-			case ActionTypes.CANCEL: {
+			case EntityActionTypes.CANCEL: {
 				return {
 					...state,
 					formMode: 'display',
 				};
 			}
 
-			case ActionTypes.GO_TO_PAGE: {
+			case EntityActionTypes.GO_TO_PAGE: {
 				return {
 					...state,
-					currentPage: action.payload
+					currentPage: action.page
 				}
 			}
 	

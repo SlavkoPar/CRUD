@@ -1,11 +1,11 @@
 import { IEntity } from "./types";
-import { createAction, createActionPayload, ActionsUnion } from "./actionsAccepted";
+import { Dispatch } from "react";
 
-export enum ActionTypes {
-	GET_ALL = 'GET_ALL',
+export enum EntityActionTypes {
+	GET_ENTITIES = 'GET_ENTITIES',
 	SET_LOADING = 'SET_LOADING',
+	FAIL = 'FAIL',
 	ADD = 'ADD',
-	GET = 'GET',
 	DISPLAY = 'DISPLAY',
 	CLOSE_FORM = 'CLOSE_FORM',
 	EDIT = 'EDIT',
@@ -15,56 +15,64 @@ export enum ActionTypes {
 	GO_TO_PAGE = 'GO_TO_PAGE'
 }
 
-/*
-export type IEntityActions<T extends IEntity> = {
-	closeForm: () => ActionsWithoutPayload<ActionTypes.CLOSE_FORM>;
-	 
-	cancel: () => ActionsWithoutPayload<ActionTypes.CANCEL>;
-	setLoading: (b: boolean) => 
-				ActionsWithPayload<typeof ActionTypes.SET_LOADING, boolean>;
-	getAll: (payload: {entities: T[]; pageSize: number; }) => 
-				ActionsWithPayload<typeof ActionTypes.GET_ALL, {entities: T[]; pageSize: number; }>;
-	get: (payload: number) => 
-				ActionsWithPayload<typeof ActionTypes.GET, number>;
-	add: () => ActionsWithoutPayload<typeof ActionTypes.ADD>;
-	display: (payload: number) => 
-				ActionsWithPayload<typeof ActionTypes.DISPLAY, number>;
-	edit: (payload: number) => 
-				ActionsWithPayload<typeof ActionTypes.EDIT, number>;
-	store: (payload: { saveStorage: (s: string) => void, entity: T }) => 
-				ActionsWithPayload<typeof ActionTypes.STORE, { saveStorage: (s: string) => void, entity: IEntity }>;
-	remove: (payload: { saveStorage: (s: string) => void, id: number }) => 
-				ActionsWithPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, id: number }>;
-				
-	goToPage: (payload: number) => 
-				ActionsWithPayload<typeof ActionTypes.GO_TO_PAGE, number>;
- };
-*/
 
-/*
-createActionPayload<ActionTypes.GET_ALL, {
-	entities: IEntity[];
-	pageSize: number;
-}>(actionType: ActionTypes.GET_ALL): (payload: {
-	entities: IEntity[];
-	pageSize: number;
-}) => ActionsWithPayload<ActionTypes.GET_ALL, {
-	...;
-}>
-*/
+export interface IEntitySetLoading { 
+	type: EntityActionTypes.SET_LOADING, 
+	loading: boolean
+}
 
-export const EntityActions = {  // : IEntityActions<IEntity>
-	closeForm: createAction<typeof ActionTypes.CLOSE_FORM>(ActionTypes.CLOSE_FORM),
-	cancel: createAction<typeof ActionTypes.CANCEL>(ActionTypes.CANCEL),
-	setLoading: createActionPayload<typeof ActionTypes.SET_LOADING, boolean>(ActionTypes.SET_LOADING),
-	getAll: createActionPayload<typeof ActionTypes.GET_ALL, { entities: IEntity[]; pageSize: number; }>(ActionTypes.GET_ALL),
-	get: createActionPayload<typeof ActionTypes.GET, number>(ActionTypes.GET),
-	add: createAction<typeof ActionTypes.ADD>(ActionTypes.ADD),
-	display: createActionPayload<typeof ActionTypes.DISPLAY, number>(ActionTypes.DISPLAY),
-	edit: createActionPayload<typeof ActionTypes.EDIT, number>(ActionTypes.EDIT),
-	store: createActionPayload<typeof ActionTypes.STORE, { saveStorage: (s: string) => void, entity: IEntity }>(ActionTypes.STORE),
-	remove: createActionPayload<typeof ActionTypes.REMOVE, { saveStorage: (s: string) => void, id: number }>(ActionTypes.REMOVE),
-	goToPage: createActionPayload<typeof ActionTypes.GO_TO_PAGE, number>(ActionTypes.GO_TO_PAGE),
- };
+export interface IEntityGetEntities {
+	type: EntityActionTypes.GET_ENTITIES;
+	payload: {
+		entities: IEntity[]; 
+		pageCount: number;
+	}
+}
 
- export type AcceptedActions = ActionsUnion<typeof EntityActions>;
+export interface IEntityAdd { 
+	type: EntityActionTypes.ADD 
+}
+
+export interface IEntityDisplay {
+	type: EntityActionTypes.DISPLAY;
+	entity: IEntity; 
+}
+
+export interface IEntityEdit {
+	type: EntityActionTypes.EDIT;
+	entity: IEntity; 
+}
+
+export interface IEntityRemove {
+	type: EntityActionTypes.REMOVE;
+	id: number;
+}
+
+export interface IEntityCancel { 
+	type: EntityActionTypes.CANCEL 
+}
+
+export interface IEntityCloseForm { 
+	type: EntityActionTypes.CLOSE_FORM 
+}
+
+export interface IEntityStore { 
+	type: EntityActionTypes.STORE,
+	entity: IEntity
+}
+
+export interface IEntityGoToPage {
+	type: EntityActionTypes.GO_TO_PAGE;
+	page: number; 
+}
+
+export interface IEntityFail {
+	type: EntityActionTypes.FAIL;
+	error: any; 
+}
+
+
+export type EntityActionsTypes = IEntitySetLoading | IEntityGetEntities |
+	IEntityAdd | IEntityFail |
+	IEntityDisplay | IEntityEdit | IEntityRemove |	IEntityStore | IEntityCancel |
+	IEntityCloseForm | IEntityGoToPage;

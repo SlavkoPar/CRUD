@@ -3,12 +3,12 @@ import { IEntityState, IEntity } from "./types";
 
 // Create Action Constants
  enum ActionTypes {
-	GET_ALL = 'GET_ALL',
+	GET_ENTITIES = 'GET_ENTITIES',
 	EDIT = 'EDIT',
 }
 
 interface IGetAll {
-	type: ActionTypes.GET_ALL;
+	type: ActionTypes.GET_ENTITIES;
 	payload: {
 		entities: IEntity[]; 
 		pageSize: number; 
@@ -43,7 +43,7 @@ export const ngoroReducer: <
 	return (state, action) =>  {
 		switch(action.type) {
 
-			case ActionTypes.GET_ALL: {
+			case ActionTypes.GET_ENTITIES: {
 				const { entities, pageSize } = action.payload;
 				return {
 					...state,

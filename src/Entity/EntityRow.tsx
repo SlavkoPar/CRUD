@@ -23,7 +23,7 @@ export const EntityRow: <T extends IEntity>
 		<ul className="entity-columns" ref={hoverRef}>
 			{/* <li>{id}</li> */}
 			<li key={id}>
-				<a href="#/" onClick={(e) => { e.preventDefault(); display(id)  }}>  {/* dispatch(EntityActions.display(id)) */}
+				<a href="#/" onClick={(e) => { e.preventDefault(); display(id)  }}>
 					{name}
 				</a>
 			</li>

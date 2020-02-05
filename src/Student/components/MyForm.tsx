@@ -126,8 +126,8 @@ export const MyForm: React.FC<IFormProps> = (props: IFormProps) => {
 
 		{ props.canEdit && props.formMode === 'display' &&
 			<>
-			<button onClick={() => props.edit()}>Edit</button>
-			<button onClick={() => props.remove()}>Remove</button>
+				<button onClick={(e) => { e.preventDefault(); props.edit() }}>Edit</button>
+				<button onClick={(e) => { e.preventDefault(); props.remove() }}>Remove</button>
 			</>
 		}				
 
