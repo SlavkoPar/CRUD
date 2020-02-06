@@ -22,7 +22,7 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 	useEffect(() => {
 		getEntites(props.query, currentPage, appState);
 		console.log("getEntites", currentPage)
-	}, [getEntites, props.query, currentPage, entities, appState]);
+	}, [getEntites, props.query, currentPage, appState]);
 
   	return (
 		<div className="two-columns">
