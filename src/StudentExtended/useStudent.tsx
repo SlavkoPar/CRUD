@@ -1,11 +1,11 @@
 
 import React, { createContext, useContext, useReducer, Dispatch, useCallback } from 'react';
-import { IStudentState, IStudent } from './types';
-import { initialStudent, Reducer } from './studentReducer';
+import { IStudentState } from './types';
+import { Reducer } from './studentReducer';
 import { EntityActions } from '../Entity/EntityActions';
 import { IEntity } from '../Entity/types';
-import { entityReducer } from '../Entity/entityReducer';
 import jsonStudents from './Students.json'
+import { IAppState } from '../AppData/types';
 
 
 const initialState: IStudentState = { 
@@ -63,8 +63,8 @@ export const useStudent = () => {
 	}
 
 	const getEntites = useCallback(
-		(query: string, currentPage: number) => { 
-			return entityActions.getEntites(dispatch, query, currentPage) 
+		(query: string, currentPage: number, appState: IAppState) => { 
+			return entityActions.getEntites(dispatch, query, currentPage, appState) 
 		}, [dispatch]
 	)
 

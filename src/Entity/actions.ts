@@ -1,4 +1,5 @@
 import { IEntity } from "./types";
+import { IAppState } from "../AppData/types";
 
 export enum EntityActionTypes {
 	GET_ENTITIES = 'GET_ENTITIES',
@@ -25,6 +26,7 @@ export interface IEntityGetEntities {
 	payload: {
 		entities: IEntity[]; 
 		pageCount: number;
+		appState: IAppState;
 	}
 }
 

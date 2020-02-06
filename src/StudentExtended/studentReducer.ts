@@ -1,7 +1,9 @@
-import { IStudentState, IStudent } from "./types";
+import { IStudentState, IStudent, IStudentGrade } from "./types";
 import { entityReducer } from "../Entity/entityReducer";
 import { StudentActionTypes, StudentAcceptedActions } from "./actions";
 import { EntityAcceptedActions } from "../Entity/actions";
+import { IGrade } from "../Grades/types";
+import { IAppState } from "../AppData/types";
 
 export const initialStudent: IStudent = { 
 	id: 0, 
@@ -32,6 +34,13 @@ export const combineReducers: (
 	};	
 }
 
+const studentJoins = (student: IStudent, appState: IAppState) : IStudentGrade[]=> {
+	const gradesAll: Record<number, IGrade> = appState.gradesAll
+	if (student === undefined || student.grades.length === 0)
+		return [];
+	return student
+				.grades.map(sg => ({ ...sg, name: gradesAll[sg.gradeId].name }))
+}
 
 export const studentReducer: (initialEntity: IStudent) => 
 					React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
@@ -39,7 +48,8 @@ export const studentReducer: (initialEntity: IStudent) =>
 		switch(action.type) {
 
 			case StudentActionTypes.GET_ENTITIES:  {
-				const { entities, pageCount } = action.payload;
+				const { entities, pageCount, appState } = action.payload;
+				entities.map(student => student.grades = studentJoins(student, appState));
 				return {
 					...state,
 					entities,

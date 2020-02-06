@@ -6,19 +6,22 @@ import { EntityList } from "../Entity/EntityList";
 import { StudentForm } from "./components/StudentForm";
 
 import { IStudent } from "./types";
+import { useApp } from "../AppData/useApp";
 
 interface IPageProps {
 	query: string;
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
+	const { state: appState } = useApp();
+	
 	const { state, dispatch, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
 	const { entities, currentPage, pageCount } = state;
 	
 	useEffect(() => {
-		getEntites(props.query, currentPage);
+		getEntites(props.query, currentPage, appState);
 		console.log("getEntites", currentPage)
-	}, [getEntites, props.query, currentPage]);
+	}, [getEntites, props.query, currentPage, appState]);
 	
 
   	return (

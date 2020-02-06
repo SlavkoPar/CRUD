@@ -7,6 +7,7 @@ import { EntityAcceptedActions } from '../Entity/actions';
 import { IEntity } from '../Entity/types';
 import { EntityActions } from '../Entity/EntityActions';
 import jsonStudents from './Students.json'
+import { IAppState } from '../AppData/types';
 
 export const initialStudent: IStudent = { 
 	id: 0, 
@@ -74,8 +75,8 @@ export const useStudent = () => {
 	}
 
 	const getEntites = useCallback(
-		(query: string, currentPage: number) => { 
-			return entityActions.getEntites(dispatch, query, currentPage) 
+		(query: string, currentPage: number, appState: IAppState) => { 
+			return entityActions.getEntites(dispatch, query, currentPage, appState) 
 		}, [dispatch]
 	)
 

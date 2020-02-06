@@ -1,5 +1,5 @@
 import { IStudentGradeIds, IStudent } from "./types";
-import { IEntity } from "../Entity/types";
+import { IAppState } from "../AppData/types";
 
 export enum StudentActionTypes {
 	GET_ENTITIES = 'GET_ENTITIES', // override entity
@@ -12,6 +12,7 @@ export interface IStudentGetEntities {
 	payload: {
 		entities: IStudent[]; 
 		pageCount: number;
+		appState: IAppState;
 	}
 }
 

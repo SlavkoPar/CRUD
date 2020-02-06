@@ -7,32 +7,22 @@ import { useStudent, StudentProvider } from "./useStudent";
 import { EntityList } from "../Entity/EntityList";
 import { StudentForm } from "./components/StudentForm";
 
-import { IStudent, IStudentGrade } from "./types";
-import { IGrade } from "../Grades/types";
+import { IStudent } from "./types";
 
 interface IPageProps {
 	query: string;
 }
 
-const studentJoinGrades = (student: IStudent, gradesAll: Record<number, IGrade>) : IStudentGrade[]=> {
-	if (student === undefined || student.grades.length === 0)
-		return [];
-	return student.grades.map(sg => ({ ...sg, name: gradesAll[sg.gradeId].name }))
-}
-
 export const Page: React.FC<IPageProps> = (props: IProps) => {
 	const { state: appState } = useApp();
-	const { gradesAll } = appState;
 
 	const { state, dispatch, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
 	const { entities, currentPage, pageCount } = state;
 	
 	useEffect(() => {
-		getEntites(props.query, currentPage);
+		getEntites(props.query, currentPage, appState);
 		console.log("getEntites", currentPage)
-		// per page
-		entities.map(student => student.grades = studentJoinGrades(student, gradesAll));
-	}, [getEntites, props.query, currentPage, entities, gradesAll]);
+	}, [getEntites, props.query, currentPage, entities, appState]);
 
   	return (
 		<div className="two-columns">

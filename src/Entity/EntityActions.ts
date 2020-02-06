@@ -3,6 +3,7 @@ import { Dispatch } from "react";
 import { EntityAcceptedActions, EntityActionTypes } from "./actions";
 import axios from 'axios';
 import { EntityService } from "./EntityService";
+import { IAppState } from "../AppData/types";
 
 interface IProps {
 	storageName: string,
@@ -28,7 +29,7 @@ export class EntityActions {
 		this.entityService = new EntityService(obj.storageName, obj.getFromJSON)
 	}
 
-	async getEntites(dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number) {
+	async getEntites(dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState) {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`page=${this.page}&page_size=${this.pageSize}`);
@@ -38,7 +39,8 @@ export class EntityActions {
 				type: EntityActionTypes.GET_ENTITIES,
 				payload: { 
 					entities: pageEntities, // .map(ent => ({id: ent.id, name: ent.name, only list row columns})), 
-					pageCount: pageCount
+					pageCount,
+					appState 
 				}
 			})
 			dispatch({ type: EntityActionTypes.SET_LOADING, loading: false })
@@ -84,7 +86,8 @@ export class EntityActions {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await this.API.delete(`${id}`);
-			const response = await this.entityService.removeEntity(id)
+			// const response = 
+			await this.entityService.removeEntity(id)
 			dispatch({ type: EntityActionTypes.REMOVE, id })
 			dispatch({ type: EntityActionTypes.SET_LOADING, loading: false })
 		}
