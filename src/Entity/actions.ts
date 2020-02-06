@@ -1,5 +1,4 @@
 import { IEntity } from "./types";
-import { Dispatch } from "react";
 
 export enum EntityActionTypes {
 	GET_ENTITIES = 'GET_ENTITIES',
@@ -72,7 +71,7 @@ export interface IEntityFail {
 }
 
 
-export type EntityActionsTypes = IEntitySetLoading | IEntityGetEntities |
+export type EntityAcceptedActions = IEntitySetLoading | IEntityGetEntities |
 	IEntityAdd | IEntityFail |
 	IEntityDisplay | IEntityEdit | IEntityRemove |	IEntityStore | IEntityCancel |
 	IEntityCloseForm | IEntityGoToPage;

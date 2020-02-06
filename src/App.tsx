@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Switch, Link  } from 'react-router-dom'
 import { StudentPage } from './Student/StudentPage';
-// import { StudentPageExtended } from './StudentExtended/StudentPage';
+import { StudentPageExtended } from './StudentExtended/StudentPage';
 import { AppProvider } from './AppData/useApp';
 
 const App: React.FC = () => {
@@ -22,12 +22,12 @@ const App: React.FC = () => {
 				</nav>
 				<div>
 					<Switch>
-						<Route path="/">
+						<Route path="/student">
 							<StudentPage query="all" />
 						</Route>
-						{/* <Route path="/">
+						<Route path="/">
 							<StudentPageExtended query="all" />
-						</Route>						 */}
+						</Route>						
 					</Switch>
 				</div>	
 			</Router>

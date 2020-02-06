@@ -1,11 +1,11 @@
 
 import { IEntityState, IEntity } from './types';
-import { EntityActionTypes, EntityActionsTypes } from './actions';
+import { EntityActionTypes, EntityAcceptedActions } from './actions';
 
 export const entityReducer: <
 	TS extends IEntityState<IEntity>,
 	T extends IEntity
->(initialEntity: T) => React.Reducer<TS, EntityActionsTypes> = (initialEntity) => {
+>(initialEntity: T) => React.Reducer<TS, EntityAcceptedActions> = (initialEntity) => {
 	return (state, action) =>  {
 		switch(action.type) {
 

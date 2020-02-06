@@ -1,6 +1,6 @@
 import { IEntity } from "./types";
 import { Dispatch } from "react";
-import { EntityActionsTypes, EntityActionTypes } from "./actions";
+import { EntityAcceptedActions, EntityActionTypes } from "./actions";
 import axios from 'axios';
 import { EntityService } from "./EntityService";
 
@@ -28,7 +28,7 @@ export class EntityActions {
 		this.entityService = new EntityService(obj.storageName, obj.getFromJSON)
 	}
 
-	async getEntites(dispatch: Dispatch<EntityActionsTypes>, query: string, currentPage: number) {
+	async getEntites(dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number) {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`page=${this.page}&page_size=${this.pageSize}`);
@@ -48,7 +48,7 @@ export class EntityActions {
 		}
 	}
 
-	async displayEntity(dispatch: Dispatch<EntityActionsTypes>, id: number) {
+	async displayEntity(dispatch: Dispatch<EntityAcceptedActions>, id: number) {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`${id}`);
@@ -64,7 +64,7 @@ export class EntityActions {
 		}
 	}
 
-	async editEntity(dispatch: Dispatch<EntityActionsTypes>, id: number) {
+	async editEntity(dispatch: Dispatch<EntityAcceptedActions>, id: number) {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`${id}`);
@@ -80,7 +80,7 @@ export class EntityActions {
 		}
 	}
 
-	async removeEntity(dispatch: Dispatch<EntityActionsTypes>, id: number) {
+	async removeEntity(dispatch: Dispatch<EntityAcceptedActions>, id: number) {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await this.API.delete(`${id}`);
@@ -93,7 +93,7 @@ export class EntityActions {
 		}
 	}
 
-	async storeEntity(dispatch: Dispatch<EntityActionsTypes>, entity: IEntity, formMode: string) {
+	async storeEntity(dispatch: Dispatch<EntityAcceptedActions>, entity: IEntity, formMode: string) {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			if (formMode === 'add') {

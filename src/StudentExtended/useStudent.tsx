@@ -1,22 +1,11 @@
 
 import React, { createContext, useContext, useReducer, Dispatch, useCallback } from 'react';
-import { IStudentState } from './types';
-import { entityReducer } from '../Entity/entityReducer';
-import { IStudent } from './types';
-import { EntityAcceptedActions } from '../Entity/actions';
-import { IEntity } from '../Entity/types';
+import { IStudentState, IStudent } from './types';
+import { initialStudent, Reducer } from './studentReducer';
 import { EntityActions } from '../Entity/EntityActions';
+import { IEntity } from '../Entity/types';
+import { entityReducer } from '../Entity/entityReducer';
 import jsonStudents from './Students.json'
-
-export const initialStudent: IStudent = { 
-	id: 0, 
-	name: '',
-	url: '',
-	code: '',
-	email: '',
-	avatar: 'https://img.pokemondb.net/artwork/diglett.jpg',
-	types: []
-};
 
 
 const initialState: IStudentState = { 
@@ -26,12 +15,12 @@ const initialState: IStudentState = {
 	canEdit: true,
 	pageCount: 0,
 	currentPage: 0,
-	something: [1, 2, 3]
+	gradesAll: []
 };
 
 export interface IStudentContext {
 	state: IStudentState;
-	dispatch: Dispatch<EntityAcceptedActions>;
+	dispatch: Dispatch<any>; // AcceptedActions & StudentAcceptedActions>;
 }
 
 let StudentContext: React.Context<IStudentContext>;
@@ -41,7 +30,7 @@ interface IProps {
 }
 
 export const StudentProvider: React.FC<IProps> = ({ children }) => {
-	const [state, dispatch] = useReducer(entityReducer<IStudentState, IStudent>(initialStudent), initialState)
+	const [state, dispatch] = useReducer(Reducer, initialState)
 
 	if (StudentContext === undefined)
   		StudentContext = createContext<IStudentContext>({ state, dispatch })
@@ -66,7 +55,7 @@ export const useStudent = () => {
 
 	if (!entityActions) {
 		entityActions = new EntityActions({
-			storageName: 'Students',
+			storageName: 'StudentGrades',
 			getFromJSON: () => [...jsonStudents],
 			pageSize: pageSize,
 			baseURL: 'https//abc.com/students/'
@@ -105,14 +94,3 @@ export const useStudent = () => {
 
 	return { state, dispatch, getEntites, displayEntity, editEntity, removeEntity, storeEntity };
 }
-
-
-
-
-
-
-
-
-
-
-
