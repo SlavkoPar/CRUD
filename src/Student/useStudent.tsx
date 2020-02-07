@@ -55,7 +55,13 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
 }
 
 const pageSize = 9;
-let entityActions: EntityActions;
+
+const entityActions: EntityActions = new EntityActions({
+	storageName: 'Students',
+	getFromJSON: () => [...jsonStudents],
+	pageSize: pageSize,
+	baseURL: 'https//abc.com/students/'
+});
 
 export const useStudent = () => {
 	const context = useContext(StudentContext);
@@ -64,15 +70,6 @@ export const useStudent = () => {
 	}
 
 	const { state, dispatch } = context;
-
-	if (!entityActions) {
-		entityActions = new EntityActions({
-			storageName: 'Students',
-			getFromJSON: () => [...jsonStudents],
-			pageSize: pageSize,
-			baseURL: 'https//abc.com/students/'
-		});
-	}
 
 	const getEntites = useCallback(
 		(query: string, currentPage: number, appState: IAppState) => { 

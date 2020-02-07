@@ -43,7 +43,13 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
 }
 
 const pageSize = 9;
-let entityActions: EntityActions;
+
+const entityActions: EntityActions = new EntityActions({
+	storageName: 'StudentGrades',
+	getFromJSON: () => [...jsonStudents],
+	pageSize: pageSize,
+	baseURL: 'https//abc.com/students/'
+});
 
 export const useStudent = () => {
 	const context = useContext(StudentContext);
@@ -53,15 +59,6 @@ export const useStudent = () => {
 
 	const { state, dispatch } = context;
 
-	if (!entityActions) {
-		entityActions = new EntityActions({
-			storageName: 'StudentGrades',
-			getFromJSON: () => [...jsonStudents],
-			pageSize: pageSize,
-			baseURL: 'https//abc.com/students/'
-		});
-	}
-
 	const getEntites = useCallback(
 		(query: string, currentPage: number, appState: IAppState) => { 
 			return entityActions.getEntites(dispatch, query, currentPage, appState) 
@@ -69,21 +66,15 @@ export const useStudent = () => {
 	)
 
 	const displayEntity = useCallback(
-		(id: number) => { 
-			return entityActions.displayEntity(dispatch, id) 
-		}, [dispatch]
+		(id: number) => { return entityActions.displayEntity(dispatch, id) }, [dispatch]
 	)
 
 	const editEntity = useCallback(
-		(id: number) => { 
-			return entityActions.editEntity(dispatch, id) 
-		}, [dispatch]
+		(id: number) => { return entityActions.editEntity(dispatch, id) }, [dispatch]
 	)
 
 	const removeEntity = useCallback(
-		(id: number) => { 
-			return entityActions.removeEntity(dispatch, id) 
-		}, [dispatch]
+		(id: number) => { return entityActions.removeEntity(dispatch, id) }, [dispatch]
 	)
 
 	const storeEntity = useCallback(
