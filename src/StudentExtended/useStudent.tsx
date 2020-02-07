@@ -66,15 +66,18 @@ export const useStudent = () => {
 	)
 
 	const displayEntity = useCallback(
-		(id: number) => { return entityActions.displayEntity(dispatch, id) }, [dispatch]
+		(id: number) => { return entityActions.displayEntity(dispatch, id) }
+		, [dispatch]
 	)
 
 	const editEntity = useCallback(
-		(id: number) => { return entityActions.editEntity(dispatch, id) }, [dispatch]
+		(id: number) => { return entityActions.editEntity(dispatch, id) }
+		, [dispatch]
 	)
 
 	const removeEntity = useCallback(
-		(id: number) => { return entityActions.removeEntity(dispatch, id) }, [dispatch]
+		(id: number) => { return entityActions.removeEntity(dispatch, id) }
+		, [dispatch]
 	)
 
 	const storeEntity = useCallback(
