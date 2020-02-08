@@ -123,6 +123,33 @@ export const Reducer = combineReducers(
 );
 ```
 <br />
+<br />
+
+```JSX
+<AppProvider>
+	<Router>
+		<nav>
+			<Link to="/student">Student</Link>
+			<Link to="/" className="push-right">Student Extended</Link>
+		</nav>
+		<div>
+			<Switch>
+				<Route path="/student">
+					<StudentProvider>
+						<Page query={props.query} />
+					</StudentProvider>
+				</Route>
+				<Route path="/">
+					<StudentExtendedProvider>
+						<PageExetended query={props.query} />
+					</StudentExtendedProvider>
+				</Route>						
+			</Switch>
+		</div>	
+	</Router>
+</AppProvider>
+```
+
 			</div>
 			</div>
 		</div>

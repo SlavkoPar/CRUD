@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import ReactPaginate from 'react-paginate';
 
 import { EntityActionTypes } from "./actions";
@@ -8,10 +8,10 @@ import { IEntity } from "./types";
 
 interface IProps<T extends IEntity> {
 	entities: T[],
-	dispatch: React.Dispatch<any>,
-	displayEntity: (id: number) => void,
-	editEntity: (id: number) => void,
-	removeEntity: (id: number) => void,
+	dispatch: Dispatch<any>,
+	displayEntity: (dispatch: Dispatch<any>, id: number) => void,
+	editEntity: (dispatch: Dispatch<any>, id: number) => void,
+	removeEntity: (dispatch: Dispatch<any>, id: number) => void,
 	renderColumns: (item: T) => JSX.Element[],
 	currentPage: number,
 	pageCount: number,
@@ -28,6 +28,10 @@ export const EntityList: <T extends IEntity>
 		pageCount //, pageRangeDisplayed, marginPagesDisplayed, 
 	} = props;
 
+	const display = (id: number) => displayEntity(dispatch, id);
+	const edit = (id: number) => editEntity(dispatch, id);
+	const remove = (id: number) => removeEntity(dispatch, id);
+
 	return (
    	<div style={{border: '0px solid lightblue'}}>
 			<ul className="entity-list">
@@ -36,9 +40,9 @@ export const EntityList: <T extends IEntity>
 						<EntityRow
 							entity={entity}
 							renderColumns={renderColumns}
-							display={displayEntity}
-							edit={editEntity}
-							remove={removeEntity}
+							display={display}
+							edit={edit}
+							remove={remove}
 						/>	
 					</li>
 				))}

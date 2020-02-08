@@ -19,9 +19,9 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 	const { entities, currentPage, pageCount } = state;
 	
 	useEffect(() => {
-		getEntites(props.query, currentPage, appState);
+		getEntites(dispatch, props.query, currentPage, appState);
 		console.log("getEntites", currentPage)
-	}, [getEntites, props.query, currentPage, appState]);
+	}, [dispatch, getEntites, props.query, currentPage, appState]);
 	
 
   	return (

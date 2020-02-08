@@ -29,7 +29,7 @@ export class EntityActions {
 		this.entityService = new EntityService(obj.storageName, obj.getFromJSON)
 	}
 
-	async getEntites(dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState) {
+	async getEntites(dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState)  {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`page=${this.page}&page_size=${this.pageSize}`);
@@ -112,6 +112,41 @@ export class EntityActions {
 		catch(error) {
 			dispatch({ type: EntityActionTypes.FAIL, error })
 		}
-	}
+
+}
+
+
+	/*
+	 * if you want to override these methods in useStudent
+	 *
+
+	const getEntites = useCallback(
+		(dispatch: Dispatch<any>, query: string, currentPage: number, appState: IAppState) => { 
+			return entityActions.getEntites(dispatch, query, currentPage, appState) 
+		}, []
+	)
+	
+	const displayEntity = useCallback(
+		(dispatch: Dispatch<any>, id: number) => { return entityActions.displayEntity(dispatch, id) }
+		, []
+	)
+
+	const editEntity = useCallback(
+		(dispatch: Dispatch<any>, id: number) => { return entityActions.editEntity(dispatch, id) }
+		, []
+	)
+
+	const removeEntity = useCallback(
+		(dispatch: Dispatch<any>, id: number) => { return entityActions.removeEntity(dispatch, id) }
+		, []
+	)
+
+	const storeEntity = useCallback(
+		(dispatch: Dispatch<any>, entity: IEntity) => { 
+			return entityActions.storeEntity(dispatch, entity, state.formMode) 
+		}, [state.formMode]
+	)
+
+	*/
 
 }

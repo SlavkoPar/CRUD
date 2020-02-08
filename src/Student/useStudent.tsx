@@ -1,13 +1,11 @@
 
-import React, { createContext, useContext, useReducer, Dispatch, useCallback } from 'react';
+import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 import { IStudentState } from './types';
 import { entityReducer } from '../Entity/entityReducer';
 import { IStudent } from './types';
 import { EntityAcceptedActions } from '../Entity/actions';
-import { IEntity } from '../Entity/types';
 import { EntityActions } from '../Entity/EntityActions';
 import jsonStudents from './Students.json'
-import { IAppState } from '../AppData/types';
 
 export const initialStudent: IStudent = { 
 	id: 0, 
@@ -71,35 +69,7 @@ export const useStudent = () => {
 
 	const { state, dispatch } = context;
 
-	const getEntites = useCallback(
-		(query: string, currentPage: number, appState: IAppState) => { 
-			return entityActions.getEntites(dispatch, query, currentPage, appState) 
-		}, [dispatch]
-	)
-
-	const displayEntity = useCallback(
-		(id: number) => { 
-			return entityActions.displayEntity(dispatch, id) 
-		}, [dispatch]
-	)
-
-	const editEntity = useCallback(
-		(id: number) => { 
-			return entityActions.editEntity(dispatch, id) 
-		}, [dispatch]
-	)
-
-	const removeEntity = useCallback(
-		(id: number) => { 
-			return entityActions.removeEntity(dispatch, id) 
-		}, [dispatch]
-	)
-
-	const storeEntity = useCallback(
-		(entity: IEntity) => { 
-			return entityActions.storeEntity(dispatch, entity, state.formMode) 
-		}, [dispatch, state.formMode]
-	)
+	const { getEntites, displayEntity, editEntity, removeEntity, storeEntity } = entityActions;
 
 	return { state, dispatch, getEntites, displayEntity, editEntity, removeEntity, storeEntity };
 }

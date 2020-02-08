@@ -47,9 +47,9 @@ export const StudentForm: React.FC<IProps> = (props: IProps) => {
 					formMode={formMode}
 					canEdit={canEdit}
 					cancel = {() => dispatch( {type: EntityActionTypes.CANCEL} )}
-					saveForm = {(student) => storeEntity(student) }
-					edit = {() => editEntity(entity!.id)}
-					remove = {() => removeEntity(entity!.id)}
+					saveForm = {(student) => storeEntity(dispatch, student, formMode) }
+					edit = {() => editEntity(dispatch, entity!.id)}
+					remove = {() => removeEntity(dispatch, entity!.id)}
 				/>
 			</div>
 		}
