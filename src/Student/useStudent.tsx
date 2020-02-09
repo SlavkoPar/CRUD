@@ -39,11 +39,21 @@ interface IProps {
 	children: React.ReactNode
 }
 
+let entityActions: EntityActions;
+
 export const StudentProvider: React.FC<IProps> = ({ children }) => {
 	const [state, dispatch] = useReducer(entityReducer<IStudentState, IStudent>(initialStudent), initialState)
 
-	if (StudentContext === undefined)
-  		StudentContext = createContext<IStudentContext>({ state, dispatch })
+	if (StudentContext === undefined) {
+		entityActions = new EntityActions({
+			storageName: 'Students',
+			getFromJSON: () => [...jsonStudents],
+			pageSize: pageSize,
+			baseURL: 'https//abc.com/students/'
+		});
+		
+		StudentContext = createContext<IStudentContext>({ state, dispatch })
+	}
 
   	return (
    	<StudentContext.Provider value={{ state, dispatch }}>
@@ -53,13 +63,6 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
 }
 
 const pageSize = 9;
-
-const entityActions: EntityActions = new EntityActions({
-	storageName: 'Students',
-	getFromJSON: () => [...jsonStudents],
-	pageSize: pageSize,
-	baseURL: 'https//abc.com/students/'
-});
 
 export const useStudent = () => {
 	const context = useContext(StudentContext);

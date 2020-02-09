@@ -31,8 +31,17 @@ interface IProps {
 export const StudentProvider: React.FC<IProps> = ({ children }) => {
 	const [state, dispatch] = useReducer(Reducer, initialState)
 
-	if (StudentContext === undefined)
-  		StudentContext = createContext<IStudentContext>({ state, dispatch })
+	if (StudentContext === undefined) {
+		
+		entityActions = new EntityActions({
+			storageName: 'StudentGrades',
+			getFromJSON: () => [...jsonStudents],
+			pageSize: pageSize,
+			baseURL: 'https//abc.com/students/'
+		});
+		
+		StudentContext = createContext<IStudentContext>({ state, dispatch })
+	}
 
   	return (
    	<StudentContext.Provider value={{ state, dispatch }}>
@@ -43,12 +52,7 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
 
 const pageSize = 9;
 
-const entityActions: EntityActions = new EntityActions({
-	storageName: 'StudentGrades',
-	getFromJSON: () => [...jsonStudents],
-	pageSize: pageSize,
-	baseURL: 'https//abc.com/students/'
-});
+let entityActions: EntityActions;
 
 export const useStudent = () => {
 	const context = useContext(StudentContext);
@@ -66,7 +70,7 @@ export const useStudent = () => {
 		storeEntity
 	} = entityActions;
 
-	// The way to override entity Actions
+	// the way to override entity Actions
 	const getEntites = useCallback(
 		(dispatch: Dispatch<any>, query: string, currentPage: number, appState: IAppState) => { 
 			return entityActions.getEntites(dispatch, query, currentPage, appState) 
