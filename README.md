@@ -66,51 +66,58 @@ export const initialStudent: IStudent = {
 };
 
 export const combineReducers: (
-	entityReducer: React.Reducer<IStudentState, AcceptedActions>, 
-	studentReducer: React.Reducer<IStudentState, StudentAcceptedActions>) => 
-		React.Reducer<IStudentState, AcceptedActions & StudentAcceptedActions> = 
-			(entityReducer, studentReducer) => {
-	return (prevState, action) => {	
+		entityReducer: React.Reducer<IStudentState, EntityAcceptedActions>, 
+		studentReducer: React.Reducer<IStudentState, StudentAcceptedActions>) => 
+			React.Reducer<
+				IStudentState, 
+				EntityAcceptedActions & StudentAcceptedActions
+			> = (entityReducer, studentReducer) => {
+	return (prevState, action) => {
+		
 		// when action is overriden in studentReducer, no need to call entityReducer
 		if (action.type in StudentActionTypes)
 			return studentReducer(prevState, action)
+
 		const state = entityReducer(prevState, action);
 		return studentReducer(state, action)
 	};	
 }
 
 export const studentReducer: (initialEntity: IStudent) => 
-		React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
+					React.Reducer<IStudentState, StudentAcceptedActions> = (initialEntity) => {
 	return (state, action) =>  {
-
 		switch(action.type) {
 
-			case StudentActionTypes.GET_ENTITIES: {
-				const { entities, pageSize } = action.payload
+			case StudentActionTypes.GET_ENTITIES:  {
+				const { entities, pageCount, appState } = action.payload;
+				entities.map(student => student.grades = studentJoins(student, appState));
 				return {
 					...state,
-					entities: entities,
-					pageCount: Math.ceil(entities.length / pageSize)
+					entities,
+					pageCount
 				}
 			}
 
 			case StudentActionTypes.STUDENT_ASSIGN_GRADE: {
-				const { studentId, gradeId } = action.payload
+				const { studentId, gradeId, gradeName } = action.studentGradeIds
 				const students = state.entities.map(student => 
 					student.id !== studentId ?
 						{...student} :
 						{...student, grades: [...student.grades, { 
-							name: state.gradesAll[gradeId].name,
-							gradeId,
-							grade: 0}]
+								name: gradeName,
+								gradeId,
+								grade: 0
+							}]
 						}
 				)
+
 				return {
 					...state,
 					entities: students,
 					entity: { ...students.find(student => student.id === studentId)! }
 				}				
-			}	
+			}
+			
 			default:
 				return state
 		}		
@@ -126,10 +133,11 @@ export const Reducer = combineReducers(
 <br />
 
 <h3>Manage app state without Redux.</h3>
-1) Each feature (page) has its own provider with state. (AppProvider)
+1) Each feature (page) has its own provider with state. (AppProvider)<br/>
    Keep state as close to where it's needed as possible.
 
-2) AppState will keep shared state of all the features.(StudentProvider, StudentExtendedProvider)
+2) AppState will keep shared state of all the features.<br/>
+   (StudentProvider, StudentExtendedProvider)
 
 ```JSX
 <AppProvider>
