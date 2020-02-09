@@ -2,7 +2,7 @@ import { IEntity } from "./types";
 import { Dispatch } from "react";
 import { EntityAcceptedActions, EntityActionTypes } from "./actions";
 import axios from 'axios';
-import { EntityService } from "./EntityService";
+import { StorageService } from "./EntityService";
 import { IAppState } from "../AppData/types";
 
 interface IProps {
@@ -15,7 +15,7 @@ interface IProps {
 export class EntityActions {
 	pageSize = 10;
 	API: any;
-	entityService: EntityService;
+	storageService: StorageService;
 
 	constructor(obj: IProps) {
 		this.pageSize = obj.pageSize;
@@ -26,14 +26,14 @@ export class EntityActions {
   			headers: {'X-Custom-Header': 'foobar'}
 		 });
 
-		this.entityService = new EntityService(obj.storageName, obj.getFromJSON)
+		this.storageService = new StorageService(obj.storageName, obj.getFromJSON)
 	}
 
 	getEntites = async (dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`page=${this.page}&page_size=${this.pageSize}`);
-			const response = await this.entityService.getPageEntites(query, this.pageSize, currentPage)
+			const response = await this.storageService.getPageEntites(query, this.pageSize, currentPage)
 			const { pageEntities, pageCount } = response.data.results
 			dispatch({
 				type: EntityActionTypes.GET_ENTITIES,
@@ -54,7 +54,7 @@ export class EntityActions {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`${id}`);
-			const response = await this.entityService.getEntity(id)
+			const response = await this.storageService.getEntity(id)
 			dispatch({
 				type: EntityActionTypes.DISPLAY,
 				entity: response.data.results
@@ -70,7 +70,7 @@ export class EntityActions {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`${id}`);
-			const response = await this.entityService.getEntity(id)
+			const response = await this.storageService.getEntity(id)
 			dispatch({
 				type: EntityActionTypes.EDIT,
 				entity: response.data.results
@@ -87,7 +87,7 @@ export class EntityActions {
 		try {
 			// const response = await this.API.delete(`${id}`);
 			// const response = 
-			await this.entityService.removeEntity(id)
+			await this.storageService.removeEntity(id)
 			dispatch({ type: EntityActionTypes.REMOVE, id })
 			dispatch({ type: EntityActionTypes.SET_LOADING, loading: false })
 		}
@@ -105,7 +105,7 @@ export class EntityActions {
 			else {
 				// const response = this.API.put({ entity })
 			}
-			const response = await this.entityService.storeEntity(formMode, entity)
+			const response = await this.storageService.storeEntity(formMode, entity)
 			dispatch({ type: EntityActionTypes.STORE, entity: response.data.results })
 			dispatch({ type: EntityActionTypes.SET_LOADING, loading: false })
 		}

@@ -5,7 +5,7 @@ interface IProps {
 	getFromJSON: () => IEntity[],
 }
 
-export class EntityService {
+export class StorageService {
 
 	storageName: string;
 	entitiesAll: IEntity[];
