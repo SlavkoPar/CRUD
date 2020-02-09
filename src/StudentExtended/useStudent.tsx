@@ -1,9 +1,10 @@
 
-import React, { createContext, useContext, useReducer, Dispatch } from 'react';
+import React, { createContext, useContext, useReducer, Dispatch, useCallback } from 'react';
 import { IStudentState } from './types';
 import { Reducer } from './studentReducer';
 import { EntityActions } from '../Entity/EntityActions';
 import jsonStudents from './Students.json'
+import { IAppState } from '../AppData/types';
 
 
 const initialState: IStudentState = { 
@@ -57,7 +58,20 @@ export const useStudent = () => {
 
 	const { state, dispatch } = context;
 
-	const { getEntites, displayEntity, editEntity, removeEntity, storeEntity } = entityActions;
+	const { 
+		// getEntites, 
+		displayEntity, 
+		editEntity, 
+		removeEntity, 
+		storeEntity
+	} = entityActions;
+
+	// The way to override entity Actions
+	const getEntites = useCallback(
+		(dispatch: Dispatch<any>, query: string, currentPage: number, appState: IAppState) => { 
+			return entityActions.getEntites(dispatch, query, currentPage, appState) 
+		}, []
+	)
 
 
 	return { state, dispatch, getEntites, displayEntity, editEntity, removeEntity, storeEntity };

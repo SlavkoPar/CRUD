@@ -29,7 +29,7 @@ export class EntityActions {
 		this.entityService = new EntityService(obj.storageName, obj.getFromJSON)
 	}
 
-	async getEntites(dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState)  {
+	getEntites = async (dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`page=${this.page}&page_size=${this.pageSize}`);
@@ -50,7 +50,7 @@ export class EntityActions {
 		}
 	}
 
-	async displayEntity(dispatch: Dispatch<EntityAcceptedActions>, id: number) {
+	displayEntity = async (dispatch: Dispatch<EntityAcceptedActions>, id: number) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`${id}`);
@@ -66,7 +66,7 @@ export class EntityActions {
 		}
 	}
 
-	async editEntity(dispatch: Dispatch<EntityAcceptedActions>, id: number) {
+	editEntity = async (dispatch: Dispatch<EntityAcceptedActions>, id: number) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await API.get(`${id}`);
@@ -82,7 +82,7 @@ export class EntityActions {
 		}
 	}
 
-	async removeEntity(dispatch: Dispatch<EntityAcceptedActions>, id: number) {
+	removeEntity = async (dispatch: Dispatch<EntityAcceptedActions>, id: number) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			// const response = await this.API.delete(`${id}`);
@@ -96,7 +96,7 @@ export class EntityActions {
 		}
 	}
 
-	async storeEntity(dispatch: Dispatch<EntityAcceptedActions>, entity: IEntity, formMode: string) {
+	storeEntity = async (dispatch: Dispatch<EntityAcceptedActions>, entity: IEntity, formMode: string) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })
 		try {
 			if (formMode === 'add') {
