@@ -134,10 +134,10 @@ export const Reducer = combineReducers(
 
 <h3>Manage app state without Redux.</h3>
 1) Each feature (page) has its own provider with state. <br/>
-   (StudentProvider, StudentExtendedProvider)<br/>
-   Keep state as close to where it's needed as possible.
+   (<b>StudentProvider</b>, <b>StudentExtendedProvider</b>)<br/>
+   Keep state as close to where it's needed as possible.<br/><br/>
 2) AppState will keep shared state of all the features.<br/>
-	(AppProvider)
+	(<b>AppProvider</b>)
 
 ```JSX
 <AppProvider>
