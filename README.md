@@ -41,13 +41,12 @@ export interface IStudent extends IEntity {
 	grades: IStudentGrade[]
 }
 ```
-<br />
 Now we can reuse <b>EntityList</b> component, because <b>IStudent</b> can be converted to <b>IEntity</b>.
 <br/>
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
 <br/>
 				</div>
-				<br/><h3>Reuse Entity functionality for Student</h3>
+				<br/><h3>Reuse Entity CRUD functionality for Student</h3>
 				<div>
 I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b>Entity</b>.
 <ul>
@@ -59,7 +58,7 @@ I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b
 <li>Define <b>StudentForm</b></li>
 </ul>
 
-<br/><h3>Reuse Entity functionality for Student Extended</h3>
+<br/><h3>Reuse Entity CRUD functionality for Student Extended</h3>
 
 Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer.
 </b> That way we override behavior of Entity. 
