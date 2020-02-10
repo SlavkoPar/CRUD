@@ -142,8 +142,6 @@ export const Reducer = combineReducers(
 <a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank">Application State Management with React</a><br/>
 
 ```JSX
-<br/>
-
 <AppProvider>
 	<Router>
 		<nav>
