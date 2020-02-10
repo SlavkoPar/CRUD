@@ -136,10 +136,12 @@ export const Reducer = combineReducers(
 1) Each feature (page) has its own provider with state. <br/>
    (<b>StudentProvider</b>, <b>StudentExtendedProvider</b>)<br/>
    Keep state as close to where it's needed as possible.<br/><br/>
-2) AppState will keep shared state of all the features.<br/>
-	(<b>AppProvider</b>)
-
+2) Global AppState will keep  state shared between all the features.<br/>
+	(<b>AppProvider</b>)<br/>
 ```JSX
+<a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank">Application State Management with React</a>
+<br/>
+
 <AppProvider>
 	<Router>
 		<nav>
