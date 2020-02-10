@@ -46,7 +46,7 @@ Now we can reuse <b>EntityList</b> component, because <b>IStudent</b> can be con
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
 <br/>
 				</div>
-				<br/><h3>Reuse Entity CRUD functionality for Student</h3>
+				<h3>Reuse Entity CRUD functionality for Student</h3>
 				<div>
 I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b>Entity</b>.
 <ul>
