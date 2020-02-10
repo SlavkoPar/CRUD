@@ -25,7 +25,7 @@ The CRUD paradigm is common in constructing web applications. The model must be 
 				<div>
 We are going to develop component <b>EntityList</b> which uses <b>IEntity</b> interface.
 <br/>
-TypeScript enables extension of the interfaces, and we are going to create interface
+TypeScript enables extension of the interfaces,<br/>and we are going to create interface
 <b>IStudent</b> which extends <b>IEntity</b> interface.<br />
 
 ```JSX
@@ -42,11 +42,12 @@ export interface IStudent extends IEntity {
 }
 ```
 <br />
-<br />
+Now we can reuse EntityList component, because IStudent can be converted to IEntity.
+<br/>
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
-<br/>Now we can reuse EntityList component, because IStudent can be converted to IEntity.
+<br/>
 				</div>
-				<br/><h3>Student overrides Entity</h3>
+				<br/><h3>Reuse Entity functionality for Student</h3>
 				<div>
 I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b>Entity</b>. 
 <br/>Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer</b> . That way we override behavior of Entity. 
