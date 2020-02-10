@@ -166,12 +166,6 @@ export const Reducer = combineReducers(
 </AppProvider>
 ```
 
-			</div>
-			</div>
-		</div>
-
-
-
 ## Available Scripts
 
 In the project directory, you can run:
