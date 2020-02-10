@@ -42,7 +42,7 @@ export interface IStudent extends IEntity {
 }
 ```
 <br />
-Now we can reuse EntityList component, because IStudent can be converted to IEntity.
+Now we can reuse <b>EntityList</b> component, because <b>IStudent</b> can be converted to <b>IEntity</b>.
 <br/>
 <a href="https://www.typescriptlang.org/docs/handbook/interfaces.html" target="_blank">Read about TypeScript Interfaces</a>
 <br/>
