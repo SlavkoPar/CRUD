@@ -54,9 +54,47 @@ I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b
 <li>Define types <b>IStudent</b> and <b>IStudentState</b></li>
 <li>Define <b>StudentProvider</b> </li>
 <li>Define Context <b>useStudent</b></li>
-<li>Define <b>StudentPage</b></li>
+<li>Define <b>StudentPage</b> using <b>EntityList</b></li>
 <li>Define <b>StudentForm</b></li>
 </ul>
+
+
+<br />
+
+<h3>Manage app state without Redux.</h3>
+1) Each feature (page) has its own provider with state. <br/>
+   (<b>StudentProvider</b>, <b>StudentExtendedProvider</b>)<br/>
+   Keep state as close to where it's needed as possible.<br/><br/>
+2) Global AppState will keep  state shared between all the features.<br/>
+	(<b>AppProvider</b>)<br/>
+
+<a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank">Application State Management with React</a><br/>
+
+```JSX
+<AppProvider>
+	<Router>
+		<nav>
+			<Link to="/student">Student</Link>
+			<Link to="/" className="push-right">Student Extended</Link>
+		</nav>
+		<div>
+			<Switch>
+				<Route path="/student">
+					<StudentProvider>
+						<Page query={props.query} />
+					</StudentProvider>
+				</Route>
+				<Route path="/">
+					<StudentExtendedProvider>
+						<PageExetended query={props.query} />
+					</StudentExtendedProvider>
+				</Route>						
+			</Switch>
+		</div>	
+	</Router>
+</AppProvider>
+```
+
 
 <br/><h3>Reuse Entity CRUD functionality for Student Extended</h3>
 
@@ -142,41 +180,6 @@ export const Reducer = combineReducers(
 );
 ```
 <br />
-<br />
-
-<h3>Manage app state without Redux.</h3>
-1) Each feature (page) has its own provider with state. <br/>
-   (<b>StudentProvider</b>, <b>StudentExtendedProvider</b>)<br/>
-   Keep state as close to where it's needed as possible.<br/><br/>
-2) Global AppState will keep  state shared between all the features.<br/>
-	(<b>AppProvider</b>)<br/>
-
-<a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank">Application State Management with React</a><br/>
-
-```JSX
-<AppProvider>
-	<Router>
-		<nav>
-			<Link to="/student">Student</Link>
-			<Link to="/" className="push-right">Student Extended</Link>
-		</nav>
-		<div>
-			<Switch>
-				<Route path="/student">
-					<StudentProvider>
-						<Page query={props.query} />
-					</StudentProvider>
-				</Route>
-				<Route path="/">
-					<StudentExtendedProvider>
-						<PageExetended query={props.query} />
-					</StudentExtendedProvider>
-				</Route>						
-			</Switch>
-		</div>	
-	</Router>
-</AppProvider>
-```
 
 ## Available Scripts
 
