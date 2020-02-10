@@ -138,8 +138,10 @@ export const Reducer = combineReducers(
    Keep state as close to where it's needed as possible.<br/><br/>
 2) Global AppState will keep  state shared between all the features.<br/>
 	(<b>AppProvider</b>)<br/>
+
+<a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank">Application State Management with React</a><br/>
+
 ```JSX
-<a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank">Application State Management with React</a>
 <br/>
 
 <AppProvider>
