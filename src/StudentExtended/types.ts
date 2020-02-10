@@ -1,5 +1,4 @@
 import { IEntity, IEntityState } from "../Entity/types";
-import { IGrade } from "../Grades/types";
 
 export interface IStudent extends IEntity {
 	code: string;
@@ -10,7 +9,6 @@ export interface IStudent extends IEntity {
 }
 
 export interface IStudentState extends IEntityState<IStudent> {
-	gradesAll: Record<number, IGrade>  // will be loaded from AppData
 }
 
 export interface IStudentGrade {

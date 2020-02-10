@@ -13,8 +13,7 @@ const initialState: IStudentState = {
 	formMode: 'display',
 	canEdit: true,
 	pageCount: 0,
-	currentPage: 0,
-	gradesAll: []
+	currentPage: 0
 };
 
 export interface IStudentContext {
