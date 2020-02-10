@@ -52,7 +52,7 @@ Now we can reuse EntityList component, because IStudent can be converted to IEnt
 I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b>Entity</b>.
 <ul>
 <li>Define folder <b>Student</b></li>
-<li>Define types</li>
+<li>Define types <b>IStudent</b> and <b>IStudentState</b></li>
 <li>Define <b>StudentProvider</b> </li>
 <li>Define Context <b>useStudent</b></li>
 <li>Define <b>StudentPage</b></li>
@@ -61,7 +61,7 @@ I implemented CRUD functionality for <b>Student</b>, reusing functionality of <b
 
 <br/><h3>Reuse Entity functionality for Student Extended</h3>
 
-<br/>Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer.
+Another example is <b>StudentExtended</b> where I extended <b>Entity</b>, creating <b>StudentActions</b> and <b>studentReducer.
 </b> That way we override behavior of Entity. 
 We process some actions in <b>studentReducer</b>, like GET_ENTITIES, without processing that action in the <b>entityReducer</b>.
 <br />
