@@ -23,6 +23,12 @@ export const entityReducer: <
 					...state,
 					loading: action.loading
 				}
+
+			case EntityActionTypes.SET_QUERY:
+				return {
+					...state,
+					query: action.query
+				}				
 	
 			case EntityActionTypes.ADD: {
 				return {

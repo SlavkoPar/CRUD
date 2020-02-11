@@ -8,26 +8,31 @@ import { EntityList } from "../Entity/EntityList";
 import { StudentForm } from "./components/StudentForm";
 
 import { IStudent } from "./types";
+import { AutoSuggestEntity } from "../Common/AutoSuggest";
+import { EntityActionTypes } from "../Entity/actions";
 
 interface IPageProps {
-	query: string;
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
 	const { state: appState } = useApp();
 
 	const { state, dispatch, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
-	const { entities, currentPage, pageCount } = state;
+	const { query, entities, currentPage, pageCount } = state;
 	
 	useEffect(() => {
-		getEntites(dispatch, props.query, currentPage, appState);
+		getEntites(dispatch, query, currentPage, appState);
 		console.log("getEntites", currentPage)
-	}, [dispatch, getEntites, props.query, currentPage, appState]);
+	}, [dispatch, getEntites, query, currentPage, appState]);
 
   	return (
 		<div className="two-columns">
 			<div className="a">
 				<h3>Students</h3>
+				<AutoSuggestEntity 
+					entities={entities}
+					onSelectQuery={(query) => dispatch({ type: EntityActionTypes.SET_QUERY,	query })} 
+				/>
 				<EntityList 
 					entities={entities}
 					dispatch={dispatch}
@@ -59,13 +64,12 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 
 
 interface IProps {
-	query: string
 }
 
 export const StudentPageExtended: React.FC<IProps> = (props: IProps) => {
 	return (
 		<StudentProvider>
-			<Page query={props.query} />
+			<Page />
 		</StudentProvider>
   );
 }

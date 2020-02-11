@@ -9,19 +9,18 @@ import { IStudent } from "./types";
 import { useApp } from "../AppData/useApp";
 
 interface IPageProps {
-	query: string;
 }
 
 export const Page: React.FC<IPageProps> = (props: IProps) => {
 	const { state: appState } = useApp();
 	
 	const { state, dispatch, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
-	const { entities, currentPage, pageCount } = state;
+	const { query, entities, currentPage, pageCount } = state;
 	
 	useEffect(() => {
-		getEntites(dispatch, props.query, currentPage, appState);
+		getEntites(dispatch, query, currentPage, appState);
 		console.log("getEntites", currentPage)
-	}, [dispatch, getEntites, props.query, currentPage, appState]);
+	}, [dispatch, getEntites, query, currentPage, appState]);
 	
 
   	return (
@@ -51,13 +50,12 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 
 
 interface IProps {
-	query: string
 }
 
-export const StudentPage: React.FC<IProps> = (props: IProps) => {
+export const StudentPage: React.FC<IProps> = () => {
   return (
     <StudentProvider>
-		 <Page query={props.query} />
+		 <Page />
     </StudentProvider>
   );
 }

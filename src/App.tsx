@@ -23,10 +23,10 @@ const App: React.FC = () => {
 				<div>
 					<Switch>
 						<Route path="/student">
-							<StudentPage query="all" />
+							<StudentPage />
 						</Route>
 						<Route path="/">
-							<StudentPageExtended query="all" />
+							<StudentPageExtended />
 						</Route>						
 					</Switch>
 				</div>	

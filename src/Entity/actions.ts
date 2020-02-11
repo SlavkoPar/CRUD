@@ -5,6 +5,7 @@ export enum EntityActionTypes {
 	GET_ENTITIES = 'GET_ENTITIES',
 	SET_LOADING = 'SET_LOADING',
 	FAIL = 'FAIL',
+	SET_QUERY = 'SET_QUERY',
 	ADD = 'ADD',
 	DISPLAY = 'DISPLAY',
 	CLOSE_FORM = 'CLOSE_FORM',
@@ -28,6 +29,11 @@ export interface IEntityGetEntities {
 		pageCount: number;
 		appState: IAppState;
 	}
+}
+
+export interface IEntitySetQuery {
+	type: EntityActionTypes.SET_QUERY;
+	query: string; 
 }
 
 export interface IEntityAdd { 
@@ -73,7 +79,7 @@ export interface IEntityFail {
 }
 
 
-export type EntityAcceptedActions = IEntitySetLoading | IEntityGetEntities |
+export type EntityAcceptedActions = IEntitySetLoading | IEntityGetEntities | IEntitySetQuery |
 	IEntityAdd | IEntityFail |
 	IEntityDisplay | IEntityEdit | IEntityRemove |	IEntityStore | IEntityCancel |
 	IEntityCloseForm | IEntityGoToPage;

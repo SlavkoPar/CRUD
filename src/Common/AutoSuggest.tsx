@@ -5,7 +5,7 @@ import AutosuggestHighlightMatch from "autosuggest-highlight/match";
 import AutosuggestHighlightParse from "autosuggest-highlight/parse";
 
 import './AutoSuggest.css'
-import { IGrade } from '../Grades/types';
+import { IEntity } from '../Entity/types';
 
 
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expression
@@ -16,11 +16,11 @@ function escapeRegexCharacters(str: string): string {
 
 
 
-const EntityAutosuggestMulti = Autosuggest as { new (): Autosuggest<IGrade> };
+const EntityAutosuggestMulti = Autosuggest as { new (): Autosuggest<IEntity> };
 
 interface IProps {
-	gradesUnassigned: IGrade[], 
-	assignStudentGrade: (gradeId: number) => void
+	entities: IEntity[],
+	onSelectQuery: (query: string) => void 
 }
 
 export class AutoSuggestEntity extends React.Component<IProps, any> {
@@ -46,7 +46,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 			  suggestions={suggestions}
 			  onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
 			  onSuggestionSelected={this.onSuggestionSelected.bind(this)}
-			  getSuggestionValue={this.getSuggestionValue}
+			  getSuggestionValue={this.getSuggestionValue.bind(this)}
 			  renderSuggestion={this.renderSuggestion}
 			  // onSuggestionHighlighted={this.onSuggestionHighlighted} (sl)
 			  onSuggestionHighlighted={this.onSuggestionHighlighted.bind(this)}  
@@ -68,10 +68,10 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
   
   
 
-	protected onSuggestionSelected(event: React.FormEvent<any>, data: Autosuggest.SuggestionSelectedEventData<IGrade>): void {
-		 const grade: IGrade = data.suggestion;
+	protected onSuggestionSelected(event: React.FormEvent<any>, data: Autosuggest.SuggestionSelectedEventData<IEntity>): void {
+		 // const entity: IEntity = data.suggestion;
 		 // alert(`Selected student is ${student.gradeId} (${student.text}).`);
-		 this.props.assignStudentGrade(grade.id);
+		 this.props.onSelectQuery(this.state.value);
 	}
 
 	/*
@@ -81,7 +81,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 	}
 	*/
 
-	protected renderSuggestion(suggestion: IGrade, params: Autosuggest.RenderSuggestionParams): JSX.Element {
+	protected renderSuggestion(suggestion: IEntity, params: Autosuggest.RenderSuggestionParams): JSX.Element {
 		// const className = params.isHighlighted ? "highlighted" : undefined;
 		//return <span className={className}>{suggestion.name}</span>;
 		const matches = AutosuggestHighlightMatch(suggestion.name, params.query);
@@ -102,7 +102,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 		);
 	}
 
-	protected renderInputComponent(inputProps: Autosuggest.InputProps<IGrade>): JSX.Element {
+	protected renderInputComponent(inputProps: Autosuggest.InputProps<IEntity>): JSX.Element {
 		 const { onChange, onBlur, ...restInputProps } = inputProps;
 		 return (
 			  <div>
@@ -137,7 +137,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 		return false;
 	} 
 	// endregion region Helper methods
-	protected getSuggestions(value: string): IGrade[] {
+	protected getSuggestions(value: string): IEntity[] {
 		const escapedValue = escapeRegexCharacters(value.trim());
 
 		if (escapedValue === '') {
@@ -149,11 +149,12 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 		// const regex = new RegExp('^' + escapedValue, 'i');
 		// const regex = new RegExp(escapedValue, 'i');
 
-		return this.props.gradesUnassigned.filter(grade => this.anyWord(valueWordRegex, grade.words!))
+		return this.props.entities.filter(entity => this.anyWord(valueWordRegex, entity.name.split(' ')))
 	}
 
-	protected getSuggestionValue(suggestion: IGrade) {
-		 return suggestion.name;
+	protected getSuggestionValue(suggestion: IEntity) {
+		// return suggestion.name;
+		return this.state.value 
 	}
 
 

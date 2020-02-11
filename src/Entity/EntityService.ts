@@ -20,9 +20,12 @@ export class StorageService {
 	}
 	
 	async getPageEntites(query: string, pageSize: number, page: number): Promise<any> {
+		const entities = query.trim().length === 0 ? 
+			this.entitiesAll : 
+			this.entitiesAll.filter(entity => entity.name.includes(query))
 		const offset = page * pageSize
-		const pageEntities = this.entitiesAll.slice(offset, offset + pageSize);
-		const pageCount =  Math.ceil(this.entitiesAll.length / pageSize)
+		const pageEntities = entities.slice(offset, offset + pageSize);
+		const pageCount =  Math.ceil(entities.length / pageSize)
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 					resolve({

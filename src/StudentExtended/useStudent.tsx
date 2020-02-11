@@ -12,6 +12,7 @@ const initialState: IStudentState = {
 	loading: false,
 	formMode: 'display',
 	canEdit: true,
+	query: '',
 	pageCount: 0,
 	currentPage: 0
 };
