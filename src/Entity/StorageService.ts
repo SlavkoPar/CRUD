@@ -21,7 +21,9 @@ export class StorageService {
 		this._namesALL = this.entitiesALL.map(entity => entity.name)
 	}
 	
-	get namesALL(): string[] { return this._namesALL }
+	get namesALL(): string[] { 
+		return this._namesALL 
+	}
 
 	async getPageEntites(query: string, pageSize: number, page: number): Promise<any> {
 		const entities = query.trim().length === 0 ? 

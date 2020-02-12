@@ -53,7 +53,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 			  // renderInputComponent={this.renderInputComponent}
 			  renderSuggestionsContainer={this.renderSuggestionsContainer}
 			  inputProps={{
-					placeholder: `Type name of grade`,
+					placeholder: `Type part of name`,
 					value,
 					onChange: (e, changeEvent) => this.onChange(e, changeEvent),
 			  }}/>;
