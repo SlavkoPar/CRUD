@@ -8,7 +8,8 @@ interface IProps {
 export class StorageService {
 
 	storageName: string;
-	entitiesAll: IEntity[];
+	entitiesALL: IEntity[];
+	_namesALL: string[];
 	isWebStorageSupported: boolean;
 	
 	constructor(storageName: string,	getFromJSON: () => IEntity[]) {
@@ -16,13 +17,16 @@ export class StorageService {
 		this.isWebStorageSupported = 'localStorage' in window 
 
 		const s = localStorage.getItem(storageName);
-		this.entitiesAll = s !== null ? JSON.parse(s) : getFromJSON();
+		this.entitiesALL = s !== null ? JSON.parse(s) : getFromJSON();
+		this._namesALL = this.entitiesALL.map(entity => entity.name)
 	}
 	
+	get namesALL(): string[] { return this._namesALL }
+
 	async getPageEntites(query: string, pageSize: number, page: number): Promise<any> {
 		const entities = query.trim().length === 0 ? 
-			this.entitiesAll : 
-			this.entitiesAll.filter(entity => entity.name.includes(query))
+			this.entitiesALL : 
+			this.entitiesALL.filter(entity => entity.name.includes(query))
 		const offset = page * pageSize
 		const pageEntities = entities.slice(offset, offset + pageSize);
 		const pageCount =  Math.ceil(entities.length / pageSize)
@@ -46,7 +50,7 @@ export class StorageService {
 					'status': 200,
 					'content-type': 'application/json',
 					'data' : {
-					  'results': this.entitiesAll.find(e => e.id === id)
+					  'results': this.entitiesALL.find(e => e.id === id)
 					}
 				 })
 			  }, 200)
@@ -54,8 +58,8 @@ export class StorageService {
 	}
 	
 	async removeEntity(id: number): Promise<any> {
-		this.entitiesAll = this.entitiesAll.filter(e => e.id !== id);
-		localStorage.setItem(this.storageName, JSON.stringify(this.entitiesAll));
+		this.entitiesALL = this.entitiesALL.filter(e => e.id !== id);
+		localStorage.setItem(this.storageName, JSON.stringify(this.entitiesALL));
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				 resolve({
@@ -73,13 +77,14 @@ export class StorageService {
 	async storeEntity(formMode: string, entity: IEntity): Promise<any> {
 	
 		if (formMode === 'add') {
-			entity.id = this.entitiesAll.length === 0 ? 1 : Math.max(...this.entitiesAll.map(e => e.id)) + 1
-			this.entitiesAll = [...this.entitiesAll, { ...entity }]
+			entity.id = this.entitiesALL.length === 0 ? 1 : Math.max(...this.entitiesALL.map(e => e.id)) + 1
+			this.entitiesALL = [...this.entitiesALL, { ...entity }]
 		}
 		else {
-			this.entitiesAll = this.entitiesAll.map(ent => ent.id === entity.id ? { ...entity } : ent)
+			this.entitiesALL = this.entitiesALL.map(ent => ent.id === entity.id ? { ...entity } : ent)
 		}
-		localStorage.setItem(this.storageName, JSON.stringify(this.entitiesAll));
+		localStorage.setItem(this.storageName, JSON.stringify(this.entitiesALL));
+		this._namesALL = this.entitiesALL.map(entity => entity.name)
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				 resolve({

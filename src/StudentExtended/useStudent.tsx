@@ -62,12 +62,13 @@ export const useStudent = () => {
 
 	const { state, dispatch } = context;
 
-	const { 
+	const {
+		namesALL,
 		// getEntites, 
 		displayEntity, 
 		editEntity, 
 		removeEntity, 
-		storeEntity
+		storeEntity,
 	} = entityActions;
 
 	// the way to override entity Actions
@@ -78,5 +79,5 @@ export const useStudent = () => {
 	)
 
 
-	return { state, dispatch, getEntites, displayEntity, editEntity, removeEntity, storeEntity };
+	return { state, dispatch, namesALL, getEntites, displayEntity, editEntity, removeEntity, storeEntity };
 }

@@ -2,7 +2,7 @@ import { IEntity } from "./types";
 import { Dispatch } from "react";
 import { EntityAcceptedActions, EntityActionTypes } from "./actions";
 import axios from 'axios';
-import { StorageService } from "./EntityService";
+import { StorageService } from "./StorageService";
 import { IAppState } from "../AppData/types";
 
 interface IProps {
@@ -28,6 +28,8 @@ export class EntityActions {
 
 		this.storageService = new StorageService(obj.storageName, obj.getFromJSON)
 	}
+
+	get namesALL() { return this.storageService.namesALL }
 
 	getEntites = async (dispatch: Dispatch<EntityAcceptedActions>, query: string, currentPage: number, appState: IAppState) => {
 		dispatch({ type: EntityActionTypes.SET_LOADING, loading: true })

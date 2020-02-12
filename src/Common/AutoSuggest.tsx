@@ -5,7 +5,6 @@ import AutosuggestHighlightMatch from "autosuggest-highlight/match";
 import AutosuggestHighlightParse from "autosuggest-highlight/parse";
 
 import './AutoSuggest.css'
-import { IEntity } from '../Entity/types';
 
 
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expression
@@ -16,10 +15,10 @@ function escapeRegexCharacters(str: string): string {
 
 
 
-const EntityAutosuggestMulti = Autosuggest as { new (): Autosuggest<IEntity> };
+const EntityAutosuggestMulti = Autosuggest as { new (): Autosuggest<string> };
 
 interface IProps {
-	entities: IEntity[],
+	namesALL: string[],
 	onSelectQuery: (query: string) => void 
 }
 
@@ -68,7 +67,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
   
   
 
-	protected onSuggestionSelected(event: React.FormEvent<any>, data: Autosuggest.SuggestionSelectedEventData<IEntity>): void {
+	protected onSuggestionSelected(event: React.FormEvent<any>, data: Autosuggest.SuggestionSelectedEventData<string>): void {
 		 // const entity: IEntity = data.suggestion;
 		 // alert(`Selected student is ${student.gradeId} (${student.text}).`);
 		 this.props.onSelectQuery(this.state.value);
@@ -81,11 +80,11 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 	}
 	*/
 
-	protected renderSuggestion(suggestion: IEntity, params: Autosuggest.RenderSuggestionParams): JSX.Element {
+	protected renderSuggestion(suggestion: string, params: Autosuggest.RenderSuggestionParams): JSX.Element {
 		// const className = params.isHighlighted ? "highlighted" : undefined;
 		//return <span className={className}>{suggestion.name}</span>;
-		const matches = AutosuggestHighlightMatch(suggestion.name, params.query);
-		const parts = AutosuggestHighlightParse(suggestion.name, matches);
+		const matches = AutosuggestHighlightMatch(suggestion, params.query);
+		const parts = AutosuggestHighlightParse(suggestion, matches);
 	 
 		return (
 		  <span>
@@ -102,7 +101,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 		);
 	}
 
-	protected renderInputComponent(inputProps: Autosuggest.InputProps<IEntity>): JSX.Element {
+	protected renderInputComponent(inputProps: Autosuggest.InputProps<string>): JSX.Element {
 		 const { onChange, onBlur, ...restInputProps } = inputProps;
 		 return (
 			  <div>
@@ -120,7 +119,9 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 	}
 	// endregion region Event handlers
 	protected onChange(event: React.FormEvent<any>, {newValue, method}: Autosuggest.ChangeEvent): void {
-		 this.setState({value: newValue});
+		this.setState({value: newValue});
+		if (newValue === '')
+			this.props.onSelectQuery('');
 	}
 
 	protected onSuggestionsFetchRequested({value}: any): void {
@@ -137,7 +138,7 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 		return false;
 	} 
 	// endregion region Helper methods
-	protected getSuggestions(value: string): IEntity[] {
+	protected getSuggestions(value: string): string[] {
 		const escapedValue = escapeRegexCharacters(value.trim());
 
 		if (escapedValue === '') {
@@ -149,10 +150,10 @@ export class AutoSuggestEntity extends React.Component<IProps, any> {
 		// const regex = new RegExp('^' + escapedValue, 'i');
 		// const regex = new RegExp(escapedValue, 'i');
 
-		return this.props.entities.filter(entity => this.anyWord(valueWordRegex, entity.name.split(' ')))
+		return this.props.namesALL.filter(name => this.anyWord(valueWordRegex, name.split(' ')))
 	}
 
-	protected getSuggestionValue(suggestion: IEntity) {
+	protected getSuggestionValue(suggestion: string) {
 		// return suggestion.name;
 		return this.state.value 
 	}

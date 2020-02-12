@@ -17,7 +17,7 @@ interface IPageProps {
 export const Page: React.FC<IPageProps> = (props: IProps) => {
 	const { state: appState } = useApp();
 
-	const { state, dispatch, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
+	const { state, dispatch, namesALL, getEntites, displayEntity, editEntity, removeEntity } = useStudent();
 	const { query, entities, currentPage, pageCount } = state;
 	
 	useEffect(() => {
@@ -30,7 +30,7 @@ export const Page: React.FC<IPageProps> = (props: IProps) => {
 			<div className="a">
 				<h3>Students</h3>
 				<AutoSuggestEntity 
-					entities={entities}
+					namesALL={namesALL}
 					onSelectQuery={(query) => dispatch({ type: EntityActionTypes.SET_QUERY,	query })} 
 				/>
 				<EntityList 
