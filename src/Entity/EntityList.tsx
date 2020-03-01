@@ -33,7 +33,7 @@ export const EntityList: <T extends IEntity>
 	const remove = (id: number) => removeEntity(dispatch, id);
 
 	return (
-   	<div style={{border: '1px solid lightblue'}}>
+   	<div style={{border: '0px solid lightblue'}}>
 			<ul className="entity-list">
 				{entities.map(entity => (
 					<li key={entity.id}>

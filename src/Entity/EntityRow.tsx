@@ -32,16 +32,17 @@ export const EntityRow: <T extends IEntity>
 			{ renderColumns(entity) }
 
 			<li key="buttons">
-			{/* {hoverProps.isHovered && */}
-				<button style={{visibility:hoverProps.isHovered?'visible':'hidden'}} className="button-edit" title="Edit" onClick={() => edit(id)}>
+			{hoverProps.isHovered &&
+				<button className="button-edit" title="Edit" onClick={() => edit(id)}>
 					<FontAwesomeIcon icon={faEdit} color='lightblue' />
 				</button>
-			{/* } */}
-			{/* {hoverProps.isHovered && */}
-				<button style={{visibility:hoverProps.isHovered?'visible':'hidden'}} className="button-remove" title="Remove" onClick={() => { remove(id) }}>
+					}
+			
+			{hoverProps.isHovered &&
+				<button className="button-remove" title="Remove" onClick={() => { remove(id) }}>
 					<FontAwesomeIcon icon={faWindowClose}  color='lightblue' />
 				</button>
-			{/* } */}
+			}
 			</li>
 
 		</ul>

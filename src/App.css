@@ -98,14 +98,16 @@ ul.entity-list {
 	flex-wrap: wrap;
 	list-style: none;
 	padding-inline-start: 3px;
+	margin-left: -10px;
 }
 
 ul.entity-list > li {
+	position: relative;
 	border: 1px inset silver;
 	border-radius: 10px;
 	flex: 1 0 calc(30% - 10px);
   	box-sizing: border-box;
-  	background: #e0ddd5;
+  	bbbackground: #e0ddd5;
   	color: #171e42;
   	padding: 10px;
 	margin-left: 10px;
@@ -272,6 +274,9 @@ a {
  }
  
  button.button-edit {
+	position: absolute;
+	right: 30px;
+	top: 10px; 
 	background-color: transparent;
 	margin: 0;
 	padding: 0 5px;
@@ -280,6 +285,9 @@ a {
  }
 
  button.button-remove {
+	position: absolute;
+	right: 5px;
+	top: 10px; 
 	background-color: transparent;
 	margin: 0;
 	padding: 0 5px;
