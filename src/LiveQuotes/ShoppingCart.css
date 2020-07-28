@@ -1,0 +1,31 @@
+:root {
+
+	/* Set the 'light' theme */
+	--light-primary-color: #007bff;
+	--light-disabled-color: #6c757d;
+
+	/* Set the 'dark' theme */
+	--dark-primary-color: #000000;
+	--dark-disabled-color: #4a4a4b;
+
+	/* Set the deafult values */
+	--selected-primary-color: var(--light-primary-color);
+	--selected-disabled-color: var(--light-disabled-color);
+}
+
+.shopping li {
+	color: #fff;
+	position: relative;
+	font-size: 16px;
+	padding: 5px;
+	margin: 5px;
+	min-width: 120px;
+	border-radius: 5px;
+	background-color: var(--selected-primary-color);
+	outline: unset;
+	transition: background-color 0.3s ease, box-shadow 0.7s ease;
+}
+
+.shopping li:disabled{
+	background-color: var(--selected-disabled-color);
+}

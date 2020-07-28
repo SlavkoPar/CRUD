@@ -56,6 +56,10 @@ export const StudentProvider: React.FC<IProps> = ({ children }) => {
 		StudentContext = createContext<IStudentContext>({ state, dispatch })
 	}
 
+	// const value = React.useMemo(
+	// 	() => ({ state, dispatch, entityActions }), [state]
+	//	);
+
   	return (
    	<StudentContext.Provider value={{ state, dispatch }}>
    		{children}

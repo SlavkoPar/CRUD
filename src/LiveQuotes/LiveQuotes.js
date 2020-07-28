@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
 import "./LiveQuotes.css";
+import "./ShoppingCart.css";
 
 import { liveQuotesStore } from "./LiveQuotesStore"
+import { ShoppingCart } from './ShoppingCart' 
 
 
 class SearchBar extends React.Component {
@@ -237,6 +239,7 @@ class LiveQuotes extends Component {
   render() {
       return (
 			<div style={{padding: '3% 20%'}}>
+				<ShoppingCart />
 				<div>
 					<b>Demo using LightStreamer, WebSockets and React.</b>
 					<br />Median feed is being calculated at server, from a few prominent broker's feeds,<br /> and pushed to the <b>traders</b> with low latency quotes. 
